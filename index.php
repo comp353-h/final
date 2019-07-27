@@ -110,7 +110,7 @@
 
      var $table = $('#table2');
      $table.bootstrapTable({
-         url: 'list-user.php',
+         url: 'list-user.php/ins.json',
          search: true,
          pagination: true,
          buttonsClass: 'primary',
@@ -118,31 +118,15 @@
          minimumCountColumns: 2,
          columns:
              [
-
                  {
-                     field: 'studentID',title: 'ID',sortable: true,
+                     field: 'instructorID',title: 'ID',sortable: true,
                  },
                  {
                      field: 'firstName',title: 'First Name',sortable: true,
                  },
                  {
                      field: 'lastName',title: 'Last Name',sortable: true,
-                 },
-                 {
-                     field: 'phone',title: 'Phone',sortable: true,
-                 },
-                 {
-                     field: 'email',title: 'Email',sortable: true,
-                 },
-                 {
-                     field: 'dateOfBirth',title: 'DOB',sortable: true,
-                 },
-                 {
-                     field: 'studentType',title: 'Type',sortable: true,
-                 },
-                 {
-                     field: 'gpa',title: 'GPA',sortable: true,
-                 },
+                 }
              ],
 
      });
