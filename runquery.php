@@ -42,7 +42,7 @@ if(isset($_POST['RUNQUERY'])){
 </nav>
 
 <form action="" method="POST">
-    <input type="text"  height:20px name="query" />
+    <input type="text"  style="font-size: 18pt; height: 40px; width:280px; name="query" />
     <input type="submit" value="Search" name="RUNQUERY"/>
 </form>
 </body>
