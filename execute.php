@@ -1,5 +1,11 @@
 <?php
 require 'db.php';
+
+if(isset($_POST['SubmitButton'])){ //check if form was submitted
+    $input = $_POST['inputText']; //get input text
+    $message = "Success! You entered: ".$input;
+}
+
 $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could not connect to mysql");
 ?>
 
