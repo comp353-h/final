@@ -12,7 +12,7 @@
  		while ($rowList = mysqli_fetch_array($result)) {
 
 						$name = array(
-								'studentID' => $i,
+								'studentID' => $rowList['studentID'],
  	 		 	 				'firstName'=> $rowList['fname'],
 	 		 	 				'lastName'=> $rowList['lname'],
 	 		 	 				'phone'=> $rowList['phone'],

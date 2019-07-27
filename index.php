@@ -52,13 +52,13 @@
 			    [
 
 					      {
-					          field: 'ID',title: '#',sortable: true,
+					          field: 'studentID',title: 'ID',sortable: true,
 					      },
 					      {
-					          field: 'first',title: 'Firstname',sortable: true,
+					          field: 'firstName',title: 'First Name',sortable: true,
 					      },
 					      {
-					          field: 'last',title: 'Lastname',sortable: true,
+					          field: 'lastName',title: 'Last Name',sortable: true,
 					      },
 					      					      {
 					          field: 'phone',title: 'Phone',sortable: true,
@@ -73,7 +73,7 @@
 					          field: 'studentType',title: 'Type',sortable: true,
 					      },
 					      {
-					          field: 'gpa',title: 'gpa',sortable: true,
+					          field: 'gpa',title: 'GPA',sortable: true,
 					      },
 				],
  
