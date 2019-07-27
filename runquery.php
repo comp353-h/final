@@ -9,8 +9,7 @@ if(isset($_POST['RUNQUERY'])){
 
     $input = $_POST['query'];
     //get input text
-    $message = "You ran query";
-    $result=mysqli_query($conn, $input) or die(mysqli_error($conn));
+    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
 }
 ?>
 
@@ -34,8 +33,6 @@ if(isset($_POST['RUNQUERY'])){
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
             <li><a href="runquery.php">Run Query</a></li>
         </ul>
     </div>
@@ -43,7 +40,7 @@ if(isset($_POST['RUNQUERY'])){
 
 <form action="" method="POST">
 
-    <textarea rows = "20" cols = "100" name = "query"></textarea>
+    <textarea rows = "20" cols = "100" name = "query" placeholder="Execute CREATE , DELETE, UPDATE statements here"></textarea>
     <input type="submit" value="Execute" name="RUNQUERY"/>
 </form>
 </body>
