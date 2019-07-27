@@ -28,30 +28,6 @@
     </div>
 </nav>
 
-<div class="container">
-	<div class="col-md-12">
-		<div class="page-header">
-			<h1>
-				Group H
-			</h1>
-		</div>
-						 
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-12">
-					 
-						<table 	id="table"
-			                	data-show-columns="true"
- 				                data-height="460">
-						</table>
-					</div>
-				</div>
-			</div>				
-		</div>
-
-	</div>
-</div>
-  		
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-table.js"></script>
