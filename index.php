@@ -110,7 +110,7 @@
 
      var $table = $('#table2');
      $table.bootstrapTable({
-         url: 'list-user.php/ins.json',
+         url: 'Instructor.php',
          search: true,
          pagination: true,
          buttonsClass: 'primary',

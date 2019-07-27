@@ -20,6 +20,7 @@ while ($rowList = mysqli_fetch_array($result)) {
     $i++;
 }
 echo json_encode($arrVal);
+
 		$instructorSql = "SELECT * FROM Instructor";
 		$instructorResult = mysqli_query($conn, $instructorSql) or die(mysqli_error($conn));
 		$insVal = array();
