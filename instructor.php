@@ -9,11 +9,12 @@ while ($rowList = mysqli_fetch_array($instructorResult)) {
     $ins = array(
         'instructorID' => $rowList['instructorID'],
         'firstName' => $rowList['firstName'],
-        'lastName' => $rowList['firstName']);
+        'lastName' => $rowList['lastName']
+    );
     array_push($insVal, $ins);
     $i++;
 }
-echo json_encode($ins);
 
+echo json_encode($ins);
 mysqli_close($conn);
 ?>
