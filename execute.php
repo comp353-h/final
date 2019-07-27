@@ -1,4 +1,5 @@
 <?php
+require 'db.php';
 $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could not connect to mysql");
 ?>
 
