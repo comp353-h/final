@@ -6,6 +6,8 @@ $dbname = "hrc353_1";
 $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could not connect to mysql");
 if(isset($_POST['RUNQUERY'])){
     //check if form was submitted
+    $message = "1";
+
     $input = $_POST['query'];
     //get input text
     $message = "You ran query";
@@ -40,7 +42,7 @@ if(isset($_POST['RUNQUERY'])){
     </div>
 </nav>
 
-<form action="" method="GET">
+<form action="" method="POST">
     <input type="text" name="query" />
     <input type="submit" value="Search" name="RUNQUERY"/>
 </form>
