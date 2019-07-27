@@ -51,7 +51,6 @@
 			      columns: 
 			    [
 
-studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa
 					      {
 					          field: 'ID',title: '#',sortable: true,
 					      },
