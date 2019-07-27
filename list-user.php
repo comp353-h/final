@@ -13,8 +13,8 @@
 
 						$name = array(
 								'studentID' => $rowList['studentID'],
- 	 		 	 				'firstName'=> $rowList['fname'],
-	 		 	 				'lastName'=> $rowList['lname'],
+ 	 		 	 				'firstName'=> $rowList['firstName'],
+	 		 	 				'lastName'=> $rowList['firstName'],
 	 		 	 				'phone'=> $rowList['phone'],
 	 		 	 				'email'=> $rowList['email'],
 	 		 	 				'dateOfBirth'=> $rowList['dateOfBirth'],
