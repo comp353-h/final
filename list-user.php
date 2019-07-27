@@ -1,7 +1,6 @@
 <?php 
 	require 'db.php';
  		
- 		// $q = "SELECT * FROM user";
  		$sqlCommand="SELECT * FROM Student";
 
 		// $result = $conn->query($q);
