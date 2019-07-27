@@ -42,7 +42,8 @@ if(isset($_POST['RUNQUERY'])){
 </nav>
 
 <form action="" method="POST">
-    <input type="textarea "  rows="30" cols="100" name="query" />
+
+    <textarea rows = "30" cols = "100" name = "query"></textarea>
     <input type="submit" value="Execute" name="RUNQUERY"/>
 </form>
 </body>
