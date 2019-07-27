@@ -37,8 +37,7 @@ if(isset($_POST['RUNQUERY'])){
     </div>
 </nav>
 
-<form action="execute.php" method="GET">
-
+<form action="" method="GET">
     <input type="text" name="query" />
     <input type="submit" value="Search" name = "RUNQUERY"/>
 </form>
