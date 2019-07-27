@@ -2,7 +2,7 @@
 	require 'db.php';
  		
  		// $q = "SELECT * FROM user";
- 		$sqlCommand="SELECT * FROM student";
+ 		$sqlCommand="SELECT * FROM Student";
 
 		// $result = $conn->query($q);
 		$result=mysqli_query($conn, $sqlCommand) or die(mysqli_error($conn));
