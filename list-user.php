@@ -2,7 +2,7 @@
 	require 'db.php';
  		
  		// $q = "SELECT * FROM user";
- 		$sqlCommand="SELECT * FROM user";
+ 		$sqlCommand="SELECT * FROM student";
 
 		// $result = $conn->query($q);
 		$result=mysqli_query($conn, $sqlCommand) or die(mysqli_error($conn));
@@ -10,14 +10,17 @@
 		$i=1;
 
  		while ($rowList = mysqli_fetch_array($result)) {
- 								 
+
 						$name = array(
-								'num' => $i,
- 	 		 	 				'first'=> $rowList['fname'],
-	 		 	 				'last'=> $rowList['lname']
- 	 		 	 			);		
-
-
+								'studentID' => $i,
+ 	 		 	 				'firstName'=> $rowList['fname'],
+	 		 	 				'lastName'=> $rowList['lname'],
+	 		 	 				'phone'=> $rowList['phone'],
+	 		 	 				'email'=> $rowList['email'],
+	 		 	 				'dateOfBirth'=> $rowList['dateOfBirth'],
+	 		 	 				'studentType'=> $rowList['studentType'],
+	 		 	 				'gpa'=> $rowList['gpa']
+ 	 		 	 			);
 							array_push($arrVal, $name);	
 			$i++;			
 	 	}

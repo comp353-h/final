@@ -48,20 +48,35 @@
 			      buttonsClass: 'primary',
 			      showFooter: true,
 			      minimumCountColumns: 2,
-			      columns: [{
-			          field: 'num',
-			          title: '#',
-			          sortable: true,
-			      },{
-			          field: 'first',
-			          title: 'Firstname',
-			          sortable: true,
-			      },{
-			          field: 'last',
-			          title: 'Lastname',
-			          sortable: true,
-			          
-			      },  ],
+			      columns: 
+			    [
+
+studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa
+					      {
+					          field: 'ID',title: '#',sortable: true,
+					      },
+					      {
+					          field: 'first',title: 'Firstname',sortable: true,
+					      },
+					      {
+					          field: 'last',title: 'Lastname',sortable: true,
+					      },
+					      					      {
+					          field: 'phone',title: 'Phone',sortable: true,
+					      },
+					      					      {
+					          field: 'email',title: 'Email',sortable: true,
+					      },
+					      					      {
+					          field: 'dateOfBirth',title: 'DOB',sortable: true,
+					      },
+					      					      {
+					          field: 'studentType',title: 'Type',sortable: true,
+					      },
+					      {
+					          field: 'gpa',title: 'gpa',sortable: true,
+					      },
+				],
  
   			 });
 
