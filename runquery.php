@@ -43,7 +43,7 @@ if(isset($_POST['RUNQUERY'])){
 
 <form action="" method="POST">
 
-    <textarea rows = "30" cols = "100" name = "query"></textarea>
+    <textarea rows = "20" cols = "100" name = "query"></textarea>
     <input type="submit" value="Execute" name="RUNQUERY"/>
 </form>
 </body>

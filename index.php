@@ -21,8 +21,6 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
             <li><a href="runquery.php">Run Query</a></li>
         </ul>
     </div>
@@ -97,6 +95,45 @@
 				],
  
   			 });
+
+     var $table = $('#table');
+     $table.bootstrapTable({
+         url: 'list-user.php',
+         search: true,
+         pagination: true,
+         buttonsClass: 'primary',
+         showFooter: true,
+         minimumCountColumns: 2,
+         columns:
+             [
+
+                 {
+                     field: 'studentID',title: 'ID',sortable: true,
+                 },
+                 {
+                     field: 'firstName',title: 'First Name',sortable: true,
+                 },
+                 {
+                     field: 'lastName',title: 'Last Name',sortable: true,
+                 },
+                 {
+                     field: 'phone',title: 'Phone',sortable: true,
+                 },
+                 {
+                     field: 'email',title: 'Email',sortable: true,
+                 },
+                 {
+                     field: 'dateOfBirth',title: 'DOB',sortable: true,
+                 },
+                 {
+                     field: 'studentType',title: 'Type',sortable: true,
+                 },
+                 {
+                     field: 'gpa',title: 'GPA',sortable: true,
+                 },
+             ],
+
+     });
 
 </script>
 
