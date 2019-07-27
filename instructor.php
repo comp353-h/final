@@ -15,6 +15,6 @@ while ($rowList2 = mysqli_fetch_array($instructorResult)) {
     $j++;
 }
 
-echo json_encode($ins);
+echo json_encode($insVal);
 mysqli_close($conn);
 ?>
