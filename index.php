@@ -29,22 +29,34 @@
 <div class="container">
 	<div class="col-md-12">
 		<div class="page-header">
-			<h1>
+			<h3>
 				Group H
-			</h1>
+			</h3>
 		</div>
 
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12">
 
-						<table 	id="table"
+						<table 	id="table1"
 			                	data-show-columns="true"
  				                data-height="460">
 						</table>
 					</div>
 				</div>
 			</div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <table 	id="table2"
+                              data-show-columns="true"
+                              data-height="460">
+                    </table>
+                </div>
+            </div>
+        </div>
 		</div>
 
 	</div>
@@ -57,7 +69,7 @@
 
 <script type="text/javascript">
 	
-	 var $table = $('#table');
+	 var $table = $('#table1');
 		     $table.bootstrapTable({
 			      url: 'list-user.php',
 			      search: true,
@@ -96,7 +108,7 @@
  
   			 });
 
-     var $table = $('#table');
+     var $table = $('#table2');
      $table.bootstrapTable({
          url: 'list-user.php',
          search: true,
