@@ -1,12 +1,15 @@
 <?php
-require 'db.php';
+$servername = "hrc353.encs.concordia.ca";
+$username = "hrc353_1";
+$password = "w1x3y3z7";
+$dbname = "hrc353_1";
 $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could not connect to mysql");
 if(isset($_POST['RUNQUERY'])){
     //check if form was submitted
     $input = $_GET['query'];
     //get input text
     $message = "You ran query";
-    $result=mysqli_query($conn, $query) or die(mysqli_error($conn));
+    $result=mysqli_query($conn, $input) or die(mysqli_error($conn));
 }
 ?>
 
