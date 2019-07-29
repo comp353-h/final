@@ -41,8 +41,7 @@
 						<table 	id="table1"
 			                	data-show-columns="true"
  				                data-height="360"
-                                  width="50%"
-                                  style="width: auto;">
+                                  width="50%">
 						</table>
 					</div>
 				</div>
