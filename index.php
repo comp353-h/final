@@ -1,7 +1,7 @@
 
 <html>
 	<head>
-		<title> Bootstrap Tables</title>
+		<title>Group H</title>
 		<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="css/bootstrap-table.css" rel="stylesheet">
 		<link type="text/css" href="css/font-awesome.css" rel="stylesheet">
