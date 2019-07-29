@@ -40,7 +40,7 @@
 
 						<table 	id="table1"
 			                	data-show-columns="true"
- 				                data-height="460">
+ 				                data-height="360">
 						</table>
 					</div>
 				</div>
@@ -52,7 +52,8 @@
 
                     <table 	id="table2"
                               data-show-columns="true"
-                              data-height="460">
+                              data-height="360"
+                              width="100%">
                     </table>
                 </div>
             </div>
