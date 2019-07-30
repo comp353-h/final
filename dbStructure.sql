@@ -9,6 +9,8 @@ DROP TABLE IF EXISTS Building;
 DROP TABLE IF EXISTS Campus;
 DROP TABLE IF EXISTS CourseProgram;
 DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS ProgramAdvisor;
+DROP TABLE IF EXISTS Advisor;
 DROP TABLE IF EXISTS Program;
 DROP TABLE IF EXISTS Department;
 
@@ -118,6 +120,23 @@ CREATE TABLE CourseProgram (
     PRIMARY KEY (courseID , programID),
     FOREIGN KEY (courseID)
         REFERENCES Course (courseID),
+    FOREIGN KEY (programID)
+        REFERENCES Program (programID)
+)  ENGINE=INNODB;
+
+CREATE TABLE Advisor (
+    advisorID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (advisorID)
+)  ENGINE=INNODB;
+
+CREATE TABLE ProgramAdvisor (
+    advisorID INT AUTO_INCREMENT NOT NULL,
+    programID INT NOT NULL,
+    PRIMARY KEY (advisorID , programID),
+    FOREIGN KEY (advisorID)
+        REFERENCES Advisor (advisorID),
     FOREIGN KEY (programID)
         REFERENCES Program (programID)
 )  ENGINE=INNODB;
