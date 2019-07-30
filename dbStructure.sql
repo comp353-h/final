@@ -12,6 +12,8 @@ DROP TABLE IF EXISTS ProgramAdvisor;
 DROP TABLE IF EXISTS Advisor;
 DROP TABLE IF EXISTS StudentProgram;
 DROP TABLE IF EXISTS Program;
+DROP TABLE IF EXISTS UnderGraduateStudent;
+DROP TABLE IF EXISTS GraduateStudent;
 DROP TABLE IF EXISTS Student;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Section;
@@ -174,7 +176,6 @@ CREATE TABLE Student (
     phone INT,
     email VARCHAR(40),
     dateOfBirth DATE NOT NULL,
---    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (studentID)
 )  ENGINE=INNODB;
 
@@ -182,7 +183,25 @@ CREATE TABLE Student (
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,
     programID INT NOT NULL,
-    FOREIGN KEY (studentID) REFERENCES Student (studentID),
-    FOREIGN KEY (programID) REFERENCES Program (programID),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID),
+    FOREIGN KEY (programID)
+        REFERENCES Program (programID),
     UNIQUE KEY (studentID , programID)
+)  ENGINE=INNODB;
+
+CREATE TABLE GraduateStudent (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (studentID),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID)
+)  ENGINE=INNODB;
+
+CREATE TABLE UnderGraduateStudent (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (studentID),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID)
 )  ENGINE=INNODB;
