@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS RoomEquipment;
 DROP TABLE IF EXISTS Facilities;
 DROP TABLE IF EXISTS Classroom;
@@ -8,101 +7,117 @@ DROP TABLE IF EXISTS Office;
 DROP TABLE IF EXISTS Room;
 DROP TABLE IF EXISTS Building;
 DROP TABLE IF EXISTS Campus;
+DROP TABLE IF EXISTS CourseProgram;
+DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS Program;
+DROP TABLE IF EXISTS Department;
 
-CREATE TABLE Campus
-(
-    name            VARCHAR( 128 ) NOT NULL,
+CREATE TABLE Campus (
+    campusName VARCHAR(128) NOT NULL,
+    PRIMARY KEY (campusName)
+)  ENGINE=INNODB;
 
-    PRIMARY KEY ( name )
-) ENGINE=INNODB;
+CREATE TABLE Building (
+    buildingID VARCHAR(2) NOT NULL,
+    campusName VARCHAR(128) NOT NULL,
+    PRIMARY KEY (buildingID),
+    FOREIGN KEY (campusName)
+        REFERENCES Campus (campusName)
+)  ENGINE=INNODB;
 
-CREATE TABLE Building
-(
-    ID              VARCHAR( 2 ) NOT NULL,
-    campusName      VARCHAR( 128 ) NOT NULL,
-
-    PRIMARY KEY ( ID ),
-
-    FOREIGN KEY ( campusName ) REFERENCES Campus( name )
-) ENGINE=INNODB;
-
-CREATE TABLE Room
-(
-    ID              INT NOT NULL,
-    buildingID      VARCHAR( 2 ) NOT NULL,
-
-    PRIMARY KEY ( ID, buildingID ),
-
-    FOREIGN KEY ( buildingID ) REFERENCES Building ( ID )
-) ENGINE=INNODB;
+CREATE TABLE Room (
+    roomID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
+    PRIMARY KEY (roomID , buildingID),
+    FOREIGN KEY (buildingID)
+        REFERENCES Building (buildingID)
+)  ENGINE=INNODB;
 
 -- ISA to Room.
-CREATE TABLE Classroom
-(
-    ID              INT NOT NULL,
-    buildingID      VARCHAR( 2 ) NOT NULL,
-    capacity        INT NOT NULL,
-
-    PRIMARY KEY ( ID, buildingID ),
-
-    FOREIGN KEY ( ID, buildingID ) REFERENCES Room ( ID, buildingID )
-) ENGINE=INNODB;
+CREATE TABLE Classroom (
+    classroomID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
+    capacity INT NOT NULL,
+    PRIMARY KEY (classroomID , buildingID),
+    FOREIGN KEY (classroomID , buildingID)
+        REFERENCES Room (roomID , buildingID)
+)  ENGINE=INNODB;
 
 -- ISA to Room.
-CREATE TABLE Lab
-(
-    ID              INT NOT NULL,
-    buildingID      VARCHAR( 2 ) NOT NULL,
-    capacity        INT NOT NULL,
-
-    PRIMARY KEY ( ID, buildingID ),
-
-    FOREIGN KEY ( ID, buildingID ) REFERENCES Room ( ID, buildingID )
-) ENGINE=INNODB;
+CREATE TABLE Lab (
+    labID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
+    capacity INT NOT NULL,
+    PRIMARY KEY (labID , buildingID),
+    FOREIGN KEY (labID , buildingID)
+        REFERENCES Room (roomID , buildingID)
+)  ENGINE=INNODB;
 
 -- ISA to Room.
-CREATE TABLE Office
-(
-    ID              INT NOT NULL,
-    buildingID      VARCHAR( 2 ) NOT NULL,
-
-    PRIMARY KEY ( ID, buildingID ),
-
-    FOREIGN KEY ( ID, buildingID ) REFERENCES Room ( ID, buildingID )
-) ENGINE=INNODB;
+CREATE TABLE Office (
+    officeID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
+    PRIMARY KEY (officeID , buildingID),
+    FOREIGN KEY (officeID , buildingID)
+        REFERENCES Room (roomID , buildingID)
+)  ENGINE=INNODB;
 
 -- ISA to Room.
-CREATE TABLE ConferenceRoom
-(
-    ID              INT NOT NULL,
-    buildingID      VARCHAR( 2 ) NOT NULL,
+CREATE TABLE ConferenceRoom (
+    conferenceRoomID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
+    PRIMARY KEY (conferenceRoomID , buildingID),
+    FOREIGN KEY (conferenceRoomID , buildingID)
+        REFERENCES Room (roomID , buildingID)
+)  ENGINE=INNODB;
 
-    PRIMARY KEY ( ID, buildingID ),
+-- why do we need a key here?
+CREATE TABLE Facilities (
+    facilityType ENUM('Projector', 'Computers', 'Other', 'None'),
+    PRIMARY KEY (facilityType)
+)  ENGINE=INNODB;
 
-    FOREIGN KEY ( ID, buildingID ) REFERENCES Room ( ID, buildingID )
-) ENGINE=INNODB;
+CREATE TABLE RoomEquipment (
+    roomID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
+    roomEquipmentType ENUM('Projector', 'Computers', 'Others', 'None'),
+    FOREIGN KEY (roomID , buildingID)
+        REFERENCES Room (roomID , buildingID),
+    FOREIGN KEY (roomEquipmentType)
+        REFERENCES Facilities (facilityType)
+)  ENGINE=INNODB;
 
-CREATE TABLE Facilities
-(
-    type            ENUM( "Projector", "Computers", "Other", "None" ),
+CREATE TABLE Department (
+    departmentID INT NOT NULL,
+    departmentName VARCHAR(128) NOT NULL,
+    PRIMARY KEY (departmentID)
+)  ENGINE=INNODB;
 
-    PRIMARY KEY ( type )
-) ENGINE=INNODB;
+CREATE TABLE Program (
+    programID INT AUTO_INCREMENT NOT NULL,
+    programName CHAR(60) NOT NULL,
+    departmentID INT NOT NULL,
+    programCredits DECIMAL(4 , 1 ),
+    PRIMARY KEY (programID),
+    FOREIGN KEY (departmentID)
+        REFERENCES Department (departmentID)
+)  ENGINE=INNODB;
 
-CREATE TABLE RoomEquipment
-(
-    roomID          INT NOT NULL,
-    buildingID      VARCHAR( 2 ) NOT NULL,
-    equipmentType   ENUM( "Projector", "Computers", "Other", "None" ),
+CREATE TABLE Course (
+    courseID VARCHAR(8) NOT NULL,
+    courseName VARCHAR(100) NOT NULL,
+    departmentID INT NOT NULL,
+    courseCredits DECIMAL(4 , 1 ),
+    prerequisite VARCHAR(8),
+    PRIMARY KEY (courseID)
+)  ENGINE=INNODB;
 
-    FOREIGN KEY ( roomID, buildingID ) REFERENCES Room ( ID, buildingID ),
-    FOREIGN KEY ( equipmentType ) REFERENCES Facilities( type )
-) ENGINE=INNODB;
-
-CREATE TABLE Department
-(
-    ID              INT NOT NULL,
-    name            VARCHAR( 128 ) NOT NULL,
-
-    PRIMARY KEY ( ID )
-) ENGINE=INNODB;
+CREATE TABLE CourseProgram (
+    courseID VARCHAR(8) NOT NULL,
+    programID INT NOT NULL,
+    PRIMARY KEY (courseID , programID),
+    FOREIGN KEY (courseID)
+        REFERENCES Course (courseID),
+    FOREIGN KEY (programID)
+        REFERENCES Program (programID)
+)  ENGINE=INNODB;
