@@ -5,15 +5,24 @@ $sqlCommand = "SELECT * FROM Student";
 $result = mysqli_query($conn, $sqlCommand) or die(mysqli_error($conn));
 $arrVal = array();
 $i = 1;
+//
+//$json = array();
+//if(mysqli_num_rows($result)){
+//    while($row=mysqli_fetch_array($result)){
+//        $json['Orders'][]=$row;
+//    }
+//}
 
-$json = array();
-if(mysqli_num_rows($result)){
-    while($row=mysqli_fetch_array($result)){
-        $json['Orders'][]=$row;
-    }
+$rows = array();
+while($r = mysqli_fetch_assoc($result)) {
+    $rows[] = $r;
 }
+$data = array('Orders' => $rows);
+echo json_encode($data);
 
-echo(json_encode($json));
+
+
+//echo(json_encode($json));
 
 //while ($rowList = mysqli_fetch_array($result)) {
 //    $name = array(
