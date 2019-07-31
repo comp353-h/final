@@ -4,7 +4,6 @@ require 'db.php';
 $sqlCommand = "SELECT * FROM Student";
 $result = mysqli_query($conn, $sqlCommand) or die(mysqli_error($conn));
 
-
 $columns = array();
 $resultset = array();
 while ($row = mysqli_fetch_array($result)) {

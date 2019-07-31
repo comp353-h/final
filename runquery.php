@@ -4,13 +4,46 @@ $username = "hrc353_1";
 $password = "w1x3y3z7";
 $dbname = "hrc353_1";
 $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could not connect to mysql");
-if(isset($_POST['RUNQUERY'])){
-    //check if form was submitted
+//if(isset($_POST['RUNQUERY'])){
+//    //check if form was submitted
+//
+//    $input = $_POST['query'];
+//    //get input text
+//    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
+//}
 
-    $input = $_POST['query'];
-    //get input text
-    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
+
+$columns = array();
+$resultset = array();
+while ($row = mysqli_fetch_array($result)) {
+    if (empty($columns)) {
+        $columns = array_keys($row);
+    }
+    $resultset[] = $row;
 }
+
+echo '
+<html>
+ <head>
+  <title>wassup</title>
+ </head>
+ <body>';
+
+echo '<table>';
+$columns = array();
+$resultset = array();
+while ($row = mysqli_fetch_array($result)) {
+    if (empty($columns)) {
+        $columns = array_keys($row);
+        echo '<tr><th>'.implode('</th><th>', $columns).'</th></tr>';
+    }
+    $resultset[] = $row;
+    echo '<tr><td>'.implode('</td><td>', $row).'</td></tr>';
+}
+echo '</table>';
+echo '
+ </head>
+ <body>';
 ?>
 
 
