@@ -33,7 +33,8 @@ if(isset($_POST['RUNQUERY'])) {
                     <body> <table>';
 
     $columns = array();
-    $resultset = $_POST['query'];
+    $input = $_POST['query'];
+    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
     while ($row = mysqli_fetch_array($result)) {
         if (empty($columns)) {
             $columns = array_keys($row);
