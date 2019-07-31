@@ -8,7 +8,6 @@ $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could
 if(isset($_POST['RUNQUERY'])) {
     $input = $_POST['query'];
     $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
-
     $columns = array();
     $resultset = array();
 
@@ -17,23 +16,14 @@ if(isset($_POST['RUNQUERY'])) {
                 </head>
                     <body> <table>';
 
-    echo "<table><tr>";
-    for($i = 0; $i < mysqli_num_fields($result); $i++) {
-        $field_info = mysqli_fetch_field($result, $i);
-        echo "<th>{$field_info->name}</th>";
+    while ($row = mysqli_fetch_array($result)) {
+        if (empty($columns)) {
+            $columns = array_keys($row);
+            echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
+        }
+        $resultset[] = $row;
+        echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
     }
-
-
-//    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-//
-//        if (empty($columns)) {
-//            $columns = array_keys($row);
-//            echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
-//        }
-//
-//        $resultset[] = $row;
-//        echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
-//    }
     echo '</table>';
     echo '</body> </html>';
 }
