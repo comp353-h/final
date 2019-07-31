@@ -11,22 +11,11 @@ if(isset($_POST['RUNQUERY'])) {
     $columns = array();
     $resultset = array();
 
-//    while ($row = mysqli_fetch_array($result)) {
-//        if (empty($columns)) {
-//            $columns = array_keys($row);
-//        }
-//        $resultset[] = $row;
-//    }
-
     echo '<html>
             <head>
                 <title>wassup</title>
                 </head>
                     <body> <table>';
-//
-//    $columns = array();
-//    $input = $_POST['query'];
-//    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
 
     while ($row = mysqli_fetch_array($result)) {
         if (empty($columns)) {
@@ -34,7 +23,7 @@ if(isset($_POST['RUNQUERY'])) {
             echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
         }
         $resultset[] = $row;
-        echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
+//        echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
     }
     echo '</table>';
     echo '</body> </html>';
