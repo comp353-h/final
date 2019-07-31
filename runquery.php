@@ -41,9 +41,8 @@ while ($row = mysqli_fetch_array($result)) {
     echo '<tr><td>'.implode('</td><td>', $row).'</td></tr>';
 }
 echo '</table>';
-echo '
- </head>
- <body>';
+echo '</body> </html>';
+
 ?>
 
 
