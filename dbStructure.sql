@@ -1,4 +1,5 @@
 ------------------------------------------------------------------------------
+DROP TABLE IF EXISTS Section;
 DROP TABLE IF EXISTS Term;
 DROP TABLE IF EXISTS CourseProgram;
 DROP TABLE IF EXISTS Course;
@@ -87,9 +88,20 @@ CREATE TABLE Facilities (
 ) ENGINE=INNODB;
 ------------------------------------------------------------------------------
 
+CREATE TABLE FullFaculty (
+    facultyID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(128) NOT NULL,
+    lastName VARCHAR(128) NOT NULL,
+    PRIMARY KEY ( facultyID )
+) ENGINE=INNODB;
 
-------------------------------------------------------------------------------
--- Department shit.
+CREATE TABLE Instructor (
+    instructorID INT AUTO_INCREMENT NOT NULL,
+    PRIMARY KEY ( instructorID ),
+    FOREIGN KEY ( instructorID )
+        REFERENCES FullFaculty( facultyID )
+) ENGINE=INNODB;
+
 CREATE TABLE Department (
     departmentID INT NOT NULL,
     departmentName VARCHAR(128) NOT NULL,
@@ -133,6 +145,23 @@ CREATE TABLE Term (
     termYear YEAR NOT NULL,
     PRIMARY KEY (termID)
 )  ENGINE=INNODB;
+
+CREATE TABLE Section (
+    courseID VARCHAR(8) NOT NULL,
+    sectionID VARCHAR( 2 ) NOT NULL,
+    instructorID INT NOT NULL,
+    roomID INT NOT NULL,
+    buildingID VARCHAR( 2 ) NOT NULL,
+    PRIMARY KEY ( courseID, sectionID ),
+    FOREIGN KEY ( courseID )
+        REFERENCES Course ( courseID ),
+    FOREIGN KEY ( InstructorID )
+        REFERENCES Instructor( instructorID ),
+    FOREIGN KEY ( roomID, buildingID )
+        REFERENCES Classroom ( classroomID, buildingID )
+) ENGINE=INNODB;
+
+
 
 /*
 CREATE TABLE Advisor (
