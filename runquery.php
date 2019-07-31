@@ -4,12 +4,21 @@ $username = "hrc353_1";
 $password = "w1x3y3z7";
 $dbname = "hrc353_1";
 $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could not connect to mysql");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+require_once('runquery.php');
+
 
 if(isset($_POST['RUNQUERY'])) {
     $input = $_POST['query'];
-    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
+    $result=mysqli_query($conn, $input);
+	if(!$result){
+		echo("Error: " . mysqli_error($conn)); 
+	}else{
+	
     $columns = array();
-    $resultset = array();
 
     echo '<html>
             <head>
@@ -21,11 +30,11 @@ if(isset($_POST['RUNQUERY'])) {
             $columns = array_keys($row);
             echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
         }
-        $resultset[] = $row;
         echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
     }
     echo '</table>';
     echo '</body> </html>';
+	}
 }
 ?>
 
