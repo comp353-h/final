@@ -14,28 +14,27 @@ $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could
 //}
 
 if(isset($_POST['RUNQUERY'])) {
-    $resultset = $_POST['query'];
-
+    $input = $_POST['query'];
+    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
     $columns = array();
-//    $resultset = array();
-    while ($row = mysqli_fetch_array($resultset)) {
+    $resultset = array();
+
+    while ($row = mysqli_fetch_array($result)) {
         if (empty($columns)) {
             $columns = array_keys($row);
         }
         $resultset[] = $row;
     }
 
-    echo '
-<html>
- <head>
-  <title>wassup</title>
- </head>
- <body>';
+    echo '<html>
+            <head>
+                <title>wassup</title>
+                </head>
+                    <body> <table>';
 
-    echo '<table>';
     $columns = array();
     $resultset = $_POST['query'];
-    while ($row = mysqli_fetch_array($resultset)) {
+    while ($row = mysqli_fetch_array($result)) {
         if (empty($columns)) {
             $columns = array_keys($row);
             echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
