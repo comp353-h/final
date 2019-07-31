@@ -17,16 +17,24 @@ if(isset($_POST['RUNQUERY'])) {
                 </head>
                     <body> <table>';
 
-    while ($row = mysqli_fetch_array($result)) {
-        if (empty($columns)) {
-            $columns = array_keys($row);
-            echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
-        }
-        $resultset[] = $row;
-        echo '<tr><td>' . implode('</td><td>', $resultset) . '</td></tr>';
+//    while ($row = mysqli_fetch_array($result)) {
+//        if (empty($columns)) {
+//            $columns = array_keys($row);
+//            echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
+//        }
+//        $resultset[] = $row;
+//        echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
+//    }
+//    echo '</table>';
+//    echo '</body> </html>';
+
+        while ($row = mysqli_fetch_array($result)) {
+        print_r($row);
+        echo '</br>';
+
     }
-    echo '</table>';
-    echo '</body> </html>';
+
+
 }
 ?>
 
