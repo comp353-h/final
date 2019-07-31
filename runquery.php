@@ -14,9 +14,10 @@ $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could
 //}
 
 if(isset($_POST['RUNQUERY'])) {
+    $resultset = $_POST['query'];
 
     $columns = array();
-    $resultset = array();
+//    $resultset = array();
     while ($row = mysqli_fetch_array($resultset)) {
         if (empty($columns)) {
             $columns = array_keys($row);
@@ -33,7 +34,7 @@ if(isset($_POST['RUNQUERY'])) {
 
     echo '<table>';
     $columns = array();
-    $resultset = array();
+    $resultset = $_POST['query'];
     while ($row = mysqli_fetch_array($resultset)) {
         if (empty($columns)) {
             $columns = array_keys($row);
