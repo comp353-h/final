@@ -8,11 +8,17 @@ DROP TABLE IF EXISTS Room;
 DROP TABLE IF EXISTS Building;
 DROP TABLE IF EXISTS Campus;
 DROP TABLE IF EXISTS CourseProgram;
-DROP TABLE IF EXISTS Course;
 DROP TABLE IF EXISTS ProgramAdvisor;
 DROP TABLE IF EXISTS Advisor;
+DROP TABLE IF EXISTS StudentProgram;
 DROP TABLE IF EXISTS Program;
+DROP TABLE IF EXISTS UnderGraduateStudent;
+DROP TABLE IF EXISTS GraduateStudent;
+DROP TABLE IF EXISTS Student;
 DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS Section;
+DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS Term;
 
 CREATE TABLE Campus (
     campusName VARCHAR(128) NOT NULL,
@@ -139,4 +145,63 @@ CREATE TABLE ProgramAdvisor (
         REFERENCES Advisor (advisorID),
     FOREIGN KEY (programID)
         REFERENCES Program (programID)
+)  ENGINE=INNODB;
+
+CREATE TABLE Term (
+    termID INT NOT NULL,
+    termName ENUM('FALL', 'WINTER', 'SUMMER') NOT NULL,
+    termYear YEAR NOT NULL,
+    PRIMARY KEY (termID)
+)  ENGINE=INNODB;
+
+CREATE TABLE Section (
+    courseID VARCHAR(8) NOT NULL,
+    sectionID VARCHAR(4),
+    termID INT NOT NULL,
+    startat TIME NOT NULL,
+    endat TIME NOT NULL,
+    PRIMARY KEY (courseID , sectionID),
+    FOREIGN KEY (courseID)
+        REFERENCES Course (courseID),
+    FOREIGN KEY (termID)
+        REFERENCES Term (termID),
+    UNIQUE KEY (sectionID , courseID , startat , endat)
+)  ENGINE=INNODB;
+
+
+CREATE TABLE Student (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    phone INT,
+    email VARCHAR(40),
+    dateOfBirth DATE NOT NULL,
+    PRIMARY KEY (studentID)
+)  ENGINE=INNODB;
+
+
+CREATE TABLE StudentProgram (
+    studentID INT NOT NULL,
+    programID INT NOT NULL,
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID),
+    FOREIGN KEY (programID)
+        REFERENCES Program (programID),
+    UNIQUE KEY (studentID , programID)
+)  ENGINE=INNODB;
+
+CREATE TABLE GraduateStudent (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (studentID),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID)
+)  ENGINE=INNODB;
+
+CREATE TABLE UnderGraduateStudent (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (studentID),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID)
 )  ENGINE=INNODB;
