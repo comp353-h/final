@@ -1,25 +1,20 @@
-DROP TABLE IF EXISTS RoomEquipment;
+------------------------------------------------------------------------------
+DROP TABLE IF EXISTS Term;
+DROP TABLE IF EXISTS CourseProgram;
+DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS Program;
+DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Facilities;
-DROP TABLE IF EXISTS Classroom;
-DROP TABLE IF EXISTS Lab;
 DROP TABLE IF EXISTS ConferenceRoom;
 DROP TABLE IF EXISTS Office;
+DROP TABLE IF EXISTS Lab;
+DROP TABLE IF EXISTS Classroom;
 DROP TABLE IF EXISTS Room;
 DROP TABLE IF EXISTS Building;
 DROP TABLE IF EXISTS Campus;
-DROP TABLE IF EXISTS CourseProgram;
-DROP TABLE IF EXISTS ProgramAdvisor;
-DROP TABLE IF EXISTS Advisor;
-DROP TABLE IF EXISTS StudentProgram;
-DROP TABLE IF EXISTS Program;
-DROP TABLE IF EXISTS UnderGraduateStudent;
-DROP TABLE IF EXISTS GraduateStudent;
-DROP TABLE IF EXISTS Student;
-DROP TABLE IF EXISTS Department;
-DROP TABLE IF EXISTS Section;
-DROP TABLE IF EXISTS Course;
-DROP TABLE IF EXISTS Term;
+------------------------------------------------------------------------------
 
+------------------------------------------------------------------------------
 CREATE TABLE Campus (
     campusName VARCHAR(128) NOT NULL,
     PRIMARY KEY (campusName)
@@ -28,6 +23,9 @@ CREATE TABLE Campus (
 CREATE TABLE Building (
     buildingID VARCHAR(2) NOT NULL,
     campusName VARCHAR(128) NOT NULL,
+    address VARCHAR(128) NOT NULL,
+    floors INT NOT NULL,
+    roomPerFloor INT NOT NULL,
     PRIMARY KEY (buildingID),
     FOREIGN KEY (campusName)
         REFERENCES Campus (campusName)
@@ -79,22 +77,19 @@ CREATE TABLE ConferenceRoom (
         REFERENCES Room (roomID , buildingID)
 )  ENGINE=INNODB;
 
--- why do we need a key here?
 CREATE TABLE Facilities (
-    facilityType ENUM('Projector', 'Computers', 'Other', 'None'),
-    PRIMARY KEY (facilityType)
-)  ENGINE=INNODB;
-
-CREATE TABLE RoomEquipment (
     roomID INT NOT NULL,
-    buildingID VARCHAR(2) NOT NULL,
-    roomEquipmentType ENUM('Projector', 'Computers', 'Others', 'None'),
-    FOREIGN KEY (roomID , buildingID)
-        REFERENCES Room (roomID , buildingID),
-    FOREIGN KEY (roomEquipmentType)
-        REFERENCES Facilities (facilityType)
-)  ENGINE=INNODB;
+    buildingID VARCHAR( 2 ) NOT NULL,
+    type ENUM( "Projector", "Computers", "other" ),
+    PRIMARY KEY ( roomID, buildingID ),
+    FOREIGN KEY ( roomID, buildingID ) 
+        REFERENCES Room ( roomID, buildingID ) 
+) ENGINE=INNODB;
+------------------------------------------------------------------------------
 
+
+------------------------------------------------------------------------------
+-- Department shit.
 CREATE TABLE Department (
     departmentID INT NOT NULL,
     departmentName VARCHAR(128) NOT NULL,
@@ -103,7 +98,7 @@ CREATE TABLE Department (
 
 CREATE TABLE Program (
     programID INT AUTO_INCREMENT NOT NULL,
-    programName CHAR(60) NOT NULL,
+    programName CHAR(128) NOT NULL,
     departmentID INT NOT NULL,
     programCredits DECIMAL(4 , 1 ),
     PRIMARY KEY (programID),
@@ -117,19 +112,29 @@ CREATE TABLE Course (
     departmentID INT NOT NULL,
     courseCredits DECIMAL(4 , 1 ),
     prerequisite VARCHAR(8),
-    PRIMARY KEY (courseID)
+    PRIMARY KEY (courseID),
+    FOREIGN KEY ( departmentID )
+        REFERENCES Department( departmentID )
 )  ENGINE=INNODB;
 
 CREATE TABLE CourseProgram (
-    courseID VARCHAR(8) NOT NULL,
     programID INT NOT NULL,
-    PRIMARY KEY (courseID , programID),
+    courseID VARCHAR(8) NOT NULL,
+    PRIMARY KEY ( programID, courseID ),
     FOREIGN KEY (courseID)
         REFERENCES Course (courseID),
     FOREIGN KEY (programID)
         REFERENCES Program (programID)
 )  ENGINE=INNODB;
 
+CREATE TABLE Term (
+    termID INT NOT NULL,
+    termName ENUM('FALL', 'WINTER', 'SUMMER') NOT NULL,
+    termYear YEAR NOT NULL,
+    PRIMARY KEY (termID)
+)  ENGINE=INNODB;
+
+/*
 CREATE TABLE Advisor (
     advisorID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(50) NOT NULL,
@@ -145,13 +150,6 @@ CREATE TABLE ProgramAdvisor (
         REFERENCES Advisor (advisorID),
     FOREIGN KEY (programID)
         REFERENCES Program (programID)
-)  ENGINE=INNODB;
-
-CREATE TABLE Term (
-    termID INT NOT NULL,
-    termName ENUM('FALL', 'WINTER', 'SUMMER') NOT NULL,
-    termYear YEAR NOT NULL,
-    PRIMARY KEY (termID)
 )  ENGINE=INNODB;
 
 CREATE TABLE Section (
@@ -205,3 +203,4 @@ CREATE TABLE UnderGraduateStudent (
     FOREIGN KEY (studentID)
         REFERENCES Student (studentID)
 )  ENGINE=INNODB;
+*/

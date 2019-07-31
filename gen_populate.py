@@ -11,7 +11,7 @@ def generate_adsivors( file, count ):
     file.write( "INSERT INTO \"Advisors\" VALUES\n" )
 
     for i in range( count ):
-        if ( i == count ):
+        if ( i + 1 == count ):
             file.write( "( " + str( i + 1 ) + ", \"" + random.choice( first_names ) + "\", " + random.choice( last_names ) + "\" );\n" )
         else:
             file.write( "( " + str( i + 1 ) + ", \"" + random.choice( first_names ) + "\", " + random.choice( last_names ) + "\" ),\n" )
@@ -27,7 +27,7 @@ def main( ):
 
         if line_data[0] == "CREATE" and line_data[1] == "TABLE":
             if line_data[2] == "Advisor":
-                generate_adsivors( output_file, 50 )
+                generate_adsivors( output_file, 15 )
                 
 
 
