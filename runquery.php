@@ -5,6 +5,7 @@ $password = "w1x3y3z7";
 $dbname = "hrc353_1";
 $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could not connect to mysql");
 //if(isset($_POST['RUNQUERY'])){
+
 //    //check if form was submitted
 //
 //    $input = $_POST['query'];
@@ -12,37 +13,38 @@ $conn= mysqli_connect($servername, $username, $password, $dbname) or die ("Could
 //    $result=mysqli_query($conn, $input) or die("something is wrong u must be extra wOkE these days");
 //}
 
+if(isset($_POST['RUNQUERY'])) {
 
-$columns = array();
-$resultset = array();
-while ($row = mysqli_fetch_array($result)) {
-    if (empty($columns)) {
-        $columns = array_keys($row);
+    $columns = array();
+    $resultset = array();
+    while ($row = mysqli_fetch_array($result)) {
+        if (empty($columns)) {
+            $columns = array_keys($row);
+        }
+        $resultset[] = $row;
     }
-    $resultset[] = $row;
-}
 
-echo '
+    echo '
 <html>
  <head>
   <title>wassup</title>
  </head>
  <body>';
 
-echo '<table>';
-$columns = array();
-$resultset = array();
-while ($row = mysqli_fetch_array($result)) {
-    if (empty($columns)) {
-        $columns = array_keys($row);
-        echo '<tr><th>'.implode('</th><th>', $columns).'</th></tr>';
+    echo '<table>';
+    $columns = array();
+    $resultset = array();
+    while ($row = mysqli_fetch_array($result)) {
+        if (empty($columns)) {
+            $columns = array_keys($row);
+            echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
+        }
+        $resultset[] = $row;
+        echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
     }
-    $resultset[] = $row;
-    echo '<tr><td>'.implode('</td><td>', $row).'</td></tr>';
+    echo '</table>';
+    echo '</body> </html>';
 }
-echo '</table>';
-echo '</body> </html>';
-
 ?>
 
 
