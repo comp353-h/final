@@ -1,0 +1,91 @@
+-- i. Create/Delete/Edit/Display a faculty member.
+
+-- ii. Create/Delete/Edit/Display a Student.
+
+-- iii. Create/Delete/Edit/Display a Teaching Assistant
+
+-- iv. Give a list of all campuses.
+SELECT campusName AS 'Campus Name' FROM Campus;
+
+-- v. Give a list of buildings on a given campus.
+SELECT *
+FROM 
+	Building b
+WHERE
+	campusName = 'SGW';
+
+/* vi. Give details of a specific building (this include address of the building,
+number of floors, number of rooms in each floor, and details of each room
+such as room type, capacity of the room and existing facilities in the room
+if it is a classroom or a lab. */
+
+
+
+/*vii. Get a list of all programs available in a specific department along with the
+number of credits required for completion in each program. */
+
+-- viii. Get a list of all courses offered in a given term by a specific program.
+
+/*ix. Get the details of all the courses offered by a specific department for a
+specific term. Details include Course name, section, room location, start
+and end time, professor teaching the course, max class capacity and
+number of enrolled students.*/
+
+/*x. Find ID, first name and last name of all the students who are enrolled in a
+specific program in a given term. */
+
+/*xi. Find the name of all the instructors who taught a given course on a
+specific term.*/
+
+-- xii. Give a list of all supervisors in a given department.
+
+
+-- xiii. Give a list of all the advisors in a given department.
+
+SELECT
+	departmentName,
+	firstName,
+    lastName
+FROM
+	Advisor a
+	JOIN
+		Program p
+        ON a.programID = p.programID
+WHERE
+	departmentID = 1;
+	
+    
+/*xiv. Find the name and IDs of all the graduate students who are supervised by
+a specific Professor.*/
+
+/*xv. Find the ID, name and assignment mandate of all the graduate students
+who are assigned as teaching assistants to a specific course on a given
+term.*/
+
+/*xvi. Find the name, IDs and total amount of funds received by all the graduate
+students who received research funds in a given term.*/
+
+/*xvii. For each department, find the total number of courses offered by the
+department and the name of its chairman.*/
+
+/*xviii. For each program, find the total number of students enrolled into the
+program.*/
+
+-- xix. Give a list of courses taken by a specific student in a given term.
+SELECT 
+	firstName,
+    lastName,
+    termID,
+    courseName
+FROM
+	StudentCourses
+WHERE
+	termID = 5 AND studentID = 1;
+
+-- xx. Register a student in a specific course.
+
+-- xxi. Drop a course for a specific student.
+
+/*xxii. Give a detailed report for a specific student (This include personal data,
+academic history, courses taken and grades received for each course,
+GPA, etc.)*/
