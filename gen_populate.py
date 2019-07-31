@@ -7,14 +7,9 @@ last_names = open( "populate_data/last_names.txt" ).readlines( )
 last_names = [x.strip( ) for x in last_names]      
 
 
-def generate_adsivors( file, count ):
-    file.write( "INSERT INTO \"Advisors\" VALUES\n" )
-
+def generate_names( file, count ):
     for i in range( count ):
-        if ( i + 1 == count ):
-            file.write( "( " + str( i + 1 ) + ", \"" + random.choice( first_names ) + "\", " + random.choice( last_names ) + "\" );\n" )
-        else:
-            file.write( "( " + str( i + 1 ) + ", \"" + random.choice( first_names ) + "\", " + random.choice( last_names ) + "\" ),\n" )
+        file.write( "\"" + random.choice( first_names ) + "\", " + random.choice( last_names ) + "\"\n" )
 
 def main( ):
     db_structure = open( "dbStructure.sql", "r" )
@@ -27,7 +22,7 @@ def main( ):
 
         if line_data[0] == "CREATE" and line_data[1] == "TABLE":
             if line_data[2] == "Advisor":
-                generate_adsivors( output_file, 15 )
+                generate_names( output_file, 1000 )
                 
 
 
