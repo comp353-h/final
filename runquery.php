@@ -17,7 +17,7 @@ if(isset($_POST['RUNQUERY'])) {
 
     $columns = array();
     $resultset = array();
-    while ($row = mysqli_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($resultset)) {
         if (empty($columns)) {
             $columns = array_keys($row);
         }
@@ -34,7 +34,7 @@ if(isset($_POST['RUNQUERY'])) {
     echo '<table>';
     $columns = array();
     $resultset = array();
-    while ($row = mysqli_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($resultset)) {
         if (empty($columns)) {
             $columns = array_keys($row);
             echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';
