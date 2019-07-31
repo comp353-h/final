@@ -1,10 +1,15 @@
 ------------------------------------------------------------------------------
+DROP TABLE IF EXISTS StudentCourses;
+DROP TABLE IF EXISTS StudentProgram;
+DROP TABLE IF EXISTS Student;
 DROP TABLE IF EXISTS Section;
 DROP TABLE IF EXISTS Term;
 DROP TABLE IF EXISTS CourseProgram;
 DROP TABLE IF EXISTS Course;
 DROP TABLE IF EXISTS Program;
 DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS Instructor;
+DROP TABLE IF EXISTS FullFaculty;
 DROP TABLE IF EXISTS Facilities;
 DROP TABLE IF EXISTS ConferenceRoom;
 DROP TABLE IF EXISTS Office;
@@ -149,19 +154,40 @@ CREATE TABLE Term (
 CREATE TABLE Section (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR( 2 ) NOT NULL,
+    termID INT NOT NULL,
     instructorID INT NOT NULL,
     roomID INT NOT NULL,
     buildingID VARCHAR( 2 ) NOT NULL,
     PRIMARY KEY ( courseID, sectionID ),
     FOREIGN KEY ( courseID )
         REFERENCES Course ( courseID ),
+    FOREIGN KEY ( termID )
+        REFERENCES Term ( termID ),
     FOREIGN KEY ( InstructorID )
         REFERENCES Instructor( instructorID ),
     FOREIGN KEY ( roomID, buildingID )
         REFERENCES Classroom ( classroomID, buildingID )
 ) ENGINE=INNODB;
 
+CREATE TABLE Student (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(128) NOT NULL,
+    lastName VARCHAR(128) NOT NULL,
+    email VARCHAR(128) NOT NULL,
+    phone INT( 9 ),
+    dateOfBirth DATE NOT NULL,
+    -- GPA
 
+    PRIMARY KEY ( studentID )
+) ENGINE=INNODB;
+
+CREATE TABLE StudentProgram (
+    studentID INT NOT NULL
+) ENGINE=INNODB;
+
+CREATE TABLE StudentCourses (
+    studentID INT NOT NULL
+) ENGINE=INNODB;
 
 /*
 CREATE TABLE Advisor (
