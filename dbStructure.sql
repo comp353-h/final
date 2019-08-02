@@ -94,7 +94,6 @@ CREATE TABLE Facilities (
     FOREIGN KEY (roomID , buildingID)
         REFERENCES Room (roomID , buildingID)
 )  ENGINE=INNODB;
-------------------------------------------------------------------------------
 
 CREATE TABLE FullFaculty (
     facultyID INT AUTO_INCREMENT NOT NULL,
@@ -181,7 +180,7 @@ CREATE TABLE Section (
     instructorID INT NOT NULL,
     roomID INT NOT NULL,
     buildingID VARCHAR(2) NOT NULL,
-    PRIMARY KEY (courseID , sectionID),
+    PRIMARY KEY (courseID , sectionID, termID ),
     FOREIGN KEY (courseID)
         REFERENCES Course (courseID),
     FOREIGN KEY (termID)
@@ -225,22 +224,16 @@ CREATE TABLE StudentProgram (
         REFERENCES Student (studentID),
     FOREIGN KEY (programID)
         REFERENCES Program (programID),
-    FOREIGN KEY (studentID)
-        REFERENCES Student (studentID),
-    FOREIGN KEY (programID)
-        REFERENCES Program (programID),
     UNIQUE KEY (studentID , programID)
 )  ENGINE=INNODB;
 
 CREATE TABLE StudentCourses (
     studentID INT NOT NULL,
     courseID VARCHAR(8) NOT NULL,
-    sectionID VARCHAR(4),
+    sectionID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
     FOREIGN KEY (studentID)
         REFERENCES Student (studentID),
-    FOREIGN KEY (courseID , sectionID)
-        REFERENCES Section (courseID , sectionID),
-    FOREIGN KEY (termID)
-        REFERENCES Term (termID)
+    FOREIGN KEY (courseID , sectionID, termID)
+        REFERENCES Section (courseID , sectionID, termID)
 )  ENGINE=INNODB;
