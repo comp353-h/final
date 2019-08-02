@@ -18,7 +18,35 @@ WHERE
 number of floors, number of rooms in each floor, and details of each room
 such as room type, capacity of the room and existing facilities in the room
 if it is a classroom or a lab. */
-
+SELECT 
+    b.buildingID AS 'Building Name',
+    campusName AS 'Campus Name',
+    address AS 'Address',
+    floors AS 'Floor',
+    roomPerFloor,
+    r.roomID,
+    CASE
+        WHEN l.buildingID IS NOT NULL THEN 'Lab'
+        WHEN clr.buildingID IS NOT NULL THEN 'ClassRoom'
+        WHEN cr.buildingID IS NOT NULL THEN 'ConferenceRoom'
+        WHEN of.buildingID IS NOT NULL THEN 'Office'
+    END AS ROOMTYPE,
+    type AS 'Facilities'
+FROM
+    Building b
+        JOIN
+    Room r ON (r.buildingID = b.buildingID)
+        LEFT JOIN
+    Classroom clr ON (b.buildingID = clr.buildingID)
+        LEFT JOIN
+    Facilities f ON (b.buildingID = f.buildingID)
+        LEFT JOIN
+    Lab l ON (b.buildingID = l.buildingID)
+        LEFT JOIN
+    ConferenceRoom cr ON (b.buildingID = cr.buildingID)
+        LEFT JOIN
+    Office of ON (b.buildingID = of.buildingID)
+ORDER BY campusName , floors , roomPerFloor , r.roomID;
 
 
 /*vii. Get a list of all programs available in a specific department along with the
