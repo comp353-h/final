@@ -12,6 +12,10 @@ DROP TABLE IF EXISTS Chairman;
 DROP TABLE IF EXISTS Instructor;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS FacultyDegree;
+DROP TABLE IF EXISTS Publication;
+DROP TABLE IF EXISTS Employment;
+DROP TABLE IF EXISTS Award;
+DROP TABLE IF EXISTS Degree;
 DROP TABLE IF EXISTS FullFaculty;
 DROP TABLE IF EXISTS Facilities;
 DROP TABLE IF EXISTS ConferenceRoom;
@@ -21,8 +25,6 @@ DROP TABLE IF EXISTS Classroom;
 DROP TABLE IF EXISTS Room;
 DROP TABLE IF EXISTS Building;
 DROP TABLE IF EXISTS Campus;
-
-
 
 CREATE TABLE Campus (
     campusName VARCHAR(128) NOT NULL,
@@ -102,12 +104,41 @@ CREATE TABLE FullFaculty (
     PRIMARY KEY ( facultyID )
 ) ENGINE=INNODB;
 
+CREATE TABLE Degree (
+    degreeName VARCHAR( 128 ) NOT NULL,
+    schoolName VARCHAR( 128 ) NOT NULL,
+    year INT NOT NULL,
+    PRIMARY KEY ( degreeName, schoolName, year )
+) ENGINE=INNODB;
+
+CREATE TABLE Award (
+    awardName VARCHAR( 128 ) NOT NULL,
+    year INT NOT NULL,
+    PRIMARY KEY ( awardName, year )
+) ENGINE=INNODB;
+
+CREATE TABLE Publication (
+    publicationName VARCHAR( 128 ) NOT NULL,
+    year INT NOT NULL,
+    PRIMARY KEY ( publicationName, year )
+) ENGINE=INNODB;
+
+CREATE TABLE Employment (
+    title VARCHAR( 128 ) NOT NULL,
+    employer VARCHAR( 128 ) NOT NULL,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    PRIMARY KEY ( title, employer )
+) ENGINE=INNODB;
+
 CREATE TABLE FacultyDegree (
     facultyID INT AUTO_INCREMENT NOT NULL,
     degreeName VARCHAR(128) NOT NULL,
     schoolName VARCHAR(128) NOT NULL,
     year INT NOT NULL,
     PRIMARY KEY (degreeName , schoolName , year),
+    FOREIGN KEY (degreeName, schoolName, year )
+        REFERENCES Degree( degreeName, schoolName, year ),
     FOREIGN KEY (facultyID)
         REFERENCES FullFaculty (facultyID)
 )  ENGINE=INNODB;
@@ -124,11 +155,9 @@ CREATE TABLE Instructor (
     PRIMARY KEY (instructorID),
     FOREIGN KEY (instructorID)
         REFERENCES FullFaculty (facultyID),
-            FOREIGN KEY (departmentID)
+    FOREIGN KEY (departmentID)
         REFERENCES Department (departmentID)
 )  ENGINE=INNODB;
-
-
 
 CREATE TABLE Chairman (
     chairmanID INT AUTO_INCREMENT NOT NULL,

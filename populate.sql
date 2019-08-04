@@ -15,30 +15,7 @@ INSERT INTO Campus VALUES
  ("SH", "Loyola", "7141 Sherbrooke W", 10, 100),
  ("TA", "Loyola", "7141 Sherbrooke W", 9, 90),
  ("VL", "Loyola", "7141 Sherbrooke W", 7,  65);
- 
- INSERT INTO Room VALUES
- -- roomID, buildingID
- (406, "MB"),
- (1024, "MB"),
- (326, "HH"),
- (1126, "HH"),
- (631, "FG"),
- (845, "FG"),
- (969, "EV"),
- (302, "EV"),
- (753, "LB"),
- (567, "LB"),
- (246, "AD"),
- (557, "AD"),
- (1236, "PY"),
- (507, "PY"),
- (668, "SH"),
- (897, "SH"),
- (789, "TA"),
- (562, "TA"),
- (603, "VL"),
- (361, "VL");
- 
+
  INSERT INTO Classroom VALUES
  -- roomID, buildingID, capacity
   (406, "MB", 50),
