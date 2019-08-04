@@ -95,9 +95,31 @@ students who received research funds in a given term.*/
 
 /*xvii. For each department, find the total number of courses offered by the
 department and the name of its chairman.*/
-
+SELECT 
+    d.departmentName,
+    CONCAT(ff.firstName, ' ', ff.lastName) AS ChairPerson,
+    (SELECT 
+            COUNT(cs.departmentID)
+        FROM
+            Course cs
+        WHERE
+            cs.departmentID = d.departmentID) AS NumberOfCourseOffered
+FROM
+    Department d
+        LEFT JOIN
+    Chairman c ON (d.departmentID = c.departmentID)
+        LEFT JOIN
+    FullFaculty ff ON (c.chairmanID = ff.facultyID);
 /*xviii. For each program, find the total number of students enrolled into the
 program.*/
+
+SELECT 
+    p.programName, COUNT(studentID) AS StudentsEnrolled
+FROM
+    StudentProgram sp
+        JOIN
+    Program p ON (sp.programID = p.programID)
+GROUP BY sp.programID;
 
 -- xix. Give a list of courses taken by a specific student in a given term.
 SELECT 
