@@ -58,6 +58,7 @@ CREATE TABLE Classroom (
     PRIMARY KEY (classroomID , buildingID),
     FOREIGN KEY (classroomID , buildingID)
         REFERENCES Room (roomID , buildingID)
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 -- ISA to Room.
@@ -68,6 +69,7 @@ CREATE TABLE Lab (
     PRIMARY KEY (labID , buildingID),
     FOREIGN KEY (labID , buildingID)
         REFERENCES Room (roomID , buildingID)
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 -- ISA to Room.
@@ -77,6 +79,7 @@ CREATE TABLE Office (
     PRIMARY KEY (officeID , buildingID),
     FOREIGN KEY (officeID , buildingID)
         REFERENCES Room (roomID , buildingID)
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 -- ISA to Room.
@@ -86,6 +89,7 @@ CREATE TABLE ConferenceRoom (
     PRIMARY KEY (conferenceRoomID , buildingID),
     FOREIGN KEY (conferenceRoomID , buildingID)
         REFERENCES Room (roomID , buildingID)
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 CREATE TABLE Facilities (
@@ -95,6 +99,7 @@ CREATE TABLE Facilities (
     PRIMARY KEY (roomID , buildingID),
     FOREIGN KEY (roomID , buildingID)
         REFERENCES Room (roomID , buildingID)
+        ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 CREATE TABLE FullFaculty (
