@@ -9,8 +9,8 @@ DROP TABLE IF EXISTS CourseProgram;
 DROP TABLE IF EXISTS Course;
 DROP TABLE IF EXISTS Program;
 DROP TABLE IF EXISTS Chairman;
-DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Instructor;
+DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS FacultyDegree;
 DROP TABLE IF EXISTS FullFaculty;
 DROP TABLE IF EXISTS Facilities;
@@ -112,18 +112,23 @@ CREATE TABLE FacultyDegree (
         REFERENCES FullFaculty (facultyID)
 )  ENGINE=INNODB;
 
-CREATE TABLE Instructor (
-    instructorID INT AUTO_INCREMENT NOT NULL,
-    PRIMARY KEY (instructorID),
-    FOREIGN KEY (instructorID)
-        REFERENCES FullFaculty (facultyID)
-)  ENGINE=INNODB;
-
 CREATE TABLE Department (
     departmentID INT NOT NULL,
     departmentName VARCHAR(128) NOT NULL,
     PRIMARY KEY (departmentID)
 )  ENGINE=INNODB;
+
+CREATE TABLE Instructor (
+    instructorID INT AUTO_INCREMENT NOT NULL,
+	departmentID INT NOT NULL,
+    PRIMARY KEY (instructorID),
+    FOREIGN KEY (instructorID)
+        REFERENCES FullFaculty (facultyID),
+            FOREIGN KEY (departmentID)
+        REFERENCES Department (departmentID)
+)  ENGINE=INNODB;
+
+
 
 CREATE TABLE Chairman (
     chairmanID INT AUTO_INCREMENT NOT NULL,
@@ -220,11 +225,11 @@ CREATE TABLE GraduateStudent (
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,
     programID INT NOT NULL,
+	PRIMARY KEY (studentID , programID),
     FOREIGN KEY (studentID)
         REFERENCES Student (studentID),
     FOREIGN KEY (programID)
-        REFERENCES Program (programID),
-    UNIQUE KEY (studentID , programID)
+        REFERENCES Program (programID)
 )  ENGINE=INNODB;
 
 CREATE TABLE StudentCourses (
@@ -232,6 +237,7 @@ CREATE TABLE StudentCourses (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
+	PRIMARY KEY (studentID , courseID, sectionID, termID),
     FOREIGN KEY (studentID)
         REFERENCES Student (studentID),
     FOREIGN KEY (courseID , sectionID, termID)
