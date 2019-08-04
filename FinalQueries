@@ -122,15 +122,13 @@ FROM
 GROUP BY sp.programID;
 
 -- xix. Give a list of courses taken by a specific student in a given term.
+
 SELECT 
-	firstName,
-    lastName,
-    termID,
-    courseName
+    sc.studentID, GROUP_CONCAT(CONCAT(sc.courseID)) AS Courses
 FROM
-	StudentCourses
-WHERE
-	termID = 5 AND studentID = 1;
+    StudentCourses sc
+GROUP BY sc.studentID , termID;
+
 
 -- xx. Register a student in a specific course.
 
