@@ -5,16 +5,16 @@ INSERT INTO Campus VALUES
  
 INSERT INTO Building VALUES
  -- buildingID , campusName, address, floors, roomsPerFloor
- ("MB", "SGW", "1455 Blvd De Maissonneuve W", 12, 30),
- ("HH", "SGW", "1455 Blvd De Maissonneuve W", 15, 32),
- ("FG", "SGW", "1455 Blvd De Maissonneuve W", 10, 50),
- ("EV", "SGW",  "1455 Blvd De Maissonneuve W", 12, 70),
- ("LB","SGW", "1455 Blvd De Maissonneuve W", 9, 70),
- ("AD", "Loyola", "7141 Sherbrooke W", 8, 60),
- ("PY", "Loyola", "7141 Sherbrooke W", 12, 40),
- ("SH", "Loyola", "7141 Sherbrooke W", 10, 100),
- ("TA", "Loyola", "7141 Sherbrooke W", 9, 90),
- ("VL", "Loyola", "7141 Sherbrooke W", 7,  65);
+ ("MB", "SGW", "1455 Blvd De Maissonneuve W", 12, 3),
+ ("HH", "SGW", "1455 Blvd De Maissonneuve W", 15, 3),
+ ("FG", "SGW", "1455 Blvd De Maissonneuve W", 10, 5),
+ ("EV", "SGW",  "1455 Blvd De Maissonneuve W", 12, 7),
+ ("LB","SGW", "1455 Blvd De Maissonneuve W", 9, 7),
+ ("AD", "Loyola", "7141 Sherbrooke W", 8, 9),
+ ("PY", "Loyola", "7141 Sherbrooke W", 12, 10),
+ ("SH", "Loyola", "7141 Sherbrooke W", 10, 10),
+ ("TA", "Loyola", "7141 Sherbrooke W", 9, 6),
+ ("VL", "Loyola", "7141 Sherbrooke W", 7,  7);
 
  INSERT INTO Classroom VALUES
  -- roomID, buildingID, capacity

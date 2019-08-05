@@ -36,7 +36,6 @@ def generate_rooms( file ):
             if ( is_string_int( words[-2] ) ):
                 for x in range( 1, int( words[-2] ) + 1):
                     for y in range( 1, int( words[-1] ) + 1 ):
-                        
                         room_number = ""
                         if len( str( y ) ) == 1:
                             room_number = str( x ) + "0" + str( y )
