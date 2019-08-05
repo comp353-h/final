@@ -3,7 +3,7 @@ INSERT INTO Campus VALUES
  ("Loyola"),
  ("SGW");
  
- INSERT INTO Building VALUES
+INSERT INTO Building VALUES
  -- buildingID , campusName, address, floors, roomsPerFloor
  ("MB", "SGW", "1455 Blvd De Maissonneuve W", 12, 30),
  ("HH", "SGW", "1455 Blvd De Maissonneuve W", 15, 32),
@@ -394,26 +394,6 @@ INSERT INTO Instructor VALUES
    (18, 3),
    (19, 9),
    (20, 7);
-   (21, 8),
-   (22, 8),
-   (23, 1),
-   (24, 1),
-   (25, 4),
-   (26, 4),
-   (27, 5),
-   (28, 5),
-   (29, 6),
-   (30, 6),
-   (31, 10),
-   (32, 10),
-   (33, 2),
-   (34, 2),
-   (35, 3),
-   (36, 3),
-   (37, 9),
-   (38, 9),
-   (39, 7),
-   (40, 7);
 
 INSERT INTO Chairman VALUES
    -- chairmanID, departmentID
