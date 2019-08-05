@@ -1,4 +1,37 @@
 -- i. Create/Delete/Edit/Display a faculty member.
+-- CREATES a faculty member who is an instructor in the Computer Science department. 
+INSERT INTO FullFaculty VALUES(41, "Greg", "Butcher");
+INSERT INTO Degree VALUES("Computer Science", "Concordia University", 2018);
+INSERT INTO FacultyDegree VALUES(41, "Computer Science", "Concordia University", 2018);
+INSERT INTO Instructor VALUES(41, 1);
+-- EDITS the faculty member's name
+UPDATE FullFaculty 
+SET 
+    firstName = 'Craig',
+    lastName = 'Boucher'
+WHERE
+    facultyID = 41;
+-- DISPLAYS the created faculty member
+SELECT 
+    ff.facultyID AS 'Faculty ID',
+    CONCAT(firstName, ' ', lastName) AS 'Name',
+    CONCAT(degreeName, ', ', year) AS 'Degree',
+    d.departmentName AS 'Department'
+FROM
+    FullFaculty ff
+        JOIN
+    FacultyDegree fd ON (ff.facultyID = fd.facultyID)
+        JOIN
+    Instructor i ON (ff.facultyID = i.instructorID)
+        JOIN
+    Department d ON (d.departmentID = i.departmentID)
+WHERE
+    ff.facultyID = 41;  
+-- DELETES the created faculty member
+DELETE FROM Instructor WHERE instructorID = 41; 
+DELETE FROM FacultyDegree WHERE facultyID = 41; 
+DELETE FROM Degree WHERE degreeName = "Computer Science" AND schoolName="Concordia University" AND year=2018;
+DELETE FROM FullFaculty WHERE facultyID = 41; 
 
 -- ii. Create/Delete/Edit/Display a Student.
 
