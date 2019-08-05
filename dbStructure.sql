@@ -179,6 +179,7 @@ CREATE TABLE Program (
     programName CHAR(128) NOT NULL,
     departmentID INT NOT NULL,
     programCredits DECIMAL(4 , 1 ),
+    programType ENUM( "UnderGraduate", "Graduate", "Graduate-Thesis" ),
     PRIMARY KEY (programID),
     FOREIGN KEY (departmentID)
         REFERENCES Department (departmentID)
