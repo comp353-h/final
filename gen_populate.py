@@ -43,7 +43,7 @@ def generate_rooms( file ):
                             room_number = str( x ) + str( y )
 
                         if len( words[0] ) == 4:
-                            file.write( words[0] + ", " + room_number + "\n" )
+                            file.write( room_number + ", " + words[0] + "\n" )
 
         if is_building == True:
             for letter in line_data[-1]:
