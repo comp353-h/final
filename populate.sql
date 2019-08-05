@@ -16,7 +16,7 @@ INSERT INTO Campus VALUES
  ("TA", "Loyola", "7141 Sherbrooke W", 9, 90),
  ("VL", "Loyola", "7141 Sherbrooke W", 7,  65);
 
- /*INSERT INTO Classroom VALUES
+ INSERT INTO Classroom VALUES
  -- roomID, buildingID, capacity
   (406, "MB", 50),
   (326, "HH", 100),
@@ -64,7 +64,7 @@ INSERT INTO Facilities VALUES
 (969, "EV", "Computers"),
 (753, "LB", "Computers"),
 (562, "TA", "Computers"),
-(361, "VL", "Projector"); */
+(361, "VL", "Projector"); 
 
 INSERT INTO FullFaculty VALUES 
     -- facultyID, firstName, lastName
@@ -341,8 +341,8 @@ INSERT INTO Department VALUES
    
 ( 1, "Computer Science" ),
 ( 2, "Software Engineering" ),
-( 3, "Building Engineering" ),
-( 4, "Civil Engineering" ),
+( 3, "Building Engineering"),
+( 4, "Civil Engineering"),
 ( 5, "Mathematics" ),
 ( 6, "Journalism" ),
 ( 7, "Computer Engineering" ),
@@ -424,11 +424,51 @@ INSERT INTO Program VALUES
 ( 40, "Aerospace Structures & Materials", 10, 44.0 );
 
 
-/*INSERT INTO Course VALUES
+INSERT INTO Course VALUES
     -- courseID, courseName, departmentID, courseCredits, prerequisite
-   ();
 
-INSERT INTO CourseProgram VALUES
+( "COMP248", "Introduction To Object Oriented Programming", 1, 3.0, NULL),
+( "COMP249", "Advanced Object Oriented Programming", 1, 4.0, "COMP248"),
+( "COMP1268", "Advanced Methods of Database Implementation", 1, 6.0, "COMP249" ),
+( "COMP1368", "Really Difficult Turing Machines", 1, 6.0, "COMP1268" ),
+( "SOEN287", "Websites N Stuff", 2, 3.0, NULL),
+( "SOEN321", "Introduction To Hacking Protection", 2, 3.0, "SOEN287" ),
+( "SOEN1020", "Advanced Planning for Duty Delegation", 2, 6.0, NULL ),
+( "SOEN1220", "Databases", 2, 6.0, "SOEN1020" ),
+( "BUEN223", "Intorduction to Union Negotiations", 3, 3.0, NULL),
+( "BUEN346", "Strategies for Material Selection", 3, 4.0, "BUEN233" ),
+( "BUEN1238", "Advanced Mafia Avoidance", 3, 6.0, "BUEN233" ),
+( "BUEN1485", "Introduction To Skyscraper Views ", 3, 7.0, "BUEN346" ),
+( "CIVI101", "Intorduction to Civility", 4, 3.0, NULL),
+( "CIVI210", "Construction Methods and Strategies", 4, 4.0, "CIVI210" ),
+( "CIVI1256", "Advanced Civil Infrastructure", 4, 6.0 , NULL),
+( "CIVI1385", "A Lesson In Construction Engineering", 4, 6.0, "CIVI1256" ),
+( "MATH203", "Calculus I", 5, 3.0, NULL),
+( "MATH205", "Calculus II", 5, 3.0, "MATH203"),
+( "MATH1465", "Introduction To Really Hard Algebra", 5, 6.0, "MATH205" ),
+( "MATH1546", "Advanced Really Hard Algebra", 5, 6.0, "MATH205" ),
+( "JOUR223", "Introduction to Dying Meddia Forms", 6, 3.0, NULL),
+( "JOUR362", "Methods and Strategies of Spin", 6, 3.0, "JOUR223" ),
+( "JOUR1356", "Introduction to Tomfoolery", 6, 4.0, "JOUR362"),
+( "JOUR1452", "Advanced Question Dodging", 6, 6.0, "JOUR223" ),
+( "COEN221", "Introduction to Tinkering", 7, 3.0, NULL),
+( "COEN345", "Power Button Development", 7, 4.0, "COEN221" ),
+( "COEN1152", "Advanced Tinkering", 7, 6.0, "COEN345" ),
+( "COEN1235", "Advanced NAND Gate Development", 7, 7.0, "COEN1152" ),
+( "ECON201", "Introduction to Microeconomics", 8, 3.0, NULL),
+( "ECON203", "Introduction to Macroeconomics", 8, 3.0, NULL ),
+( "ECON1030", "Advanced Market Crashing Techniques", 8, 6.0, "ECON203"),
+( "ECON1136", "Crippling Student Debt", 8, 6.0, "ECON201" ),
+( "ELEC247", "Introduction to Zapping", 9, 3.0, NULL),
+( "ELEC353", "Telecommunications System Design", 9, 4.0, "ELEC247" ),
+( "ELEC1032", "Advanced Electricity Billing", 9, 6.0, "ELEC353" ),
+( "ELEC1228", "Advanced Red Wire Cutting", 9, 6.0, "ELEC1032" ),
+( "AERO321", "Intorduction to Flying", 10, 3.0, NULL),
+( "AERO448", "Wrong Wright Brothers' Theories", 10, 3.5, "AERO448" ),
+( "AERO1236", "Introduction Metal Can Flying", 10, 6.0, "AERO321"),
+( "AERO1458", "Advanced Flying Saucers", 10, 6.0, "AERO1236" );
+
+/*INSERT INTO CourseProgram VALUES
     -- programID, courseID	
 	();
 
