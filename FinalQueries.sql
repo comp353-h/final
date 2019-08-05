@@ -85,6 +85,11 @@ ORDER BY campusName , floors , roomPerFloor , r.roomID;
 /*vii. Get a list of all programs available in a specific department along with the
 number of credits required for completion in each program. */
 
+SELECT departmentName, programName, programType, programCredits
+FROM Program p
+	JOIN 
+    Department d ON (p.departmentID = d.departmentID);
+
 -- viii. Get a list of all courses offered in a given term by a specific program.
 
 /*ix. Get the details of all the courses offered by a specific department for a
