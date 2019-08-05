@@ -68,46 +68,76 @@ INSERT INTO Facilities VALUES
 
 INSERT INTO FullFaculty VALUES 
     -- facultyID, firstName, lastName
-(1, "Emily", "Bisel"),
-(2, "Monika", "Acord"),
-(3, "Virginie", "Birdsell"),
-(4, "Bevvy", "Altherr"),
-(5, "Sheryl", "Affinito"),
-(6, "Karine", "Aber"),
-(7, "Torey", "Allam"),
-(8, "Karie", "Bink"),
-(9, "Nona", "Belcastro"),
-(10, "Flossi", "Beitel"),
-(11, "Netty", "Akina"),
-(12, "Marie", "Ambler"),
-(13, "Ashly", "Albany"),
-(14, "Inessa", "Acres"),
-(15, "Bette-Ann", "Addie"),
-(16, "Fancie", "Barnette"),
-(17, "Edie", "Ahmed"),
-(18, "Bobina", "Acri"),
-(19, "Cherianne", "Agramonte"),
-(20, "Dina", "Balstad"),
-(21, "Antonietta", "Allee"),
-(22, "Belinda", "Babb"),
-(23, "Lauri", "Barie"),
-(24, "Trix", "Alfonso"),
-(25, "Jaclyn", "Albanese"),
-(26, "Jandy", "Akeley"),
-(27, "Dorri", "Adelson"),
-(28, "Opaline", "Allington"),
-(29, "Vicki", "Bargar"),
-(30, "Arabel", "Allred"),
-(31, "Buffy", "Alejos"),
-(32, "Annis", "Abt"),
-(33, "Robinett", "Belding"),
-(34, "Selma", "Ambrosio"),
-(35, "Vitia", "Balzano"),
-(36, "Madge", "Almgren"),
-(37, "Letizia", "Bari"),
-(38, "Chelsae", "Beiter"),
-(39, "Delphinia", "Akel"),
-(40, "Alberta", "Abram");
+(1, "Emily", "Bisel"), -- chairman of Economics
+(2, "Monika", "Acord"), -- Chairman of Computer Science
+(3, "Virginie", "Birdsell"), -- Chairman of Civil Engineering
+(4, "Bevvy", "Altherr"), -- Chairman of Mathematics
+(5, "Sheryl", "Affinito"), -- Chairman of Journalism
+(6, "Karine", "Aber"), -- Chairman of Aerospace Engineering
+(7, "Torey", "Allam"), -- Chairman of Software Engineering
+(8, "Karie", "Bink"), -- Chairman of Building Engineering 
+(9, "Nona", "Belcastro"), -- Chairman of Electrical Engineering
+(10, "Flossi", "Beitel"), -- Chairman of Computer Engineering
+(11, "Netty", "Akina"), -- Economics Professor
+(12, "Marie", "Ambler"), -- Computer Science Professor
+(13, "Ashly", "Albany"), -- Civil Engineering Professor
+(14, "Inessa", "Acres"), -- Mathematics Professor
+(15, "Bette-Ann", "Addie"), -- Journalism Professor
+(16, "Fancie", "Barnette"), -- Aerospace Engineering Professor
+(17, "Edie", "Ahmed"), -- Software Engineering Professor
+(18, "Bobina", "Acri"), -- Building Engineering Professor
+(19, "Cherianne", "Agramonte"), -- Electrical Engineering Professor 
+(20, "Dina", "Balstad"), -- Computer Engineering Professor
+(21, "Antonietta", "Allee"), -- Economics Professor
+(22, "Belinda", "Babb"), -- Economics Professor
+(23, "Lauri", "Barie"), -- Computer Science Professor
+(24, "Trix", "Alfonso"), -- Computer Science Professor
+(25, "Jaclyn", "Albanese"), -- Civil Engineering Professor
+(26, "Jandy", "Akeley"), -- Civil Engineering Professor
+(27, "Dorri", "Adelson"), -- Mathematics Professor
+(28, "Opaline", "Allington"), -- Mathematics Professor
+(29, "Vicki", "Bargar"), -- Journalism Professor
+(30, "Arabel", "Allred"), -- Journalism Professor
+(31, "Buffy", "Alejos"), -- Aerospace Engineering Professor
+(32, "Annis", "Abt"), -- Aerospace Engineering Professor
+(33, "Robinett", "Belding"), -- Software Engineering Professor
+(34, "Selma", "Ambrosio"), -- Software Engineering Professor
+(35, "Vitia", "Balzano"), -- Building Engineering Professor
+(36, "Madge", "Almgren"), -- Building Engineering Professor
+(37, "Letizia", "Bari"), -- Electrical Engineering Professor 
+(38, "Chelsae", "Beiter"), -- Electrical Engineering Professor 
+(39, "Delphinia", "Akel"), -- Computer Engineering Professor
+(40, "Alberta", "Abram"), -- Computer Engineering Professor
+(41,"Kelcie", "Aderholt"),
+(42, "Biddie", "Alexis"),
+(43, "Angelita", "Barney"),
+(44, "Dee Dee", "Abdi"),
+(45, "Candra", "Ballweg"),
+(46, "Florenza", "Adami"),
+(47, "Fernande", "Allis"),
+(48, "Alverta", "Albino"),
+(49, "Filia", "Aldred"),
+(50, "Dotti", "Bird"),
+(51, "Chiquita", "Abraham"),
+(52, "Minette", "Adelson"), 
+(53, "Sharla", "Ambrosini"),
+(54, "Bethina", "Barney"),
+(55, "Zora", "Ahler"),
+(56, "Megen", "Alexander"),
+(57, "Micheline", "Aderhold"),
+(58, "Liv", "Akagi"),
+(59, "Lethia", "Adan"),
+(60, "Sheila-Kathryn", "Amble"),
+(61, "Averil", "Alderfer"),
+(62, "Karrie", "Ake"),
+(63, "Rozella", "Beitel"),
+(64, "Klara", "Allaway"),
+(65, "Margaret", "Allgaier"),
+(66, "Teddie", "Alm"),
+(67, "Candace", "Allyn"),
+(68, "Shanda", "Alarcon"),
+(69, "Fay", "Alexis"),
+(70, "Malina", "Almaraz");
 
 INSERT INTO Degree VALUES
 
@@ -381,47 +411,56 @@ INSERT INTO Chairman VALUES
    
    /*
 INSERT INTO Program VALUES
-   -- programID, programName, departmentID, programCredits
-( 1, "Computer Applications", 1, 90.0),
-( 2, "Computer Games", 1, 90.0 ),
-( 3, "Computer Applications", 1, 44.0 ),
-( 4, "Computer Games", 1, 44.0 ),
-( 5, "Information Systems", 2, 90.0),
-( 6, "Web Services & Applications", 2, 90.0 ),
-( 7, "Information Systems", 2, 44.0 ),
-( 8, "Web Services & Applications", 2, 44.0 ),
-( 9, "Building Energy & Environment", 3, 90.0),
-( 10, "Building Structures & Construction", 3, 90.0 ),
-( 11, "Building Energy & Environment", 3, 44.0 ),
-( 12, "Building Structures & Construction", 3, 44.0 ),
-( 13, "Civil Infrastructure", 4, 90.0),
-( 14, "Construction Engineering", 4, 90.0 ),
-( 15, "Civil Infrastructure", 4, 44.0 ),
-( 16, "Construction Engineering", 4, 44.0 ),
-( 17, "Pure Mathematics", 5, 90.0),
-( 18, "Applied Mathematics", 5, 90.0 ),
-( 19, "Pure Mathematics", 5, 44.0 ),
-( 20, "Applied Mathematics", 5, 44.0 ),
-( 21, "Print Media", 6, 90.0),
-( 22, "Corporate Journalism", 6, 90.0 ),
-( 23, "Print Media", 6, 44.0 ),
-( 24, "Corporate Journalism", 6, 44.0 ),
-( 25, "Avionics & Embedded Systems", 7, 90.0),
-( 26, "Pervasive Computing", 7, 90.0 ),
-( 27, "Avionics & Embedded Systems", 7, 44.0 ),
-( 28, "Pervasive Computing", 7, 44.0 ),
-( 29, "Microeconomics", 8, 90.0),
-( 30, "Macroeconomics", 8, 90.0 ),
-( 31, "Microeconomics", 8, 44.0 ),
-( 32, "Macroeconomics", 8, 44.0 ),
-( 33, "Power & Renewable Energy", 9, 90.0),
-( 34, "Telecommunications", 9, 90.0 ),
-( 35, "Power & Renewable Energy", 9, 44.0 ),
-( 36, "Telecommunications", 9, 44.0 ),
-( 37, "Aerodynamics & Propulsion", 10, 90.0),
-( 38, "Aerospace Structures & Materials", 10, 90.0 ),
-( 39, "Aerodynamics & Propulsion", 10, 44.0 ),
-( 40, "Aerospace Structures & Materials", 10, 44.0 );
+   -- programID, programName, departmentID, programCredits, programType ENUM( "UnderGraduate", "Graduate", "Graduate-Thesis" )
+( 1, "Computer Applications", 1, 90.0, "UnderGraduate"),
+( 2, "Computer Games", 1, 90.0, "UnderGraduate" ),
+( 3, "Computer Applications", 1, 44.0, "Graduate" ),
+( 4, "Computer Games", 1, 44.0, "Graduate-Thesis" ),
+
+( 5, "Information Systems", 2, 90.0, "UnderGraduate"),
+( 6, "Web Services & Applications", 2, 90.0, "UnderGraduate" ),
+( 7, "Information Systems", 2, 44.0, "Graduate" ),
+( 8, "Web Services & Applications", 2, 44.0, "Graduate-Thesis" ),
+
+( 9, "Building Energy & Environment", 3, 90.0, "UnderGraduate"),
+( 10, "Building Structures & Construction", 3, 90.0, "UnderGraduate" ),
+( 11, "Building Energy & Environment", 3, 44.0, "Graduate" ),
+( 12, "Building Structures & Construction", 3, 44.0, "Graduate-Thesis" ),
+
+( 13, "Civil Infrastructure", 4, 90.0, "UnderGraduate"),
+( 14, "Construction Engineering", 4, 90.0, "UnderGraduate" ),
+( 15, "Civil Infrastructure", 4, 44.0, "Graduate" ),
+( 16, "Construction Engineering", 4, 44.0, "Graduate-Thesis" ),
+
+( 17, "Pure Mathematics", 5, 90.0, "UnderGraduate"),
+( 18, "Applied Mathematics", 5, 90.0, "UnderGraduate" ),
+( 19, "Pure Mathematics", 5, 44.0, "Graduate" ),
+( 20, "Applied Mathematics", 5, 44.0, "Graduate-Thesis" ),
+
+( 21, "Print Media", 6, 90.0, "UnderGraduate"),
+( 22, "Corporate Journalism", 6, 90.0, "UnderGraduate" ),
+( 23, "Print Media", 6, 44.0, "Graduate" ),
+( 24, "Corporate Journalism", 6, 44.0, "Graduate-Thesis" ),
+
+( 25, "Avionics & Embedded Systems", 7, 90.0, "UnderGraduate"),
+( 26, "Pervasive Computing", 7, 90.0, "UnderGraduate" ),
+( 27, "Avionics & Embedded Systems", 7, 44.0, "Graduate" ),
+( 28, "Pervasive Computing", 7, 44.0, "Graduate-Thesis" ),
+
+( 29, "Microeconomics", 8, 90.0, "UnderGraduate"),
+( 30, "Macroeconomics", 8, 90.0, "UnderGraduate" ),
+( 31, "Microeconomics", 8, 44.0, "Graduate" ),
+( 32, "Macroeconomics", 8, 44.0, "Graduate-Thesis" ),
+
+( 33, "Power & Renewable Energy", 9, 90.0, "UnderGraduate"),
+( 34, "Telecommunications", 9, 90.0, "UnderGraduate" ),
+( 35, "Power & Renewable Energy", 9, 44.0, "Graduate" ),
+( 36, "Telecommunications", 9, 44.0, "Graduate-Thesis" ),
+
+( 37, "Aerodynamics & Propulsion", 10, 90.0, "UnderGraduate"),
+( 38, "Aerospace Structures & Materials", 10, 90.0, "UnderGraduate" ),
+( 39, "Aerodynamics & Propulsion", 10, 44.0, "Graduate" ),
+( 40, "Aerospace Structures & Materials", 10, 44.0, "Graduate-Thesis" );
 
 
 INSERT INTO Course VALUES
@@ -431,55 +470,136 @@ INSERT INTO Course VALUES
 ( "COMP249", "Advanced Object Oriented Programming", 1, 4.0, "COMP248"),
 ( "COMP1268", "Advanced Methods of Database Implementation", 1, 6.0, "COMP249" ),
 ( "COMP1368", "Really Difficult Turing Machines", 1, 6.0, "COMP1268" ),
+
 ( "SOEN287", "Websites N Stuff", 2, 3.0, NULL),
 ( "SOEN321", "Introduction To Hacking Protection", 2, 3.0, "SOEN287" ),
 ( "SOEN1020", "Advanced Planning for Duty Delegation", 2, 6.0, NULL ),
 ( "SOEN1220", "Databases", 2, 6.0, "SOEN1020" ),
-( "BUEN223", "Intorduction to Union Negotiations", 3, 3.0, NULL),
+
+( "BUEN223", "Introduction to Union Negotiations", 3, 3.0, NULL),
 ( "BUEN346", "Strategies for Material Selection", 3, 4.0, "BUEN233" ),
 ( "BUEN1238", "Advanced Mafia Avoidance", 3, 6.0, "BUEN233" ),
 ( "BUEN1485", "Introduction To Skyscraper Views ", 3, 7.0, "BUEN346" ),
-( "CIVI101", "Intorduction to Civility", 4, 3.0, NULL),
+
+( "CIVI101", "Introduction to Civility", 4, 3.0, NULL),
 ( "CIVI210", "Construction Methods and Strategies", 4, 4.0, "CIVI210" ),
 ( "CIVI1256", "Advanced Civil Infrastructure", 4, 6.0 , NULL),
 ( "CIVI1385", "A Lesson In Construction Engineering", 4, 6.0, "CIVI1256" ),
+
 ( "MATH203", "Calculus I", 5, 3.0, NULL),
 ( "MATH205", "Calculus II", 5, 3.0, "MATH203"),
 ( "MATH1465", "Introduction To Really Hard Algebra", 5, 6.0, "MATH205" ),
 ( "MATH1546", "Advanced Really Hard Algebra", 5, 6.0, "MATH205" ),
-( "JOUR223", "Introduction to Dying Meddia Forms", 6, 3.0, NULL),
+
+( "JOUR223", "Introduction to Dying Media Forms", 6, 3.0, NULL),
 ( "JOUR362", "Methods and Strategies of Spin", 6, 3.0, "JOUR223" ),
 ( "JOUR1356", "Introduction to Tomfoolery", 6, 4.0, "JOUR362"),
 ( "JOUR1452", "Advanced Question Dodging", 6, 6.0, "JOUR223" ),
+
 ( "COEN221", "Introduction to Tinkering", 7, 3.0, NULL),
 ( "COEN345", "Power Button Development", 7, 4.0, "COEN221" ),
 ( "COEN1152", "Advanced Tinkering", 7, 6.0, "COEN345" ),
 ( "COEN1235", "Advanced NAND Gate Development", 7, 7.0, "COEN1152" ),
+
 ( "ECON201", "Introduction to Microeconomics", 8, 3.0, NULL),
 ( "ECON203", "Introduction to Macroeconomics", 8, 3.0, NULL ),
 ( "ECON1030", "Advanced Market Crashing Techniques", 8, 6.0, "ECON203"),
 ( "ECON1136", "Crippling Student Debt", 8, 6.0, "ECON201" ),
+
 ( "ELEC247", "Introduction to Zapping", 9, 3.0, NULL),
 ( "ELEC353", "Telecommunications System Design", 9, 4.0, "ELEC247" ),
 ( "ELEC1032", "Advanced Electricity Billing", 9, 6.0, "ELEC353" ),
 ( "ELEC1228", "Advanced Red Wire Cutting", 9, 6.0, "ELEC1032" ),
-( "AERO321", "Intorduction to Flying", 10, 3.0, NULL),
+
+( "AERO321", "Introduction to Flying", 10, 3.0, NULL),
 ( "AERO448", "Wrong Wright Brothers' Theories", 10, 3.5, "AERO448" ),
 ( "AERO1236", "Introduction Metal Can Flying", 10, 6.0, "AERO321"),
 ( "AERO1458", "Advanced Flying Saucers", 10, 6.0, "AERO1236" );
 */ 
 
-/*INSERT INTO CourseProgram VALUES
+INSERT INTO CourseProgram VALUES
     -- programID, courseID	
-	();
+    
+    (1, "COMP248"),
+    (1, "COMP249"),
+    (4, "COMP1268"),
+    (4, "COMP1368"),
+    
+    (6, "SOEN287"),
+    (6, "SOEN321"),
+    (7, "SOEN1020"),
+    (7, "SOEN1220"),
+    
+    (9, "BUEN223"),
+    (9, "BUEN346"),
+    (12, "BUEN1238"),
+    (12, "BUEN1485"),
+    
+    (13, "CIVI101"),
+    (13, "CIVI210"),
+    (16, "CIVI1256"),
+    (16, "CIVI1385"),
+    
+    (18, "MATH203"),
+    (18, "MATH205"),
+    (19, "MATH1465"),
+    (19, "MATH1546"),
+    
+    (21, "JOUR223"),
+    (21, "JOUR362"),
+    (23, "JOUR1356"),
+    (23, "JOUR1452"),
+    
+    (24, "COEN221"),
+    (24, "COEN345"),
+    (26, "COEN1152"),
+    (26, "COEN1235"),
+    
+    (27, "ECON201"),
+    (27, "ECON203"),
+    (29, "ECON1030"),
+    (29, "ECON1136"),
+    
+    (32, "ELEC247"),
+    (32, "ELEC353"),
+    (35, "ELEC1032"),
+    (35, "ELEC1228"),
+    
+    (38, "AERO321"),
+    (38, "AERO448"),
+    (40, "AERO1236"),
+    (40, "AERO1458");
 
 INSERT INTO Term VALUES
     -- termID, termName ENUM('FALL', 'WINTER', 'SUMMER'), termYear
     
-    ();
+(1, 'FALL', 2015),
+    (2, 'WINTER', 2015),
+    (3, 'SUMMER', 2015),
+	(4, 'FALL', 2016),
+    (5, 'WINTER', 2016),
+    (6, 'SUMMER', 2016),
+	(7, 'FALL', 2017),
+    (8, 'WINTER', 2017),
+    (9, 'SUMMER', 2017),
+	(10, 'FALL', 2018),
+    (11, 'WINTER', 2018),
+    (12, 'SUMMER', 2018),
+	(13, 'FALL', 2019),
+    (14, 'WINTER', 2019),
+    (15, 'SUMMER', 2019),
+	(16, 'FALL', 2020),
+    (17, 'WINTER', 2020),
+    (18, 'SUMMER', 2020),
+	(19, 'FALL', 2021),
+    (20, 'WINTER', 2021),
+    (21, 'SUMMER', 2021),
+	(22, 'FALL', 2022),
+    (23, 'WINTER', 2022),
+    (24, 'SUMMER', 2022);
     
 
-INSERT INTO Section VALUES
+/*INSERT INTO Section VALUES
     
     -- courseID, sectionID, termID, instructorID, roomID, buildingID
     

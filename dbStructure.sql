@@ -238,6 +238,7 @@ CREATE TABLE Student (
     email VARCHAR(128) NOT NULL,
     phone INT(10),
     dateOfBirth DATE NOT NULL,
+    ssn INT UNSIGNED,
     PRIMARY KEY (studentID)
 )  ENGINE=INNODB;
 
