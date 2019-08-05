@@ -379,7 +379,7 @@ INSERT INTO Chairman VALUES
    (9, 9),
    (10, 7);
    
-   
+   /*
 INSERT INTO Program VALUES
    -- programID, programName, departmentID, programCredits
 ( 1, "Computer Applications", 1, 90.0),
@@ -467,6 +467,7 @@ INSERT INTO Course VALUES
 ( "AERO448", "Wrong Wright Brothers' Theories", 10, 3.5, "AERO448" ),
 ( "AERO1236", "Introduction Metal Can Flying", 10, 6.0, "AERO321"),
 ( "AERO1458", "Advanced Flying Saucers", 10, 6.0, "AERO1236" );
+*/ 
 
 /*INSERT INTO CourseProgram VALUES
     -- programID, courseID	

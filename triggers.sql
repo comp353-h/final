@@ -1,16 +1,9 @@
-<<<<<<< HEAD
 DROP TRIGGER IF EXISTS ConferenceRoomInsertTrigger;
 DROP TRIGGER IF EXISTS OfficeInsertTrigger;
 DROP TRIGGER IF EXISTS LabInsertTrigger;
 DROP TRIGGER IF EXISTS ClassroomInsertTrigger;
-=======
-DROP TRIGGER IF EXISTS ConferenceRoomTrigger;
-DROP TRIGGER IF EXISTS OfficeTrigger;
-DROP TRIGGER IF EXISTS LabTrigger;
-DROP TRIGGER IF EXISTS ClassroomTrigger;
-DROP TRIGGER IF EXISTS INSERT_CHECK_prereq;
-DROP TRIGGER IF EXISTS UPDATE_CHECK_prereq;
->>>>>>> 6387abc7eaac4b17bc454b4fb87cf86825d2142e
+-- DROP TRIGGER IF EXISTS INSERT_CHECK_prereq;
+-- DROP TRIGGER IF EXISTS UPDATE_CHECK_prereq;
 
 DELIMITER $$
 CREATE TRIGGER ClassroomInsertTrigger BEFORE INSERT ON Classroom
@@ -40,7 +33,7 @@ CREATE TRIGGER ConferenceRoomInsertTrigger BEFORE INSERT ON ConferenceRoom
     END$$
 DELIMITER ;
 
-
+/*
 DELIMITER $$
 CREATE TRIGGER INSERT_CHECK_prereq BEFORE INSERT ON StudentCourses
 FOR EACH ROW
@@ -77,9 +70,9 @@ THEN
 	SIGNAL SQLSTATE '45000'
            SET MESSAGE_TEXT = 'You failed in prerequisite course';           
     END IF;
-END;$$
-
-
+END $$
+*/
+/*
 DELIMITER $$
 CREATE TRIGGER UPDATE_CHECK_prereq BEFORE UPDATE ON StudentCourses
 FOR EACH ROW
@@ -115,5 +108,6 @@ THEN
 THEN
 	SIGNAL SQLSTATE '45000'
            SET MESSAGE_TEXT = 'You failed in prerequisite course';           
-    END IF;
-END;$$
+    END IF ;
+END $$
+*/
