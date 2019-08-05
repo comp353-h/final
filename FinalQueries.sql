@@ -34,7 +34,41 @@ DELETE FROM Degree WHERE degreeName = "Computer Science" AND schoolName="Concord
 DELETE FROM FullFaculty WHERE facultyID = 41; 
 
 -- ii. Create/Delete/Edit/Display a Student.
+-- CREATES a Student who is an undergrad in the Computer Applications program.
+INSERT INTO Student(studentID,firstName,lastName,email,phone,dateOfBirth) VALUES ('1','Tom','Smith','tomsmith@gmail.com',5147546695,'1995-03-09');
+INSERT INTO StudentProgram(studentID,programID) VALUES ('1','1');
+INSERT INTO UnderGraduateStudent(studentID,gpa) VALUES ('1','3.5');
 
+-- EDITS the student's name
+UPDATE Student 
+SET 
+    firstName = 'Steave',
+    lastName = 'Kith'
+WHERE
+    studentID = '1';
+    
+
+-- DISPLAYS the created student
+SELECT 
+    s.studentID AS 'Student ID',
+    CONCAT(s.firstName, ' ', s.lastName) AS 'Name',
+    u.gpa AS 'gpa',
+    p.programName AS 'Program Name'
+FROM
+    Student s
+        JOIN
+    StudentProgram sp ON (s.studentID = sp.studentID)
+        JOIN
+	Program p ON (p.programID = sp.programID)
+        JOIN
+    UnderGraduateStudent u ON (s.studentID = u.studentID)
+WHERE
+    s.studentID = '1';  
+    
+-- DELETES the created student
+DELETE FROM StudentProgram WHERE studentID = '1'; 
+DELETE FROM UnderGraduateStudent WHERE studentID = '1'; 
+DELETE FROM Student WHERE studentID = '1'; 
 -- iii. Create/Delete/Edit/Display a Teaching Assistant
 
 -- iv. Give a list of all campuses.
