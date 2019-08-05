@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Grade;
 DROP TABLE IF EXISTS StudentCourses;
 DROP TABLE IF EXISTS StudentProgram;
 DROP TABLE IF EXISTS GraduateStudent;
@@ -106,35 +107,35 @@ CREATE TABLE FullFaculty (
     facultyID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(128) NOT NULL,
     lastName VARCHAR(128) NOT NULL,
-    PRIMARY KEY ( facultyID )
-) ENGINE=INNODB;
+    PRIMARY KEY (facultyID)
+)  ENGINE=INNODB;
 
 CREATE TABLE Degree (
-    degreeName VARCHAR( 128 ) NOT NULL,
-    schoolName VARCHAR( 128 ) NOT NULL,
+    degreeName VARCHAR(128) NOT NULL,
+    schoolName VARCHAR(128) NOT NULL,
     year INT NOT NULL,
-    PRIMARY KEY ( degreeName, schoolName, year )
-) ENGINE=INNODB;
+    PRIMARY KEY (degreeName , schoolName , year)
+)  ENGINE=INNODB;
 
 CREATE TABLE Award (
-    awardName VARCHAR( 128 ) NOT NULL,
+    awardName VARCHAR(128) NOT NULL,
     year INT NOT NULL,
-    PRIMARY KEY ( awardName, year )
-) ENGINE=INNODB;
+    PRIMARY KEY (awardName , year)
+)  ENGINE=INNODB;
 
 CREATE TABLE Publication (
-    publicationName VARCHAR( 128 ) NOT NULL,
+    publicationName VARCHAR(128) NOT NULL,
     year INT NOT NULL,
-    PRIMARY KEY ( publicationName, year )
-) ENGINE=INNODB;
+    PRIMARY KEY (publicationName , year)
+)  ENGINE=INNODB;
 
 CREATE TABLE Employment (
-    title VARCHAR( 128 ) NOT NULL,
-    employer VARCHAR( 128 ) NOT NULL,
+    title VARCHAR(128) NOT NULL,
+    employer VARCHAR(128) NOT NULL,
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
-    PRIMARY KEY ( title, employer )
-) ENGINE=INNODB;
+    PRIMARY KEY (title , employer)
+)  ENGINE=INNODB;
 
 CREATE TABLE FacultyDegree (
     facultyID INT AUTO_INCREMENT NOT NULL,
@@ -142,8 +143,8 @@ CREATE TABLE FacultyDegree (
     schoolName VARCHAR(128) NOT NULL,
     year INT NOT NULL,
     PRIMARY KEY (degreeName , schoolName , year),
-    FOREIGN KEY (degreeName, schoolName, year )
-        REFERENCES Degree( degreeName, schoolName, year ),
+    FOREIGN KEY (degreeName , schoolName , year)
+        REFERENCES Degree (degreeName , schoolName , year),
     FOREIGN KEY (facultyID)
         REFERENCES FullFaculty (facultyID)
 )  ENGINE=INNODB;
@@ -156,7 +157,7 @@ CREATE TABLE Department (
 
 CREATE TABLE Instructor (
     instructorID INT AUTO_INCREMENT NOT NULL,
-	departmentID INT NOT NULL,
+    departmentID INT NOT NULL,
     PRIMARY KEY (instructorID),
     FOREIGN KEY (instructorID)
         REFERENCES FullFaculty (facultyID),
@@ -179,7 +180,7 @@ CREATE TABLE Program (
     programName CHAR(128) NOT NULL,
     departmentID INT NOT NULL,
     programCredits DECIMAL(4 , 1 ),
-    programType ENUM( "UnderGraduate", "Graduate", "Graduate-Thesis" ),
+    programType ENUM('UnderGraduate', 'Graduate', 'Graduate-Thesis'),
     PRIMARY KEY (programID),
     FOREIGN KEY (departmentID)
         REFERENCES Department (departmentID)
@@ -220,7 +221,7 @@ CREATE TABLE Section (
     instructorID INT NOT NULL,
     roomID INT NOT NULL,
     buildingID VARCHAR(2) NOT NULL,
-    PRIMARY KEY (courseID , sectionID, termID ),
+    PRIMARY KEY (courseID , sectionID , termID),
     FOREIGN KEY (courseID)
         REFERENCES Course (courseID),
     FOREIGN KEY (termID)
@@ -261,11 +262,17 @@ CREATE TABLE GraduateStudent (
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,
     programID INT NOT NULL,
-	PRIMARY KEY (studentID , programID),
+    PRIMARY KEY (studentID , programID),
     FOREIGN KEY (studentID)
         REFERENCES Student (studentID),
     FOREIGN KEY (programID)
         REFERENCES Program (programID)
+)  ENGINE=INNODB;
+
+CREATE TABLE Grade (
+    grade VARCHAR(3),
+    gradePoint INT,
+    PRIMARY KEY (grade)
 )  ENGINE=INNODB;
 
 CREATE TABLE StudentCourses (
@@ -273,9 +280,12 @@ CREATE TABLE StudentCourses (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
-	PRIMARY KEY (studentID , courseID, sectionID, termID),
+    grade VARCHAR(3),
+    PRIMARY KEY (studentID , courseID , sectionID , termID),
     FOREIGN KEY (studentID)
         REFERENCES Student (studentID),
-    FOREIGN KEY (courseID , sectionID, termID)
-        REFERENCES Section (courseID , sectionID, termID)
+    FOREIGN KEY (courseID , sectionID , termID)
+        REFERENCES Section (courseID , sectionID , termID),
+    FOREIGN KEY (grade)
+        REFERENCES Grade (grade)
 )  ENGINE=INNODB;
