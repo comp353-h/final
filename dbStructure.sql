@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS Grade;
 DROP TABLE IF EXISTS StudentCourses;
+DROP TABLE IF EXISTS Grade;
 DROP TABLE IF EXISTS StudentProgram;
 DROP TABLE IF EXISTS GraduateStudent;
 DROP TABLE IF EXISTS UnderGraduateStudent;
@@ -142,11 +142,11 @@ CREATE TABLE FacultyDegree (
     degreeName VARCHAR(128) NOT NULL,
     schoolName VARCHAR(128) NOT NULL,
     year INT NOT NULL,
-    PRIMARY KEY (degreeName , schoolName , year),
+    PRIMARY KEY (facultyID, degreeName , schoolName , year),
     FOREIGN KEY (degreeName , schoolName , year)
         REFERENCES Degree (degreeName , schoolName , year),
     FOREIGN KEY (facultyID)
-        REFERENCES FullFaculty (facultyID)
+        REFERENCES FullFaculty (facultyID) ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 CREATE TABLE Department (
@@ -160,7 +160,7 @@ CREATE TABLE Instructor (
     departmentID INT NOT NULL,
     PRIMARY KEY (instructorID),
     FOREIGN KEY (instructorID)
-        REFERENCES FullFaculty (facultyID),
+        REFERENCES FullFaculty (facultyID) ON DELETE CASCADE,
     FOREIGN KEY (departmentID)
         REFERENCES Department (departmentID)
 )  ENGINE=INNODB;
@@ -170,7 +170,7 @@ CREATE TABLE Chairman (
     departmentID INT NOT NULL,
     PRIMARY KEY (chairmanID),
     FOREIGN KEY (chairmanID)
-        REFERENCES FullFaculty (facultyID),
+        REFERENCES FullFaculty (facultyID) ON DELETE CASCADE,
     FOREIGN KEY (departmentID)
         REFERENCES Department (departmentID)
 )  ENGINE=INNODB;

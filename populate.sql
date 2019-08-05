@@ -142,7 +142,7 @@ INSERT INTO FullFaculty VALUES
 INSERT INTO Degree VALUES
 
    --  degreeName, schoolName, year
-   
+	
    ("Economics", "Oxford", 1978),
    ("Computer Science", "Oxford", 1986),
    ("Civil Engineering", "Oxford", 1994),
@@ -152,37 +152,36 @@ INSERT INTO Degree VALUES
    ("Computer Science", "Cambridge", 1987),
    ("Civil Engineering", "Cambridge", 1995),
    ("Mathematics", "Cambridge", 2003),
-   ("Journalism", "Cambridge", 2011),
-  ("Economics", "Yale", 1980),
+   ("Computer Engineering", "Cambridge", 2011),
+   ("Economics", "Yale", 1980),
    ("Computer Science", "Yale", 1988),
    ("Civil Engineering", "Yale", 1996),
    ("Mathematics", "Yale", 2004),
    ("Journalism", "Yale", 2012),
-  ("Economics", "Harvard", 1981),
-   ("Computer Science", "Harvard", 1989),
-   ("Civil Engineering", "Harvard", 1997),
-   ("Mathematics", "Harvard", 2005),
-   ("Journalism", "Harvard", 2013),
-  ("Economics", "Undisputed University of Rhaganomics", 1982),
-   ("Computer Science", "Undisputed University of Rhaganomics", 1990),
-   ("Civil Engineering", "Undisputed University of Rhaganomics", 1998),
-   ("Mathematics", "Undisputed University of Rhaganomics", 2006),
-   ("Journalism", "Undisputed University of Rhaganomics", 2014),
-  ("Economics", "Massachussets Institute of Technology", 1983),
-   ("Computer Science", "Massachussets Institute of Technology", 1991),
-   ("Civil Engineering", "Massachussets Institute of Technology", 1999),
-   ("Mathematics", "Massachussets Institute of Technology", 2007),
+   ("Aerospace Engineering", "Harvard", 1981),
+   ("Software Engineering", "Harvard", 1989),
+   ("Building Engineering", "Harvard", 1997),
+   ("Electrical Engineering", "Harvard", 2005),
+   ("Computer Engineering", "Harvard", 2013),
+   ("Economics", "Undisputed University of Rhaganomics", 1982),
+   ("Computer Science", "Undisputed University of Rhaganomics", 1998),
+   ("Computer Science", "Undisputed University of Rhaganomics", 2006),
+   ("Civil Engineering", "Undisputed University of Rhaganomics", 2014),
+   ("Civil Engineering", "Massachussets Institute of Technology", 1983),
+   ("Mathematics", "Massachussets Institute of Technology", 1991),
+   ("Mathematics", "Massachussets Institute of Technology", 1999),
+   ("Journalism", "Massachussets Institute of Technology", 2007),
    ("Journalism", "Massachussets Institute of Technology", 2015),
-  ("Economics", "Georgetown", 1984),
-   ("Computer Science", "Georgetown", 1992),
-   ("Civil Engineering", "Georgetown", 2000),
-   ("Mathematics", "Georgetown", 2008),
-   ("Journalism", "Georgetown", 2016),
- ("Economics", "Concordia University", 1985),
-   ("Computer Science", "Concordia University", 1993),
-   ("Civil Engineering", "Concordia University", 2001),
-   ("Mathematics", "Concordia University", 2009),
-   ("Journalism", "Concordia University", 2017);
+   ("Aerospace Engineering ", "University of Georgetown", 1984),
+   ("Aerospace Engineering ", "University of Georgetown", 1992),
+   ("Software Engineering", "University of Georgetown", 2000),
+   ("Software Engineering", "University of Georgetown", 2008),
+   ("Building Engineering", "University of Georgetown", 2016),
+   ("Building Engineering", "Concordia University", 1985),
+   ("Electrical Engineering", "Concordia University", 1993),
+   ("Electrical Engineering", "Concordia University", 2001),
+   ("Computer Engineering", "Concordia University", 2009),
+   ("Computer Engineering", "Concordia University", 2017);
 
 INSERT INTO Award VALUES
    -- awardName, year
@@ -409,7 +408,7 @@ INSERT INTO Chairman VALUES
    (9, 9),
    (10, 7);
    
-   /*
+   
 INSERT INTO Program VALUES
    -- programID, programName, departmentID, programCredits, programType ENUM( "UnderGraduate", "Graduate", "Graduate-Thesis" )
 ( 1, "Computer Applications", 1, 90.0, "UnderGraduate"),
@@ -515,7 +514,7 @@ INSERT INTO Course VALUES
 ( "AERO448", "Wrong Wright Brothers' Theories", 10, 3.5, "AERO448" ),
 ( "AERO1236", "Introduction Metal Can Flying", 10, 6.0, "AERO321"),
 ( "AERO1458", "Advanced Flying Saucers", 10, 6.0, "AERO1236" );
-*/ 
+
 
 INSERT INTO CourseProgram VALUES
     -- programID, courseID	
