@@ -68,46 +68,46 @@ INSERT INTO Facilities VALUES
 
 INSERT INTO FullFaculty VALUES 
     -- facultyID, firstName, lastName
-(1, "Emily", "Bisel"),
-(2, "Monika", "Acord"),
-(3, "Virginie", "Birdsell"),
-(4, "Bevvy", "Altherr"),
-(5, "Sheryl", "Affinito"),
-(6, "Karine", "Aber"),
-(7, "Torey", "Allam"),
-(8, "Karie", "Bink"),
-(9, "Nona", "Belcastro"),
-(10, "Flossi", "Beitel"),
-(11, "Netty", "Akina"),
-(12, "Marie", "Ambler"),
-(13, "Ashly", "Albany"),
-(14, "Inessa", "Acres"),
-(15, "Bette-Ann", "Addie"),
-(16, "Fancie", "Barnette"),
-(17, "Edie", "Ahmed"),
-(18, "Bobina", "Acri"),
-(19, "Cherianne", "Agramonte"),
-(20, "Dina", "Balstad"),
-(21, "Antonietta", "Allee"),
-(22, "Belinda", "Babb"),
-(23, "Lauri", "Barie"),
-(24, "Trix", "Alfonso"),
-(25, "Jaclyn", "Albanese"),
-(26, "Jandy", "Akeley"),
-(27, "Dorri", "Adelson"),
-(28, "Opaline", "Allington"),
-(29, "Vicki", "Bargar"),
-(30, "Arabel", "Allred"),
-(31, "Buffy", "Alejos"),
-(32, "Annis", "Abt"),
-(33, "Robinett", "Belding"),
-(34, "Selma", "Ambrosio"),
-(35, "Vitia", "Balzano"),
-(36, "Madge", "Almgren"),
-(37, "Letizia", "Bari"),
-(38, "Chelsae", "Beiter"),
-(39, "Delphinia", "Akel"),
-(40, "Alberta", "Abram"),
+(1, "Emily", "Bisel"), -- chairman of Economics
+(2, "Monika", "Acord"), -- Chairman of Computer Science
+(3, "Virginie", "Birdsell"), -- Chairman of Civil Engineering
+(4, "Bevvy", "Altherr"), -- Chairman of Mathematics
+(5, "Sheryl", "Affinito"), -- Chairman of Journalism
+(6, "Karine", "Aber"), -- Chairman of Aerospace Engineering
+(7, "Torey", "Allam"), -- Chairman of Software Engineering
+(8, "Karie", "Bink"), -- Chairman of Building Engineering 
+(9, "Nona", "Belcastro"), -- Chairman of Electrical Engineering
+(10, "Flossi", "Beitel"), -- Chairman of Computer Engineering
+(11, "Netty", "Akina"), -- Economics Professor
+(12, "Marie", "Ambler"), -- Computer Science Professor
+(13, "Ashly", "Albany"), -- Civil Engineering Professor
+(14, "Inessa", "Acres"), -- Mathematics Professor
+(15, "Bette-Ann", "Addie"), -- Journalism Professor
+(16, "Fancie", "Barnette"), -- Aerospace Engineering Professor
+(17, "Edie", "Ahmed"), -- Software Engineering Professor
+(18, "Bobina", "Acri"), -- Building Engineering Professor
+(19, "Cherianne", "Agramonte"), -- Electrical Engineering Professor 
+(20, "Dina", "Balstad"), -- Computer Engineering Professor
+(21, "Antonietta", "Allee"), -- Economics Professor
+(22, "Belinda", "Babb"), -- Economics Professor
+(23, "Lauri", "Barie"), -- Computer Science Professor
+(24, "Trix", "Alfonso"), -- Computer Science Professor
+(25, "Jaclyn", "Albanese"), -- Civil Engineering Professor
+(26, "Jandy", "Akeley"), -- Civil Engineering Professor
+(27, "Dorri", "Adelson"), -- Mathematics Professor
+(28, "Opaline", "Allington"), -- Mathematics Professor
+(29, "Vicki", "Bargar"), -- Journalism Professor
+(30, "Arabel", "Allred"), -- Journalism Professor
+(31, "Buffy", "Alejos"), -- Aerospace Engineering Professor
+(32, "Annis", "Abt"), -- Aerospace Engineering Professor
+(33, "Robinett", "Belding"), -- Software Engineering Professor
+(34, "Selma", "Ambrosio"), -- Software Engineering Professor
+(35, "Vitia", "Balzano"), -- Building Engineering Professor
+(36, "Madge", "Almgren"), -- Building Engineering Professor
+(37, "Letizia", "Bari"), -- Electrical Engineering Professor 
+(38, "Chelsae", "Beiter"), -- Electrical Engineering Professor 
+(39, "Delphinia", "Akel"), -- Computer Engineering Professor
+(40, "Alberta", "Abram"), -- Computer Engineering Professor
 (41,"Kelcie", "Aderholt"),
 (42, "Biddie", "Alexis"),
 (43, "Angelita", "Barney"),
@@ -119,7 +119,7 @@ INSERT INTO FullFaculty VALUES
 (49, "Filia", "Aldred"),
 (50, "Dotti", "Bird"),
 (51, "Chiquita", "Abraham"),
-(52, "Minette", "Adelson"),
+(52, "Minette", "Adelson"), 
 (53, "Sharla", "Ambrosini"),
 (54, "Bethina", "Barney"),
 (55, "Zora", "Ahler"),
