@@ -133,7 +133,7 @@ SELECT c.courseName
 FROM Course c
 JOIN CourseProgram cp ON (c.courseID=cp.courseID)
 JOIN Section s ON (c.courseID=s.courseID)
-WHERE s.termID='1' AND cp.programID='40'
+WHERE s.termID='1' AND cp.programID='40';
 
 
 /*ix. Get the details of all the courses offered by a specific department for a
