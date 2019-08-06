@@ -333,7 +333,7 @@ CREATE TABLE StudentProgram (
 
 CREATE TABLE Grade (
     grade VARCHAR(3),
-    gradePoint INT,
+    gradePoint DECIMAL(3, 2),
     PRIMARY KEY (grade)
 )  ENGINE=INNODB;
 
