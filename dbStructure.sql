@@ -284,7 +284,7 @@ CREATE TABLE Section (
 CREATE TABLE TutorialSection (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
-    tutorialID VARCHAR(2) NULL,
+    tutorialID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
     teachingAssistantID INT NOT NULL,
     roomID INT NOT NULL,
@@ -320,6 +320,11 @@ CREATE TABLE LabSection (
     FOREIGN kEY ( timeID )
         REFERENCES TimeSlot( timeID )
 ) ENGINE=INNODB;
+
+CREATE TABLE ResearchFunding (
+    fundingID INT AUTO_INCREMENT NOT NULL,
+    
+)
 
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,

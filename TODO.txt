@@ -1,1 +1,2 @@
 - Add triggers that check only students with a certain GPA can be TAs.
+- Add trigger to check that a student can only have a supervisor if they are in a Thesis Program.
