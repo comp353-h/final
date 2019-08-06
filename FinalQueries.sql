@@ -150,7 +150,7 @@ specific term.*/
 SELECT  s.termID, f.firstName, f.lastName, s.courseID
 FROM Section s
 JOIN FullFaculty f ON (f.facultyID=s.instructorID)
-WHERE s.termID=1 AND s.courseID = "COMP248"; -- term can be chosen
+WHERE s.termID=1 AND s.courseID = "COMP248"; -- term and course can be chosen
 
 -- xii. Give a list of all supervisors in a given department.
 
