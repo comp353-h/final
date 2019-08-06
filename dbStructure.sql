@@ -1,10 +1,13 @@
 DROP TABLE IF EXISTS StudentCourses;
 DROP TABLE IF EXISTS Grade;
 DROP TABLE IF EXISTS StudentProgram;
+DROP TABLE IF EXISTS TutorialSection;
+DROP TABLE IF EXISTS Section;
+DROP TABLE IF EXISTS TeachingAssistant;
 DROP TABLE IF EXISTS GraduateStudent;
 DROP TABLE IF EXISTS UnderGraduateStudent;
 DROP TABLE IF EXISTS Student;
-DROP TABLE IF EXISTS Section;
+DROP TABLE IF EXISTS TimeSlot;
 DROP TABLE IF EXISTS Term;
 DROP TABLE IF EXISTS CourseProgram;
 DROP TABLE IF EXISTS Course;
@@ -222,6 +225,40 @@ CREATE TABLE TimeSlot (
     PRIMARY KEY ( timeID )
 ) ENGINE=INNODB;
 
+CREATE TABLE Student (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(128) NOT NULL,
+    lastName VARCHAR(128) NOT NULL,
+    email VARCHAR(128) NOT NULL,
+    phone BIGINT,
+    dateOfBirth DATE NOT NULL,
+    ssn INT UNSIGNED,
+    PRIMARY KEY (studentID)
+)  ENGINE=INNODB;
+
+CREATE TABLE UnderGraduateStudent (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (studentID),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID)
+)  ENGINE=INNODB;
+
+CREATE TABLE GraduateStudent (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (studentID),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID)
+)  ENGINE=INNODB;
+
+CREATE TABLE TeachingAssistant (
+    studentID INT NOT NULL,
+    PRIMARY KEY ( studentID ),
+    FOREIGN KEY ( studentID )
+        REFERENCES GraduateStudent ( studentID )
+) ENGINE=INNODB;
+
 CREATE TABLE Section (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
@@ -243,32 +280,23 @@ CREATE TABLE Section (
         REFERENCES TimeSlot( timeID )
 )  ENGINE=INNODB;
 
-CREATE TABLE Student (
-    studentID INT AUTO_INCREMENT NOT NULL,
-    firstName VARCHAR(128) NOT NULL,
-    lastName VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL,
-    phone INT(10),
-    dateOfBirth DATE NOT NULL,
-    ssn INT UNSIGNED,
-    PRIMARY KEY (studentID)
-)  ENGINE=INNODB;
+CREATE TABLE TutorialSection (
+    courseID VARCHAR(8) NOT NULL,
+    sectionID VARCHAR(2) NOT NULL,
+    tutorialID VARCHAR(2) NOT NULL,
+    termID INT NOT NULL,
+    teachingAssistantID INT NOT NULL,
+    roomID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
 
-CREATE TABLE UnderGraduateStudent (
-    studentID INT AUTO_INCREMENT NOT NULL,
-    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
-    PRIMARY KEY (studentID),
-    FOREIGN KEY (studentID)
-        REFERENCES Student (studentID)
-)  ENGINE=INNODB;
-
-CREATE TABLE GraduateStudent (
-    studentID INT AUTO_INCREMENT NOT NULL,
-    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
-    PRIMARY KEY (studentID),
-    FOREIGN KEY (studentID)
-        REFERENCES Student (studentID)
-)  ENGINE=INNODB;
+    PRIMARY KEY ( courseID, sectionID, tutorialID, termID ),
+    FOREIGN KEY Section ( courseID, sectionID, termID )
+        REFERENCES Section ( courseID, sectionID, termID ),
+    FOREIGN KEY ( teachingAssistantID )
+        REFERENCES TeachingAssistant ( studentID ),
+    FOREIGN KEY ( roomID , buildingID )
+        REFERENCES Classroom (classroomID , buildingID)
+) ENGINE=INNODB;
 
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,
