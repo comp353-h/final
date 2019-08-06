@@ -2,6 +2,7 @@ In Raghav University:
  - TA's either do Lab, Grading or Tutorial, never more than one in one term
  - Advisors have exactly one program
  - All floors have the same number of rooms
+ - A Section has at most one Lab and one Tutorial
  - Class Sections can only be given at the following times: 10-11, 14-15, 17-18
    - Lab Sections: 11-12, 15-16
    - Tutorial Sections: 12-13, 16-17
