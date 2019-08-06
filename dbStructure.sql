@@ -257,9 +257,12 @@ CREATE TABLE UnderGraduateStudent (
 CREATE TABLE GraduateStudent (
     studentID INT AUTO_INCREMENT NOT NULL,
     gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    supervisorID INT NULL,
     PRIMARY KEY (studentID),
     FOREIGN KEY (studentID)
-        REFERENCES Student (studentID) ON DELETE CASCADE
+        REFERENCES Student (studentID) ON DELETE CASCADE,
+    FOREIGN KEY ( supervisorID )
+        REFERENCES Supervisor (facultyID )
 )  ENGINE=INNODB;
 
 CREATE TABLE TeachingAssistant (
