@@ -36,6 +36,7 @@ SELECT * FROM Degree;
 SELECT * FROM FullFaculty;
 
 -- ii. Create/Delete/Edit/Display a Student.
+--sin is not adde. phone number must be checked for formating 
 -- CREATES a Student who is an undergrad in the Computer Applications program.
 INSERT INTO Student(studentID,firstName,lastName,email,phone,dateOfBirth) VALUES ('1','Tom','Smith','tomsmith@gmail.com',5147546695,'1995-03-09');
 INSERT INTO StudentProgram(studentID,programID) VALUES ('1','1');
@@ -128,6 +129,12 @@ FROM Program p
     Department d ON (p.departmentID = d.departmentID);
 
 -- viii. Get a list of all courses offered in a given term by a specific program.
+SELECT c.courseName
+FROM Course c
+JOIN CourseProgram cp ON (c.courseID=cp.courseID)
+JOIN Section s ON (c.courseID=s.courseID)
+WHERE s.termID='1' AND cp.programID='40'
+
 
 /*ix. Get the details of all the courses offered by a specific department for a
 specific term. Details include Course name, section, room location, start
