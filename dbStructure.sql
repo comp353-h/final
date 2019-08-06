@@ -214,6 +214,14 @@ CREATE TABLE Term (
     PRIMARY KEY (termID)
 )  ENGINE=INNODB;
 
+CREATE TABLE TimeSlot (
+    timeID INT AUTO_INCREMENT NOT NULL,
+    day ENUM( "Monday, Tuesday", "Wednesday", "Thursday", "Friday" ),
+    startTime TIME NOT NULL,
+    endTime TIME NOT NULL,
+    PRIMARY KEY ( timeID )
+) ENGINE=INNODB;
+
 CREATE TABLE Section (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
@@ -221,6 +229,7 @@ CREATE TABLE Section (
     instructorID INT NOT NULL,
     roomID INT NOT NULL,
     buildingID VARCHAR(2) NOT NULL,
+    timeID INT NOT NULL,
     PRIMARY KEY (courseID , sectionID , termID),
     FOREIGN KEY (courseID)
         REFERENCES Course (courseID),
@@ -229,7 +238,9 @@ CREATE TABLE Section (
     FOREIGN KEY (InstructorID)
         REFERENCES Instructor (instructorID),
     FOREIGN KEY (roomID , buildingID)
-        REFERENCES Classroom (classroomID , buildingID)
+        REFERENCES Classroom (classroomID , buildingID),
+    FOREIGN KEY ( timeID )
+        REFERENCES TimeSlot( timeID )
 )  ENGINE=INNODB;
 
 CREATE TABLE Student (
