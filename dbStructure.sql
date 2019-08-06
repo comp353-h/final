@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS StudentCourses;
 DROP TABLE IF EXISTS Grade;
 DROP TABLE IF EXISTS StudentProgram;
+DROP TABLE IF EXISTS LabSection;
 DROP TABLE IF EXISTS TutorialSection;
 DROP TABLE IF EXISTS Section;
 DROP TABLE IF EXISTS TeachingAssistant;
@@ -219,7 +220,7 @@ CREATE TABLE Term (
 
 CREATE TABLE TimeSlot (
     timeID INT AUTO_INCREMENT NOT NULL,
-    day ENUM( "Monday, Tuesday", "Wednesday", "Thursday", "Friday" ),
+    day ENUM( "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ),
     startTime TIME NOT NULL,
     endTime TIME NOT NULL,
     PRIMARY KEY ( timeID )
@@ -283,19 +284,41 @@ CREATE TABLE Section (
 CREATE TABLE TutorialSection (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
-    tutorialID VARCHAR(2) NOT NULL,
+    tutorialID VARCHAR(2) NULL,
     termID INT NOT NULL,
     teachingAssistantID INT NOT NULL,
     roomID INT NOT NULL,
     buildingID VARCHAR(2) NOT NULL,
-
+    timeID INT NOT NULL,
     PRIMARY KEY ( courseID, sectionID, tutorialID, termID ),
-    FOREIGN KEY Section ( courseID, sectionID, termID )
+    FOREIGN KEY ( courseID, sectionID, termID )
         REFERENCES Section ( courseID, sectionID, termID ),
     FOREIGN KEY ( teachingAssistantID )
         REFERENCES TeachingAssistant ( studentID ),
     FOREIGN KEY ( roomID , buildingID )
-        REFERENCES Classroom (classroomID , buildingID)
+        REFERENCES Classroom (classroomID , buildingID),
+    FOREIGN kEY ( timeID )
+        REFERENCES TimeSlot( timeID )
+) ENGINE=INNODB;
+
+CREATE TABLE LabSection (
+    courseID VARCHAR(8) NOT NULL,
+    sectionID VARCHAR(2) NOT NULL,
+    labID VARCHAR(2) NULL,
+    termID INT NOT NULL,
+    teachingAssistantID INT NOT NULL,
+    roomID INT NOT NULL,
+    buildingID VARCHAR(2) NOT NULL,
+    timeID INT NOT NULL,
+    PRIMARY KEY ( courseID, sectionID, labID, termID ),
+    FOREIGN KEY ( courseID, sectionID, termID )
+        REFERENCES Section ( courseID, sectionID, termID ),
+    FOREIGN KEY ( teachingAssistantID )
+        REFERENCES TeachingAssistant ( studentID ),
+    FOREIGN KEY ( roomID , buildingID )
+        REFERENCES Classroom (classroomID , buildingID),
+    FOREIGN kEY ( timeID )
+        REFERENCES TimeSlot( timeID )
 ) ENGINE=INNODB;
 
 CREATE TABLE StudentProgram (
