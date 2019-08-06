@@ -597,20 +597,26 @@ INSERT INTO Term VALUES
     (23, 'WINTER', 2022),
     (24, 'SUMMER', 2022);
     
-/*INSERT INTO TimeSlot VALUES
+INSERT INTO TimeSlot VALUES
     -- timeID INT, day ENUM( "Monday" , "Tuesday", "Wednesday", "Thursday", "Friday" ), startTime TIME ,endTime
     
-    ();
+    (1, "Monday", "10:00:00", "11:00:00"),
+    (2, "Monday", "11:00:00", "12:00:00"),
+    (3,  "Monday", "12:00:00", "13:00:00"),
+    (4, "Monday", "13:00:00", "14:00:00"),
+    (5,  "Monday", "15:00:00", "16:00:00"),
+    (6,  "Monday", "16:00:00", "17:00:00"),
+    (7, "Monday", "17:00:00", "18:00:00");
     
 
 INSERT INTO Section VALUES
     
     -- courseID, sectionID, termID, instructorID, roomID, buildingID, timeID
     
-    (); 
+    ("COMP248", "BB", 1, 12, 326, "HH", 1);
    
    
-   INSERT INTO TutorialSection VALUES
+  /* INSERT INTO TutorialSection VALUES
     -- courseID, sectionID, tutorialID, termID, teachingAssistantID, roomID, buildingID
 
 		(); */
@@ -642,13 +648,15 @@ INSERT INTO GraduateStudent VALUES
     
     (6, 0.00),
     (7, 0.00),
-    (8, 0.00),
-    (9, 0.00),
-    (10, 0.00);
+    (8, 4.00),
+    (9, 4.00),
+    (10, 4.00);
     
-   /* INSERT INTO TeachingAssistant VALUES
+    INSERT INTO TeachingAssistant VALUES
     -- studentID , Must be a graduate student
-    (); */
+    (8),
+    (9),
+    (10);
     
 
 INSERT INTO StudentProgram VALUES
@@ -664,14 +672,27 @@ INSERT INTO StudentProgram VALUES
     (9, 9),
     (10, 10);
     
-/*INSERT INTO Grade VALUES
+INSERT INTO Grade VALUES
     -- grade, gradePoint
     
-    (); 
+    ("A+", 4.30), 
+    ("A", 4.00),
+    ("A-", 3.70),
+    ("B+", 3.30),
+    ("B", 3.00),
+    ("B-", 2.70),
+    ("C+", 2.30),
+    ("C", 2.00),
+    ("C-", 1.70),
+    ("D+", 1.30),
+    ("D", 1.00),
+    ("D-", 0.70),
+    ("F", 0.00);
+    
 
 
 INSERT INTO StudentCourses VALUES
-    -- studentID, courseID, sectionID, termID
+    -- studentID, courseID, sectionID, termID, grade
     
-    (); */
+    (1, "COMP248", 'BB', 1, "A");
 	

@@ -133,7 +133,7 @@ SELECT c.courseName
 FROM Course c
 JOIN CourseProgram cp ON (c.courseID=cp.courseID)
 JOIN Section s ON (c.courseID=s.courseID)
-WHERE s.termID='1' AND cp.programID='40'
+WHERE s.termID='1' AND cp.programID='40';
 
 
 /*ix. Get the details of all the courses offered by a specific department for a
@@ -141,11 +141,27 @@ specific term. Details include Course name, section, room location, start
 and end time, professor teaching the course, max class capacity and
 number of enrolled students.*/
 
+-- Unlikely to work with very large sample sizes (probably returns duplicates), but will work for now.
+SELECT s.termID, d.departmentName, f.firstName AS 'Instructor First Name', f.lastName AS 'Instructor Last Name', c.courseName, s.buildingID, s.roomID, t.startTime, t.endTime, r.capacity, COUNT(DISTINCT sc.studentID) AS 'Number Enrolled'
+FROM Section s
+	JOIN Classroom r ON (r.classroomID = s.roomID)
+    JOIN Course c on (s.courseID = c.courseID)
+    JOIN Department d on (c.departmentID = d.departmentID)
+    JOIN FullFaculty f on (f.facultyID = s.instructorID)
+    JOIN TimeSlot t on (t.timeID = s.timeID)
+    JOIN StudentCourses sc on (sc.termID = s.termID)
+WHERE s.termID=1 AND s.courseID = "COMP248"; -- term and course can be chosen
+
 /*x. Find ID, first name and last name of all the students who are enrolled in a
 specific program in a given term. */
 
 /*xi. Find the name of all the instructors who taught a given course on a
 specific term.*/
+
+SELECT  s.termID, f.firstName, f.lastName, s.courseID
+FROM Section s
+JOIN FullFaculty f ON (f.facultyID=s.instructorID)
+WHERE s.termID=1 AND s.courseID = "COMP248"; -- term and course can be chosen
 
 -- xii. Give a list of all supervisors in a given department.
 
