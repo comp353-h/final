@@ -691,8 +691,8 @@ INSERT INTO Grade VALUES
     
 
 
-/*INSERT INTO StudentCourses VALUES
-    -- studentID, courseID, sectionID, termID
+INSERT INTO StudentCourses VALUES
+    -- studentID, courseID, sectionID, termID, grade
     
-    (); */
+    (1, "COMP248", 'BB', 1, "A");
 	
