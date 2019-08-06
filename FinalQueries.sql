@@ -231,6 +231,9 @@ GROUP BY sc.studentID , termID;
 -- xx. Register a student in a specific course.
 
 -- xxi. Drop a course for a specific student.
+				      
+DELETE FROM StudentCourses 
+WHERE (studentID = 1) AND (courseID = 'COMP248'); -- StudentID and CourseID can be specified.
 
 /*xxii. Give a detailed report for a specific student (This include personal data,
 academic history, courses taken and grades received for each course,
