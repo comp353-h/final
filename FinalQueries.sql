@@ -147,6 +147,11 @@ specific program in a given term. */
 /*xi. Find the name of all the instructors who taught a given course on a
 specific term.*/
 
+SELECT  s.termID, f.firstName, f.lastName, s.courseID
+FROM Section s
+JOIN FullFaculty f ON (f.facultyID=s.instructorID)
+WHERE s.termID=1; -- term can be chosen
+
 -- xii. Give a list of all supervisors in a given department.
 
 
