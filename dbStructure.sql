@@ -250,14 +250,14 @@ CREATE TABLE GraduateStudent (
     gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (studentID),
     FOREIGN KEY (studentID)
-        REFERENCES Student (studentID)
+        REFERENCES Student (studentID) ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 CREATE TABLE TeachingAssistant (
     studentID INT NOT NULL,
     PRIMARY KEY ( studentID ),
     FOREIGN KEY ( studentID )
-        REFERENCES GraduateStudent ( studentID )
+        REFERENCES GraduateStudent ( studentID ) ON DELETE CASCADE
 ) ENGINE=INNODB;
 
 CREATE TABLE Section (
