@@ -323,8 +323,10 @@ CREATE TABLE LabSection (
 
 CREATE TABLE ResearchFunding (
     fundingID INT AUTO_INCREMENT NOT NULL,
-    
-)
+    name VARCHAR(128) NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY ( fundingID )
+) ENGINE=INNODB;
 
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,
