@@ -633,7 +633,7 @@ INSERT INTO Student VALUES
 (7, "Lian","Alquist", "Lian.Alquist@hotmail.com", 5926485890, "1995-12-03", 16),
 (8, "Mirabel","Able", "Mirabel.Able@hotmail.com", 4379029136, "1994-03-26", 17),
 (9, "Berna","Biscardi", "Berna.Biscardi@hotmail.com", 2234067539, "1993-10-16", 18),
-(10, "Glyn","Ban", "Glyn.Ban@gmail.com", 5536850841, "1992-01-01", 19);
+(10, "Glyn","Ban", "Glyn.Ban@gmail.com", 5536850841, "1992-01-01", 19); -- TA, Thesis Grad
 
 INSERT INTO UnderGraduateStudent VALUES
     -- studentID, gpa
@@ -670,7 +670,7 @@ INSERT INTO StudentProgram VALUES
 	(7, 7),
     (8, 8),
     (9, 9),
-    (10, 10);
+    (10, 12); --This person is a Graduate Student and TA
     
 INSERT INTO Grade VALUES
     -- grade, gradePoint
