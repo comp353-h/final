@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS StudentCourses;
 DROP TABLE IF EXISTS Grade;
 DROP TABLE IF EXISTS StudentProgram;
+DROP TABLE IF EXISTS ResearchFunding;
 DROP TABLE IF EXISTS LabSection;
 DROP TABLE IF EXISTS TutorialSection;
 DROP TABLE IF EXISTS Section;
@@ -21,6 +22,7 @@ DROP TABLE IF EXISTS Publication;
 DROP TABLE IF EXISTS Employment;
 DROP TABLE IF EXISTS Award;
 DROP TABLE IF EXISTS Degree;
+DROP TABLE IF EXISTS Supervisor;
 DROP TABLE IF EXISTS FullFaculty;
 DROP TABLE IF EXISTS Facilities;
 DROP TABLE IF EXISTS ConferenceRoom;
@@ -113,6 +115,13 @@ CREATE TABLE FullFaculty (
     lastName VARCHAR(128) NOT NULL,
     PRIMARY KEY (facultyID)
 )  ENGINE=INNODB;
+
+CREATE TABLE Supervisor (
+    facultyID INT NOT NULL,
+    PRIMARY KEY ( facultyID ),
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty ( facultyID )
+) ENGINE=INNODB;
 
 CREATE TABLE Degree (
     degreeName VARCHAR(128) NOT NULL,
@@ -323,9 +332,12 @@ CREATE TABLE LabSection (
 
 CREATE TABLE ResearchFunding (
     fundingID INT AUTO_INCREMENT NOT NULL,
+    supervisorID INT NOT NULL,
     name VARCHAR(128) NOT NULL,
     amount INT NOT NULL,
-    PRIMARY KEY ( fundingID )
+    PRIMARY KEY ( fundingID ),
+    FOREIGN KEY ( supervisorID )
+        REFERENCES Supervisor( facultyID )
 ) ENGINE=INNODB;
 
 CREATE TABLE StudentProgram (
