@@ -597,14 +597,23 @@ INSERT INTO Term VALUES
     (23, 'WINTER', 2022),
     (24, 'SUMMER', 2022);
     
-
-/*INSERT INTO Section VALUES
-    
-    -- courseID, sectionID, termID, instructorID, roomID, buildingID
+/*INSERT INTO TimeSlot VALUES
+    -- timeID INT, day ENUM( "Monday" , "Tuesday", "Wednesday", "Thursday", "Friday" ), startTime TIME ,endTime
     
     ();
+    
+
+INSERT INTO Section VALUES
+    
+    -- courseID, sectionID, termID, instructorID, roomID, buildingID, timeID
+    
+    (); 
    
-   */
+   
+   INSERT INTO TutorialSection VALUES
+    -- courseID, sectionID, tutorialID, termID, teachingAssistantID, roomID, buildingID
+
+		(); */
 
 INSERT INTO Student VALUES
     -- studentID, firstName, lastName, email, phone, dateOfBirth, SSN
@@ -636,22 +645,32 @@ INSERT INTO GraduateStudent VALUES
     (8, 0.00),
     (9, 0.00),
     (10, 0.00);
+    
+   /* INSERT INTO TeachingAssistant VALUES
+    -- studentID , Must be a graduate student
+    (); */
+    
 
 INSERT INTO StudentProgram VALUES
     -- studentID, programID
-     (1, 1),
+	(1, 1),
    (2, 2),
    (3, 3),
    (4, 4),
    (5, 5),
    (6, 6),
-    (7, 7),
+	(7, 7),
     (8, 8),
     (9, 9),
     (10, 10);
+    
+/*INSERT INTO Grade VALUES
+    -- grade, gradePoint
+    
+    (); 
 
 
-/*INSERT INTO StudentCourses VALUES
+INSERT INTO StudentCourses VALUES
     -- studentID, courseID, sectionID, termID
     
     (); */
