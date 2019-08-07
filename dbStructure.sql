@@ -318,7 +318,7 @@ CREATE TABLE TutorialSection (
 CREATE TABLE LabSection (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
-    labID VARCHAR(2) NULL,
+    labID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
     teachingAssistantID INT NOT NULL,
     roomID INT NOT NULL,
