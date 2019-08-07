@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS GraduatePublication;
+DROP TABLE IF EXISTS GraduateAwards;
 DROP TABLE IF EXISTS StudentCourses;
 DROP TABLE IF EXISTS Grade;
 DROP TABLE IF EXISTS StudentProgram;
@@ -254,7 +256,7 @@ CREATE TABLE UnderGraduateStudent (
     studentID INT AUTO_INCREMENT NOT NULL,
     PRIMARY KEY (studentID),
     FOREIGN KEY (studentID)
-        REFERENCES Student (studentID)
+        REFERENCES Student (studentID) ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 CREATE TABLE GraduateStudent (
@@ -318,7 +320,7 @@ CREATE TABLE TutorialSection (
 CREATE TABLE LabSection (
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(2) NOT NULL,
-    labID VARCHAR(2) NULL,
+    labID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
     teachingAssistantID INT NOT NULL,
     roomID INT NOT NULL,
@@ -375,3 +377,25 @@ CREATE TABLE StudentCourses (
     FOREIGN KEY (grade)
         REFERENCES Grade (grade)
 )  ENGINE=INNODB;
+
+CREATE TABLE GraduateAwards (
+    studentID INT NOT NULL,
+    awardName VARCHAR(128) NOT NULL,
+    awardyear INT NOT NULL,
+    PRIMARY KEY ( studentID, awardName, awardyear ),
+    FOREIGN KEY ( studentID )
+        REFERENCES GraduateStudent( studentID ) ON DELETE CASCADE,
+    FOREIGN KEY ( awardName, awardyear )
+        REFERENCES Award ( awardName, year )
+) ENGINE=INNODB;
+
+CREATE TABLE GraduatePublication (
+    studentID INT NOT NULL,
+    publicationName VARCHAR(128) NOT NULL,
+    publicationYear INT NOT NULL,
+    PRIMARY KEY ( studentID, publicationName, publicationYear ),
+    FOREIGN KEY ( studentID )
+        REFERENCES GraduateStudent( studentID ) ON DELETE CASCADE,
+    FOREIGN KEY ( publicationName, publicationYear )
+        REFERENCES Publication( publicationName, year )
+) ENGINE=INNODB;
