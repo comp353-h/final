@@ -55,10 +55,8 @@ FROM
         JOIN
     UnderGraduateStudent u ON (s.studentID = u.studentID)
 WHERE
-    s.studentID = '1';  
+    s.studentID = '11';  
 -- DELETES the created student
-DELETE FROM StudentProgram WHERE studentID = '11'; 
-DELETE FROM UnderGraduateStudent WHERE studentID = '11'; 
 DELETE FROM Student WHERE studentID = '11';
 
 -- iii. Create/Delete/Edit/Display a Teaching Assistant
