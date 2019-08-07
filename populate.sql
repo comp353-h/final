@@ -624,33 +624,33 @@ INSERT INTO Section VALUES
 INSERT INTO Student VALUES
     -- studentID, firstName, lastName, email, phone, dateOfBirth, SSN
     
-(1, "Kayley","Alcock", "Kayley.Alcock@gmail.com", 5874302489, "2001-02-05", 10),
-(2, "Blithe","Babino", "Blithe.Babino@gmail.com", 9974681905, "2000-06-18", 11),
-(3, "Bel","Balusek", "Bel.Balusek@gmail.com", 6294159303, "1999-11-25", 12),
-(4, "Vivian","Agron", "Vivian.Agron@hotmail.com", 2065499004, "1998-04-09", 13),
-(5, "Nita","Ballerini", "Nita.Ballerini@gmail.com", 1089917900, "1997-09-12", 14),
-(6, "Agatha","Abeyta", "Agatha.Abeyta@hotmail.com", 9531897726, "1996-08-11", 15),
-(7, "Lian","Alquist", "Lian.Alquist@hotmail.com", 5926485890, "1995-12-03", 16),
-(8, "Mirabel","Able", "Mirabel.Able@hotmail.com", 4379029136, "1994-03-26", 17),
-(9, "Berna","Biscardi", "Berna.Biscardi@hotmail.com", 2234067539, "1993-10-16", 18),
-(10, "Glyn","Ban", "Glyn.Ban@gmail.com", 5536850841, "1992-01-01", 19); -- TA, Thesis Grad
+(1, "Kayley","Alcock", "Kayley.Alcock@gmail.com", 5874302489, "2001-02-05", 0.00, 10),
+(2, "Blithe","Babino", "Blithe.Babino@gmail.com", 9974681905, "2000-06-18", 0.00, 11),
+(3, "Bel","Balusek", "Bel.Balusek@gmail.com", 6294159303, "1999-11-25", 0.00, 12),
+(4, "Vivian","Agron", "Vivian.Agron@hotmail.com", 2065499004, "1998-04-09", 0.00, 13),
+(5, "Nita","Ballerini", "Nita.Ballerini@gmail.com", 1089917900, "1997-09-12", 0.00, 14),
+(6, "Agatha","Abeyta", "Agatha.Abeyta@hotmail.com", 9531897726, "1996-08-11", 0.00, 15),
+(7, "Lian","Alquist", "Lian.Alquist@hotmail.com", 5926485890, "1995-12-03", 0.00, 16),
+(8, "Mirabel","Able", "Mirabel.Able@hotmail.com", 4379029136, "1994-03-26", 4.00, 17), -- TA Thesis Grad
+(9, "Berna","Biscardi", "Berna.Biscardi@hotmail.com", 2234067539, "1993-10-16", 4.00, 18),
+(10, "Glyn","Ban", "Glyn.Ban@gmail.com", 5536850841, "1992-01-01", 4.00, 19); -- TA, Thesis Grad
 
 INSERT INTO UnderGraduateStudent VALUES
     -- studentID, gpa
-   (1, 0.00),
-   (2, 0.00),
-   (3, 0.00),
-   (4, 0.00),
-   (5, 0.00);
+   (1),
+   (2),
+   (3),
+   (4),
+   (5);
 
 INSERT INTO GraduateStudent VALUES
     -- studentID, gpa
     
-    (6, 0.00),
-    (7, 0.00),
-    (8, 4.00),
-    (9, 4.00),
-    (10, 4.00);
+    (6, NULL),
+    (7, NULL),
+    (8, NULL),
+    (9, NULL),
+    (10, NULL);
     
     INSERT INTO TeachingAssistant VALUES
     -- studentID , Must be a graduate student
@@ -670,7 +670,7 @@ INSERT INTO StudentProgram VALUES
 	(7, 7),
     (8, 8),
     (9, 9),
-    (10, 12); --This person is a Graduate Student and TA
+    (10, 12); -- This person is a Graduate Student and TA
     
 INSERT INTO Grade VALUES
     -- grade, gradePoint
