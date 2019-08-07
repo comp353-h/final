@@ -19,52 +19,61 @@ INSERT INTO Building VALUES
  INSERT INTO Classroom VALUES
  -- roomID, buildingID, capacity
   (406, "MB", 50),
-  (326, "HH", 100),
-  (246, "AD", 25),
-  (1236, "PY", 69),
-  (631, "FG", 120);
+  (301, "HH", 100),
+  (207, "AD", 25),
+  (1210, "PY", 69),
+  (604, "FG", 120);
+  
+  
   
  INSERT INTO Lab VALUES
  -- labID, buildingID, capacity
-(1024, "MB", 50),
-(1126, "HH", 25),
-(557, "AD", 35),
+(1003, "MB", 50),
+(1102, "HH", 25),
+(506, "AD", 35),
 (507, "PY", 69),
-(668, "SH", 50);
+(610, "SH", 50);
  
  INSERT INTO Office VALUES
  -- officeID, buildingID
-(845, "FG"),
-(969, "EV"),
-(753, "LB"),
-(562, "TA"),
-(361, "VL");
+(803, "FG"),
+(912, "EV"),
+(707, "LB"),
+(506, "TA"),
+(307, "VL");
 
  INSERT INTO ConferenceRoom VALUES
  -- conferenceRoomID, buildingID
 (302, "EV"),
-(567, "LB"),
-(789, "TA"),
+(506, "LB"),
+(705, "TA"),
 (603, "VL"),
-(897, "SH");
+(809, "SH");
 
 INSERT INTO Facilities VALUES
 -- roomID, buildingID, type
 (406, "MB", "Projector"),
-(326, "HH", "Projector"),
-(246, "AD", "Computers"),
-(1236, "PY", "other"),
-(631, "FG", "Projector"),
-(1024, "MB", "Computers"),
-(1126, "HH", "Computers"),
-(557, "AD", "Projector"),
+(301, "HH", "Projector"),
+(207, "AD", "Computers"),
+(1210, "PY", "other"),
+(604, "FG", "Projector"),
+(1003, "MB", "Computers"),
+(1102, "HH", "Computers"),
+(506, "AD", "Projector"),
 (507, "PY", "other"),
-(668, "SH", "Computers"),
-(845, "FG", "other"),
-(969, "EV", "Computers"),
-(753, "LB", "Computers"),
-(562, "TA", "Computers"),
-(361, "VL", "Projector"); 
+(610, "SH", "Computers"),
+(803, "FG", "other"),
+(912, "EV", "Computers"),
+(707, "LB", "Computers"),
+(506, "TA", "Computers"),
+(307, "VL", "Projector"),
+(302, "EV", "Projector"),
+(506, "LB", "Projector"),
+(705, "TA", "Projector"),
+(603, "VL", "Projector"),
+(809, "SH", "Projector");
+
+
 
 INSERT INTO FullFaculty VALUES 
     -- facultyID, firstName, lastName
@@ -108,11 +117,11 @@ INSERT INTO FullFaculty VALUES
 (38, "Chelsae", "Beiter"), -- Electrical Engineering Professor 
 (39, "Delphinia", "Akel"), -- Computer Engineering Professor
 (40, "Alberta", "Abram"), -- Computer Engineering Professor
-(41,"Kelcie", "Aderholt"),
-(42, "Biddie", "Alexis"),
-(43, "Angelita", "Barney"),
-(44, "Dee Dee", "Abdi"),
-(45, "Candra", "Ballweg"),
+(41,"Kelcie", "Aderholt"), -- Computer Science Professor
+(42, "Biddie", "Alexis"), -- Civil Engineering
+(43, "Angelita", "Barney"), -- Mathematics
+(44, "Dee Dee", "Abdi"), -- Journalism
+(45, "Candra", "Ballweg"), -- Economics
 (46, "Florenza", "Adami"),
 (47, "Fernande", "Allis"),
 (48, "Alverta", "Albino"),
@@ -187,88 +196,88 @@ INSERT INTO Award VALUES
    -- awardName, year
    
   ("Deutsche Bank Prize in Financial Economics", 1980),
-  ("Deutsche Bank Prize in Financial Economics", 1981),
-  ("Deutsche Bank Prize in Financial Economics", 1982),
-  ("Deutsche Bank Prize in Financial Economics", 1983),
-  ("Deutsche Bank Prize in Financial Economics", 1984),
   ("Deutsche Bank Prize in Financial Economics", 1985),
-  ("Deutsche Bank Prize in Financial Economics", 1986),
-  ("Deutsche Bank Prize in Financial Economics", 1987),
-  ("Turing Award", 1988),
-  ("Turing Award", 1989),
-  ("Turing Award", 1990),
+  ("Deutsche Bank Prize in Financial Economics", 1990),
+  ("Deutsche Bank Prize in Financial Economics", 1995),
+  ("Deutsche Bank Prize in Financial Economics", 2000),
+  ("Deutsche Bank Prize in Financial Economics", 2005),
+  ("Deutsche Bank Prize in Financial Economics", 2010),
+  ("Deutsche Bank Prize in Financial Economics", 2020),
+  ("Turing Award", 1981),
+  ("Turing Award", 1986),
   ("Turing Award", 1991),
-  ("Turing Award", 1992),
-  ("Turing Award", 1993),
-  ("Turing Award", 1994),
-  ("Turing Award", 1995),
-  ("Engineering Gold Medal", 1996),
+  ("Turing Award", 1996),
+  ("Turing Award", 2001),
+  ("Turing Award", 2006),
+  ("Turing Award", 2011),
+  ("Turing Award", 2016),
+  ("Engineering Gold Medal", 1982),
+  ("Engineering Gold Medal", 1987),
+  ("Engineering Gold Medal", 1992),
   ("Engineering Gold Medal", 1997),
-  ("Engineering Gold Medal", 1998),
-  ("Engineering Gold Medal", 1999),
-  ("Engineering Gold Medal", 2000),
-  ("Engineering Gold Medal", 2001),
   ("Engineering Gold Medal", 2002),
-  ("Engineering Gold Medal", 2003),
-  ("Nobel Pize in Mathematics", 2004),
-  ("Nobel Pize in Mathematics", 2005),
-  ("Nobel Pize in Mathematics", 2006),
-  ("Nobel Pize in Mathematics", 2007),
+  ("Engineering Gold Medal", 2007),
+  ("Engineering Gold Medal", 2012),
+  ("Engineering Gold Medal", 2017),
+  ("Nobel Pize in Mathematics", 1983),
+  ("Nobel Pize in Mathematics", 1988),
+  ("Nobel Pize in Mathematics", 1993),
+  ("Nobel Pize in Mathematics", 1998),
+  ("Nobel Pize in Mathematics", 2003),
   ("Nobel Pize in Mathematics", 2008),
-  ("Nobel Pize in Mathematics", 2009),
-  ("Nobel Pize in Mathematics", 2010),
-  ("Nobel Pize in Mathematics", 2011),
-  ("Pulitzer Award", 2012),
-  ("Pulitzer Award", 2013),
+  ("Nobel Pize in Mathematics", 2013),
+  ("Nobel Pize in Mathematics", 2018),
+  ("Pulitzer Award", 1984),
+  ("Pulitzer Award", 1989),
+  ("Pulitzer Award", 1994),
+  ("Pulitzer Award", 1999),
+  ("Pulitzer Award", 2004),
+  ("Pulitzer Award", 2009),
   ("Pulitzer Award", 2014),
-  ("Pulitzer Award", 2015),
-  ("Pulitzer Award", 2016),
-  ("Pulitzer Award", 2017),
-  ("Pulitzer Award", 2018),
   ("Pulitzer Award", 2019);
 
 INSERT INTO Publication VALUES
    -- publicationName, year 
   
   ("Journal of International Economics", 1979),
-  ("Journal of International Economics", 1980),
-  ("Journal of International Economics", 1981),
-  ("Journal of International Economics", 1982),
-  ("Journal of International Economics", 1983),
   ("Journal of International Economics", 1984),
-  ("Journal of International Economics", 1985),
-  ("Journal of International Economics", 1986),
-  ("The Journal of Supercomputing", 1987),
-  ("The Journal of Supercomputing", 1988),
-  ("The Journal of Supercomputing", 1989),
+  ("Journal of International Economics", 1989),
+  ("Journal of International Economics", 1994),
+  ("Journal of International Economics", 1999),
+  ("Journal of International Economics", 2004),
+  ("Journal of International Economics", 2009),
+  ("Journal of International Economics", 2014),
+  ("The Journal of Supercomputing", 1980),
+  ("The Journal of Supercomputing", 1985),
   ("The Journal of Supercomputing", 1990),
-  ("The Journal of Supercomputing", 1991),
-  ("The Journal of Supercomputing", 1992),
-  ("The Journal of Supercomputing", 1993),
-  ("The Journal of Supercomputing", 1994),
-  ("Canadian Journal of Civil Engineering", 1995),
+  ("The Journal of Supercomputing", 1995),
+  ("The Journal of Supercomputing", 2000),
+  ("The Journal of Supercomputing", 2005),
+  ("The Journal of Supercomputing", 2010),
+  ("The Journal of Supercomputing", 2015),
+  ("Canadian Journal of Civil Engineering", 1981),
+  ("Canadian Journal of Civil Engineering", 1986),
+  ("Canadian Journal of Civil Engineering", 1991),
   ("Canadian Journal of Civil Engineering", 1996),
-  ("Canadian Journal of Civil Engineering", 1997),
-  ("Canadian Journal of Civil Engineering", 1998),
-  ("Canadian Journal of Civil Engineering", 1999),
-  ("Canadian Journal of Civil Engineering", 2000),
   ("Canadian Journal of Civil Engineering", 2001),
-  ("Canadian Journal of Civil Engineering", 2002),
-  ("Advances in Mathematics", 2003),
-  ("Advances in Mathematics", 2004),
-  ("Advances in Mathematics", 2005),
-  ("Advances in Mathematics", 2006),
+  ("Canadian Journal of Civil Engineering", 2006),
+  ("Canadian Journal of Civil Engineering", 2011),
+  ("Canadian Journal of Civil Engineering", 2016),
+  ("Advances in Mathematics", 1982),
+  ("Advances in Mathematics", 1987),
+  ("Advances in Mathematics", 1992),
+  ("Advances in Mathematics", 1997),
+  ("Advances in Mathematics", 2002),
   ("Advances in Mathematics", 2007),
-  ("Advances in Mathematics", 2008),
-  ("Advances in Mathematics", 2009),
-  ("Advances in Mathematics", 2010),
-  ("Time Magazine", 2011),
-  ("Time Magazine", 2012),
+  ("Advances in Mathematics", 2012),
+  ("Advances in Mathematics", 2017),
+  ("Time Magazine", 1983),
+  ("Time Magazine", 1988),
+  ("Time Magazine", 1993),
+  ("Time Magazine", 1998),
+  ("Time Magazine", 2003),
+  ("Time Magazine", 2008),
   ("Time Magazine", 2013),
-  ("Time Magazine", 2014),
-  ("Time Magazine", 2015),
-  ("Time Magazine", 2016),
-  ("Time Magazine", 2017),
   ("Time Magazine", 2018);
   
 
@@ -383,16 +392,31 @@ INSERT INTO Department VALUES
 INSERT INTO Instructor VALUES
   --  instructorID, departmentID 
   
-   (11, 8),
+   (11, 8), -- Economics
    (12, 1),
-   (13, 4),
-   (14, 5),
-   (15, 6),
-   (16, 10),
+   (13, 4), -- Civil Engineering
+   (14, 5), -- Mathematics
+   (15, 6), -- Journalism
+   (16, 10), -- Aerospace Engineering
    (17, 2),
    (18, 3),
    (19, 9),
-   (20, 7);
+   (20, 7),
+   (31, 10), -- Aerospace Engineering Professor
+   (32, 10), -- Aerospace Engineering Professor
+	(33, 2), -- Software Engineering Professor
+	(34, 2), -- Software Engineering Professor
+	(35, 3), -- Building Engineering Professor
+	(36, 3), -- Building Engineering Professor
+	(37, 9), -- Electrical Engineering Professor 
+	(38, 9), -- Electrical Engineering Professor 
+	(39, 7), -- Computer Engineering Professor
+	(40, 7), -- Computer Engineering Professor
+    (41, 1), -- Computer Science Professor
+	(42, 4), -- Civil Engineering
+	(43, 5), -- Mathematics
+	(44, 6), -- Journalism
+	(45, 8); -- Economics
 
 INSERT INTO Chairman VALUES
    -- chairmanID, departmentID
@@ -632,16 +656,109 @@ INSERT INTO TimeSlot VALUES
     (2, "Monday", "11:00:00", "12:00:00"),
     (3,  "Monday", "12:00:00", "13:00:00"),
     (4, "Monday", "13:00:00", "14:00:00"),
-    (5,  "Monday", "15:00:00", "16:00:00"),
-    (6,  "Monday", "16:00:00", "17:00:00"),
-    (7, "Monday", "17:00:00", "18:00:00");
+    (5,  "Monday", "14:00:00", "15:00:00"),
+    (6,  "Monday", "15:00:00", "16:00:00"),
+    (7, "Monday", "16:00:00", "17:00:00"),
+    (8, "Monday", "17:00:00", "18:00:00"),
     
+    (9, "Tuesday", "10:00:00", "11:00:00"),
+    (10, "Tuesday", "11:00:00", "12:00:00"),
+    (11,  "Tuesday", "12:00:00", "13:00:00"),
+    (12, "Tuesday", "13:00:00", "14:00:00"),
+    (13,  "Tuesday", "14:00:00", "15:00:00"),
+    (14,  "Tuesday", "15:00:00", "16:00:00"),
+    (15, "Tuesday", "16:00:00", "17:00:00"),
+    (16, "Tuesday", "17:00:00", "18:00:00"),
+    
+    (17, "Wednesday", "10:00:00", "11:00:00"),
+    (18, "Wednesday", "11:00:00", "12:00:00"),
+    (19,  "Wednesday", "12:00:00", "13:00:00"),
+    (20, "Wednesday", "13:00:00", "14:00:00"),
+    (21,  "Wednesday", "14:00:00", "15:00:00"),
+    (22,  "Wednesday", "15:00:00", "16:00:00"),
+    (23, "Wednesday", "16:00:00", "17:00:00"),
+    (24, "Wednesday", "17:00:00", "18:00:00"),
+    
+    (25, "Thursday", "10:00:00", "11:00:00"),
+    (26, "Thursday", "11:00:00", "12:00:00"),
+    (27,  "Thursday", "12:00:00", "13:00:00"),
+    (28, "Thursday", "13:00:00", "14:00:00"),
+    (29,  "Thursday", "14:00:00", "15:00:00"),
+    (30,  "Thursday", "15:00:00", "16:00:00"),
+    (31, "Thursday", "16:00:00", "17:00:00"),
+    (32, "Thursday", "17:00:00", "18:00:00"),
+    
+    (33, "Friday", "10:00:00", "11:00:00"),
+    (34, "Friday", "11:00:00", "12:00:00"),
+    (35,  "Friday", "12:00:00", "13:00:00"),
+    (36, "Friday", "13:00:00", "14:00:00"),
+    (37,  "Friday", "14:00:00", "15:00:00"),
+    (38,  "Friday", "15:00:00", "16:00:00"),
+    (39, "Friday", "16:00:00", "17:00:00"),
+    (40, "Friday", "17:00:00", "18:00:00");
 
 INSERT INTO Section VALUES
     
     -- courseID, sectionID, termID, instructorID, roomID, buildingID, timeID
     
-    ("COMP248", "BB", 1, 12, 326, "HH", 1);
+( "COMP248", "BB", 12, 12, 406, "MB", 1),
+( "COMP248", "LL", 22, 41, 301, "HH", 5),
+( "COMP249", "VV", 8, 12, 207, "AD", 8),
+( "COMP1268", "FF", 18, 41, 1210, "PY", 1 ),
+( "COMP1368", "PP", 4, 12, 604, "FG", 5 ),
+
+( "SOEN287", "CC", 13, 17, 406, "MB", 8),
+( "SOEN287", "MM", 23, 33, 301, "HH", 1),
+( "SOEN321", "WW", 9, 34, 207, "AD", 5),
+( "SOEN1020", "GG", 19, 17, 1210, "PY", 8 ),
+( "SOEN1220", "QQ", 5, 33, 604, "FG", 1 ),
+
+( "BUEN223", "DD", 14, 18, 406, "MB", 5),
+( "BUEN223", "NN", 24, 35, 301, "HH", 8),
+( "BUEN346", "XX", 10, 36, 207, "AD", 1 ),
+( "BUEN1238", "HH", 20, 18, 1210, "PY", 5 ),
+( "BUEN1485", "RR", 6, 35, 604, "FG", 8 ),
+
+( "CIVI101", "EE", 15, 13, 406, "MB", 1),
+( "CIVI101", "OO", 1, 42, 301, "HH", 5),
+( "CIVI210", "YY", 11, 13, 207, "AD", 8 ),
+( "CIVI1256", "II", 21, 42, 1210, "PY", 1),
+( "CIVI1385", "SS", 7, 13, 604, "FG", 5 ),
+
+( "MATH203", "FF", 16, 14, 406, "MB", 8),
+( "MATH203", "PP", 2, 43, 301, "HH", 1),
+( "MATH205", "ZZ", 12, 14, 207, "AD", 5),
+( "MATH1465", "JJ", 22, 43, 1210, "PY", 8 ),
+( "MATH1546", "TT", 8, 14, 604, "FG", 1 ),
+
+( "JOUR223", "GG", 17, 15, 406, "MB", 5),
+( "JOUR223", "QQ", 3, 44, 301, "HH", 8),
+( "JOUR362", "AA", 13, 15, 207, "AD", 1 ),
+( "JOUR1356", "KK", 23, 44, 1210, "PY", 5),
+( "JOUR1452", "UU", 9, 15, 604, "FG", 8 ),
+
+( "COEN221", "HH", 18, 20, 406, "MB", 1),
+( "COEN221", "RR", 4, 39, 301, "HH", 5),
+( "COEN345", "BB", 14, 40, 207, "AD", 8 ),
+( "COEN1152", "LL", 24, 20, 1210, "PY", 1 ),
+( "COEN1235", "VV", 10, 39, 604, "FG", 5 ),
+
+( "ECON201", "II", 19, 11, 406, "MB", 8),
+( "ECON201", "SS", 5, 45, 301, "HH", 1),
+( "ECON203", "CC", 15, 11, 207, "AD", 5 ),
+( "ECON1030", "MM", 1, 45, 1210, "PY", 8),
+( "ECON1136", "WW", 11, 11, 604, "FG", 1 ),
+
+( "ELEC247", "JJ", 20, 19, 406, "MB", 5),
+( "ELEC353", "TT", 6, 37, 301, "HH", 8),
+( "ELEC1032", "DD", 16, 38, 207, "AD", 1 ),
+( "ELEC1228", "NN", 2, 19, 1210, "PY", 5 ),
+
+( "AERO321", "KK", 21, 16, 301, "HH", 8),
+( "AERO448", "UU", 7, 31, 406, "MB", 1 ),
+( "AERO1236", "EE", 17, 32, 1210, "PY", 5),
+( "AERO1458", "OO", 3, 16, 207, "AD", 8);
+
    
    
 /*INSERT INTO TutorialSection VALUES
@@ -696,13 +813,13 @@ INSERT INTO StudentProgram VALUES
     -- studentID, programID
 	(1, 1),
    (2, 2),
-   (3, 3),
-   (4, 4),
-   (5, 5),
-   (6, 6),
-	(7, 7),
+   (3, 5),
+   (4, 6),
+   (5, 9),
+   (6, 3),
+	(7, 4),
     (8, 8),  -- This person is a Thesis - Graduate Student and TA
-    (9, 9),	 -- This person is a Graduate Student and TA
+    (9, 11),	 -- This person is a Graduate Student and TA
     (10, 12); -- This person is a Thesis - Graduate Student and TA
     
 INSERT INTO Grade VALUES
@@ -724,8 +841,29 @@ INSERT INTO Grade VALUES
     
 
 
-INSERT INTO StudentCourses VALUES
+/*INSERT INTO StudentCourses VALUES
     -- studentID, courseID, sectionID, termID, grade
     
-    (1, "COMP248", 'BB', 1, "A");
+    (1, "COMP248", 'BB', 1, "A"); */
+    
+    
+INSERT INTO GraduateAwards VALUES
+   -- studentID, awardName, awardyear
+    
+    (6,"Turing Award", 2011),
+    (7,"Turing Award", 2016),
+    (8, "Engineering Gold Medal", 2012),
+    (9, "Engineering Gold Medal", 2017),
+    (10, "Engineering Gold Medal", 2007); 
+
+
+INSERT INTO GraduatePublication VALUES
+    -- studentID, publicationName, publicationYear
+    
+    (6, "The Journal of Supercomputing", 2010),
+    (7, "The Journal of Supercomputing", 2015),
+    (8, "Canadian Journal of Civil Engineering", 2011),
+    (9, "Canadian Journal of Civil Engineering", 2016),
+    (10, "Canadian Journal of Civil Engineering", 2006); 
+    
 	
