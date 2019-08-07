@@ -91,9 +91,9 @@ INSERT INTO FullFaculty VALUES
 (21, "Antonietta", "Allee"), -- Economics Professor
 (22, "Belinda", "Babb"), -- Economics Professor
 (23, "Lauri", "Barie"), -- Computer Science Professor
-(24, "Trix", "Alfonso"), -- Computer Science Professor
+(24, "Trix", "Alfonso"), -- Software Engineering Professor
 (25, "Jaclyn", "Albanese"), -- Civil Engineering Professor
-(26, "Jandy", "Akeley"), -- Civil Engineering Professor
+(26, "Jandy", "Akeley"), -- Building Engineering Professor
 (27, "Dorri", "Adelson"), -- Mathematics Professor
 (28, "Opaline", "Allington"), -- Mathematics Professor
 (29, "Vicki", "Bargar"), -- Journalism Professor
@@ -408,6 +408,34 @@ INSERT INTO Chairman VALUES
    (9, 9),
    (10, 7);
    
+  INSERT INTO Supervisor VALUES
+		-- facultyID, departmentID
+        
+(21, 8), -- Economics 
+(22, 8), -- Economics 
+(23, 1), -- Computer Science 
+(24, 2), -- Software Engineering
+(25, 4), -- Civil Engineering
+(26, 3), -- Building Engineering 
+(27, 5), -- Mathematics
+(28, 5), -- Mathematics 
+(29, 6), -- Journalism
+(30, 6); -- Journalism
+        
+        
+INSERT INTO ResearchFunding VALUES
+     -- fundingID, supervisorID, name, amount
+     
+(1, 21, "The Buy High Sell Low Equilibrium", 7000), -- Economics 
+(2, 22, "", 80000), -- Economics 
+(3, 23, "", 900000), -- Computer Science 
+(4, 24, "", 1000000), -- Computer Science 
+(5, 25, "", 50), -- Civil Engineering
+(6, 26, "", 600), -- Civil Engineering 
+(7, 27, "", 7000), -- Mathematics
+(8, 28, "",80000), -- Mathematics 
+(9, 29, "", 900000), -- Journalism
+(10, 30, "", 1000000); -- Journalism, 
    
 INSERT INTO Program VALUES
    -- programID, programName, departmentID, programCredits, programType ENUM( "UnderGraduate", "Graduate", "Graduate-Thesis" )
@@ -616,13 +644,18 @@ INSERT INTO Section VALUES
     ("COMP248", "BB", 1, 12, 326, "HH", 1);
    
    
-  /* INSERT INTO TutorialSection VALUES
-    -- courseID, sectionID, tutorialID, termID, teachingAssistantID, roomID, buildingID
+/*INSERT INTO TutorialSection VALUES
+   -- courseID, sectionID, tutorialID, termID, teachingAssistantID, roomID, buildingID, timeID
+   
+   ();
 
-		(); */
+INSERT INTO LabSection VALUES
+    -- courseID, sectionID, labID, termID, teachingAssistantID, roomID, buildingID, timeID
+    
+   (); */
 
 INSERT INTO Student VALUES
-    -- studentID, firstName, lastName, email, phone, dateOfBirth, SSN
+    -- studentID, firstName, lastName, email, phone, dateOfBirth, gpa, SSN
     
 (1, "Kayley","Alcock", "Kayley.Alcock@gmail.com", 5874302489, "2001-02-05", 0.00, 10),
 (2, "Blithe","Babino", "Blithe.Babino@gmail.com", 9974681905, "2000-06-18", 0.00, 11),
@@ -631,12 +664,12 @@ INSERT INTO Student VALUES
 (5, "Nita","Ballerini", "Nita.Ballerini@gmail.com", 1089917900, "1997-09-12", 0.00, 14),
 (6, "Agatha","Abeyta", "Agatha.Abeyta@hotmail.com", 9531897726, "1996-08-11", 0.00, 15),
 (7, "Lian","Alquist", "Lian.Alquist@hotmail.com", 5926485890, "1995-12-03", 0.00, 16),
-(8, "Mirabel","Able", "Mirabel.Able@hotmail.com", 4379029136, "1994-03-26", 4.00, 17), -- TA Thesis Grad
+(8, "Mirabel","Able", "Mirabel.Able@hotmail.com", 4379029136, "1994-03-26", 4.00, 17), -- TA, Thesis Grad
 (9, "Berna","Biscardi", "Berna.Biscardi@hotmail.com", 2234067539, "1993-10-16", 4.00, 18),
 (10, "Glyn","Ban", "Glyn.Ban@gmail.com", 5536850841, "1992-01-01", 4.00, 19); -- TA, Thesis Grad
 
 INSERT INTO UnderGraduateStudent VALUES
-    -- studentID, gpa
+    -- studentID
    (1),
    (2),
    (3),
@@ -644,15 +677,15 @@ INSERT INTO UnderGraduateStudent VALUES
    (5);
 
 INSERT INTO GraduateStudent VALUES
-    -- studentID, gpa
+    -- studentID, supervisorID
     
     (6, NULL),
     (7, NULL),
-    (8, NULL),
+    (8, 24),
     (9, NULL),
-    (10, NULL);
+    (10, 26); 
     
-    INSERT INTO TeachingAssistant VALUES
+   INSERT INTO TeachingAssistant VALUES
     -- studentID , Must be a graduate student
     (8),
     (9),
@@ -668,9 +701,9 @@ INSERT INTO StudentProgram VALUES
    (5, 5),
    (6, 6),
 	(7, 7),
-    (8, 8),
-    (9, 9),
-    (10, 12); -- This person is a Graduate Student and TA
+    (8, 8),  -- This person is a Thesis - Graduate Student and TA
+    (9, 9),	 -- This person is a Graduate Student and TA
+    (10, 12); -- This person is a Thesis - Graduate Student and TA
     
 INSERT INTO Grade VALUES
     -- grade, gradePoint
