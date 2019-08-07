@@ -229,6 +229,9 @@ GROUP BY sc.studentID , termID;
 
 
 -- xx. Register a student in a specific course.
+				      
+INSERT INTO StudentCourses VALUES
+(2, "COMP248", 'BB', 1, NULL);  -- Student, term and course can be specified.			      
 
 -- xxi. Drop a course for a specific student.
 				      
