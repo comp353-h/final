@@ -16,13 +16,13 @@ DROP TABLE IF EXISTS Course;
 DROP TABLE IF EXISTS Program;
 DROP TABLE IF EXISTS Chairman;
 DROP TABLE IF EXISTS Instructor;
-DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS FacultyDegree;
 DROP TABLE IF EXISTS Publication;
 DROP TABLE IF EXISTS Employment;
 DROP TABLE IF EXISTS Award;
 DROP TABLE IF EXISTS Degree;
 DROP TABLE IF EXISTS Supervisor;
+DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS FullFaculty;
 DROP TABLE IF EXISTS Facilities;
 DROP TABLE IF EXISTS ConferenceRoom;
@@ -116,11 +116,20 @@ CREATE TABLE FullFaculty (
     PRIMARY KEY (facultyID)
 )  ENGINE=INNODB;
 
+CREATE TABLE Department (
+    departmentID INT NOT NULL,
+    departmentName VARCHAR(128) NOT NULL,
+    PRIMARY KEY (departmentID)
+)  ENGINE=INNODB;
+
 CREATE TABLE Supervisor (
     facultyID INT NOT NULL,
+    departmentID INT NOT NULL,
     PRIMARY KEY ( facultyID ),
     FOREIGN KEY ( facultyID )
-        REFERENCES FullFaculty ( facultyID )
+        REFERENCES FullFaculty ( facultyID ),
+    FOREIGN KEY ( departmentID )
+        REFERENCES Department (departmentID )
 ) ENGINE=INNODB;
 
 CREATE TABLE Degree (
@@ -160,12 +169,6 @@ CREATE TABLE FacultyDegree (
         REFERENCES Degree (degreeName , schoolName , year),
     FOREIGN KEY (facultyID)
         REFERENCES FullFaculty (facultyID) ON DELETE CASCADE
-)  ENGINE=INNODB;
-
-CREATE TABLE Department (
-    departmentID INT NOT NULL,
-    departmentName VARCHAR(128) NOT NULL,
-    PRIMARY KEY (departmentID)
 )  ENGINE=INNODB;
 
 CREATE TABLE Instructor (
@@ -242,13 +245,13 @@ CREATE TABLE Student (
     email VARCHAR(128) NOT NULL,
     phone BIGINT,
     dateOfBirth DATE NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
     ssn INT UNSIGNED,
     PRIMARY KEY (studentID)
 )  ENGINE=INNODB;
 
 CREATE TABLE UnderGraduateStudent (
     studentID INT AUTO_INCREMENT NOT NULL,
-    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (studentID),
     FOREIGN KEY (studentID)
         REFERENCES Student (studentID)
@@ -256,7 +259,6 @@ CREATE TABLE UnderGraduateStudent (
 
 CREATE TABLE GraduateStudent (
     studentID INT AUTO_INCREMENT NOT NULL,
-    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
     supervisorID INT NULL,
     PRIMARY KEY (studentID),
     FOREIGN KEY (studentID)
