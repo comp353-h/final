@@ -4,6 +4,21 @@ DROP TRIGGER IF EXISTS LabInsertTrigger;
 DROP TRIGGER IF EXISTS ClassroomInsertTrigger;
 DROP TRIGGER IF EXISTS INSERT_CHECK_prereq;
 DROP TRIGGER IF EXISTS UPDATE_CHECK_prereq;
+DROP TRIGGER IF EXISTS TA_CHECK;
+
+DELIMITER $$
+CREATE TRIGGER TA_CHECK BEFORE INSERT ON TeachingAssistant
+FOR EACH ROW
+BEGIN
+IF (
+(SELECT gpa FROM Student WHERE studentID = NEW.studentID) < 3.2
+
+) THEN 	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'This grad studenet is too dumb to be a TA.';
+                   END IF;
+END$$
+DELIMITER ; 
+
 
 DELIMITER $$
 CREATE TRIGGER ClassroomInsertTrigger BEFORE INSERT ON Classroom
