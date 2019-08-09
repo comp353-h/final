@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS TASalary;
 DROP TABLE IF EXISTS FacultySalary;
 DROP TABLE IF EXISTS FacultyDegree;
 DROP TABLE IF EXISTS FacultyEmployment;
