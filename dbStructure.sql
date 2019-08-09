@@ -345,9 +345,12 @@ CREATE TABLE ResearchFunding (
     supervisorID INT NOT NULL,
     name VARCHAR(128) NOT NULL,
     amount INT NOT NULL,
+    termID INT NOT NULL,
     PRIMARY KEY ( fundingID ),
     FOREIGN KEY ( supervisorID )
-        REFERENCES Supervisor( facultyID )
+        REFERENCES Supervisor( facultyID ),
+    FOREIGN KEY ( termID )
+        REFERENCES Term( termID )
 ) ENGINE=INNODB;
 
 CREATE TABLE StudentProgram (
