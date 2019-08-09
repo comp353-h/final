@@ -635,12 +635,8 @@ INSERT INTO FacultyEmployment VALUES
     
     (33, "Copywriter", "Zero Sales Advertising"),
     (34, "Editor", "You Zork Chronicles"),
-    (35, "Sports Writer", "Rumor Mill Daily"),
-    (36, "Press Officer", "Scuderia Torro Rosso"),
-    (37, "Copywriter", "Clickbait Inc"),
-    (38, "Editor", "No One Reads Publishing"),
-    (39, "Sports Writer", "Chip Chipperson Media House"),
-    (40, "Press Officer", "Newcastle United"); 
+    (35, "Sports Writer", "Rumor Mill Daily");
+    
 
 INSERT INTO Department VALUES
    -- departmentID, departmentName
@@ -775,6 +771,7 @@ INSERT INTO Program VALUES
    (47, 2),
    (48, 3),
    (49, 4),
+   
    (50, 5),
    (51, 6),
    (52, 7),
@@ -1211,7 +1208,73 @@ INSERT INTO GraduatePublication VALUES
     
 
 
-/*INSERT INTO GraduateEmployment VALUES
+INSERT INTO GraduateEmployment VALUES
    -- studentID, title, employer
 
-		(); */
+	(6, "Press Officer", "Scuderia Torro Rosso"),
+    (7, "Copywriter", "Clickbait Inc"),
+    (8, "Editor", "No One Reads Publishing"),
+    (9, "Sports Writer", "Chip Chipperson Media House"),
+    (10, "Press Officer", "Newcastle United"); 
+    
+INSERT INTO Salary VALUES
+   -- termID, amount
+    
+ ('1', '100'),
+ ('2', '200'),
+ ('3', '300'),
+ ('4', '40'),
+ ('5', '500'),
+ ('6', '600'),
+ ('7', '700'),
+ ('8', '800'),
+ ('9', '900'),
+ ('10', '1000'),
+ ('11', '1100'),
+ ('12', '1200'),
+ ('13', '1300'),
+ ('14', '1400'),
+ ('15', '1500'),
+ ('16', '1600'),
+ ('17', '1700'),
+ ('18', '1800'),
+ ('19', '1900'),
+ ('20', '2000'),
+ ('21', '2100'),
+ ('22', '2200'),
+ ('23', '2300'),
+ ('24', '2400');
+
+    
+/*CREATE TABLE FacultySalary (
+    facultyID INT NOT NULL,
+    termID INT NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY ( facultyID, termID, amount ),
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty ( facultyID ),
+    FOREIGN KEY ( termID, amount )
+        REFERENCES Salary( termID, amount )
+) ENGINE=INNODB;
+
+CREATE TABLE TAContract (
+    contractID INT AUTO_INCREMENT NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
+    sectionID VARCHAR(2) NOT NULL,
+    termID INT NOT NULL,
+    salary INT NOT NULL,
+    hours INT NOT NULL,
+    PRIMARY KEY ( contractID ),
+    FOREIGN KEY ( courseID, sectionID, termID )
+        REFERENCES Section( courseID, sectionID, termID )
+) ENGINE=INNODB;
+
+CREATE TABLE TAContractHistory (
+    studentID INT NOT NULL,
+    contractID INT NOT NULL,
+    PRIMARY KEY ( studentID, contractID ),
+    FOREIGN KEY ( studentID )
+        REFERENCES TeachingAssistant( studentID ),
+    FOREIGN KEY ( contractID )
+        REFERENCES TAContract ( contractID )
+) ENGINE=INNODB; */
