@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS TASalary;
+DROP TABLE IF EXISTS TAContractHistory;
+DROP TABLE IF EXISTS TAContract;
 DROP TABLE IF EXISTS FacultySalary;
 DROP TABLE IF EXISTS FacultyDegree;
 DROP TABLE IF EXISTS FacultyEmployment;
@@ -496,13 +497,24 @@ CREATE TABLE FacultySalary (
         REFERENCES Salary( termID, amount )
 ) ENGINE=INNODB;
 
-CREATE TABLE TASalary (
-    studentID INT NOT NULL,
+CREATE TABLE TAContract (
+    contractID INT AUTO_INCREMENT NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
+    sectionID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
-    amount INT NOT NULL,
-    PRIMARY KEY ( studentID, termID, amount ),
+    salary INT NOT NULL,
+    hours INT NOT NULL,
+    PRIMARY KEY ( contractID ),
+    FOREIGN KEY ( courseID, sectionID, termID )
+        REFERENCES Section( courseID, sectionID, termID )
+) ENGINE=INNODB;
+
+CREATE TABLE TAContractHistory (
+    studentID INT NOT NULL,
+    contractID INT NOT NULL,
+    PRIMARY KEY ( studentID, contractID ),
     FOREIGN KEY ( studentID )
-        REFERENCES TeachingAssistant ( studentID ),
-    FOREIGN KEY ( termID, amount )
-        REFERENCES Salary( termID, amount )
+        REFERENCES TeachingAssistant( studentID ),
+    FOREIGN KEY ( contractID )
+        REFERENCES TAContract ( contractID )
 ) ENGINE=INNODB;
