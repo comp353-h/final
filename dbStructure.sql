@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS Employment;
 DROP TABLE IF EXISTS Award;
 DROP TABLE IF EXISTS Degree;
 DROP TABLE IF EXISTS Supervisor;
+DROP TABLE IF EXISTS Advisor;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS FullFaculty;
 DROP TABLE IF EXISTS Facilities;
@@ -123,6 +124,12 @@ CREATE TABLE Department (
     departmentName VARCHAR(128) NOT NULL,
     PRIMARY KEY (departmentID)
 )  ENGINE=INNODB;
+
+CREATE TABLE Advisor (
+    facultyID INT NOT NULL,
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty ( facultyID )
+) ENGINE=INNODB;
 
 CREATE TABLE Supervisor (
     facultyID INT NOT NULL,
