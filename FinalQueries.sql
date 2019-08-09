@@ -209,6 +209,13 @@ WHERE
 /*xiv. Find the name and IDs of all the graduate students who are supervised by
 a specific Professor.*/
 
+SELECT s.studentID, s.firstName AS 'Student First Name', s.lastName AS 'Student Last Name', f.firstName AS 'Instructor First Name', f.lastName AS 'Instructor Last Name'
+FROM GraduateStudent g
+	JOIN Student s ON (s.studentID = g.studentID)
+    	JOIN FullFaculty f ON (f.facultyID = g.supervisorID)
+WHERE 
+	f.lastName = 'Alfonso'; -- Can be changed. Finds students supervised by Prof. Alfonso
+
 /*xv. Find the ID, name and assignment mandate of all the graduate students
 who are assigned as teaching assistants to a specific course on a given
 term.*/
