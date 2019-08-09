@@ -465,6 +465,7 @@ CREATE TABLE FacultyEmployment (
     facultyID INT NOT NULL,
     title VARCHAR(128) NOT NULL,
     employer VARCHAR(128) NOT NULL,
+    PRIMARY KEY ( facultyID, title, employer ),
     FOREIGN KEY ( facultyID )
         REFERENCES FullFaculty( facultyID ) ON DELETE CASCADE,
     FOREIGN KEY ( title, employer )
