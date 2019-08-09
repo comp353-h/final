@@ -16,32 +16,6 @@ INSERT INTO Building VALUES
  ("TA", "Loyola", "7141 Sherbrooke W", 9, 6),
  ("VL", "Loyola", "7141 Sherbrooke W", 7,  7);
 
--- !!!Triggers should make it so that this is not even necessary!!! Comment out when trigger works.
-INSERT INTO Room VALUES
--- roomId, buildingID
-  (406, "MB"),
-  (301, "HH"),
-  (207, "AD"),
-  (1210, "PY"),
-  (604, "FG"),
-(1003, "MB"),
-(1102, "HH"),
-(506, "AD"),
-(507, "PY"),
-(610, "SH"),
-(803, "FG"),
-(912, "EV"),
-(707, "LB"),
-(506, "TA"),
-(307, "VL"),
-(302, "EV"),
-(506, "LB"),
-(705, "TA"),
-(603, "VL"),
-(809, "SH");
-
-
-
  INSERT INTO Classroom VALUES
  -- roomID, buildingID, capacity
   (406, "MB", 50),
@@ -101,7 +75,6 @@ INSERT INTO Facilities VALUES
 
 
 
-
 INSERT INTO FullFaculty VALUES 
     -- facultyID, firstName, lastName
 (1, "Emily", "Bisel"), -- chairman of Economics
@@ -124,16 +97,16 @@ INSERT INTO FullFaculty VALUES
 (18, "Bobina", "Acri"), -- Building Engineering Professor
 (19, "Cherianne", "Agramonte"), -- Electrical Engineering Professor 
 (20, "Dina", "Balstad"), -- Computer Engineering Professor
-(21, "Antonietta", "Allee"), -- Economics Supervisor
-(22, "Belinda", "Babb"), -- Economics Supervisor
-(23, "Lauri", "Barie"), -- Computer Science Supervisor
-(24, "Trix", "Alfonso"), -- Software Engineering Supervisor
-(25, "Jaclyn", "Albanese"), -- Civil Engineering Supervisor
-(26, "Jandy", "Akeley"), -- Building Engineering Supervisor
-(27, "Dorri", "Adelson"), -- Mathematics Supervisor
-(28, "Opaline", "Allington"), -- Mathematics Supervisor
-(29, "Vicki", "Bargar"), -- Journalism Supervisor
-(30, "Arabel", "Allred"), -- Journalism Supervisor
+(21, "Antonietta", "Allee"), -- Economics Professor
+(22, "Belinda", "Babb"), -- Economics Professor
+(23, "Lauri", "Barie"), -- Computer Science Professor
+(24, "Trix", "Alfonso"), -- Software Engineering Professor
+(25, "Jaclyn", "Albanese"), -- Civil Engineering Professor
+(26, "Jandy", "Akeley"), -- Building Engineering Professor
+(27, "Dorri", "Adelson"), -- Mathematics Professor
+(28, "Opaline", "Allington"), -- Mathematics Professor
+(29, "Vicki", "Bargar"), -- Journalism Professor
+(30, "Arabel", "Allred"), -- Journalism Professor
 (31, "Buffy", "Alejos"), -- Aerospace Engineering Professor
 (32, "Annis", "Abt"), -- Aerospace Engineering Professor
 (33, "Robinett", "Belding"), -- Software Engineering Professor
@@ -145,35 +118,50 @@ INSERT INTO FullFaculty VALUES
 (39, "Delphinia", "Akel"), -- Computer Engineering Professor
 (40, "Alberta", "Abram"), -- Computer Engineering Professor
 (41,"Kelcie", "Aderholt"), -- Computer Science Professor
-(42, "Biddie", "Alexis"), -- Civil Engineering
-(43, "Angelita", "Barney"), -- Mathematics
-(44, "Dee Dee", "Abdi"), -- Journalism
-(45, "Candra", "Ballweg"), -- Economics
-(46, "Florenza", "Adami"), -- Advisor of Computer Applications Program
-(47, "Fernande", "Allis"), -- Advisor of Computer Games Program
-(48, "Alverta", "Albino"),
-(49, "Filia", "Aldred"),
-(50, "Dotti", "Bird"),
-(51, "Chiquita", "Abraham"),
-(52, "Minette", "Adelson"), 
-(53, "Sharla", "Ambrosini"),
-(54, "Bethina", "Barney"),
-(55, "Zora", "Ahler"),
-(56, "Megen", "Alexander"),
-(57, "Micheline", "Aderhold"),
-(58, "Liv", "Akagi"),
-(59, "Lethia", "Adan"),
-(60, "Sheila-Kathryn", "Amble"),
-(61, "Averil", "Alderfer"),
-(62, "Karrie", "Ake"),
-(63, "Rozella", "Beitel"),
-(64, "Klara", "Allaway"),
-(65, "Margaret", "Allgaier"),
-(66, "Teddie", "Alm"),
-(67, "Candace", "Allyn"),
-(68, "Shanda", "Alarcon"),
-(69, "Fay", "Alexis"),
-(70, "Malina", "Almaraz");
+(42, "Biddie", "Alexis"), -- Civil Engineering Professor
+(43, "Angelita", "Barney"), -- Mathematics Professor
+(44, "Dee Dee", "Abdi"), -- Journalism Professor
+(45, "Candra", "Ballweg"), -- Economics Professor
+(46, "Florenza", "Adami"), -- Undergrad Computer Applications Advisor
+(47, "Fernande", "Allis"), -- Undergrad Computer Games Advisor
+(48, "Alverta", "Albino"), -- Grad Computer Applications Advisor
+(49, "Filia", "Aldred"), -- Grad-Thesis Computer Games Advisor
+(50, "Dotti", "Bird"), -- Undergrad Information Systems Advisor
+(51, "Chiquita", "Abraham"), -- Undergrad Web Services & Applications Advisor
+(52, "Minette", "Adelson"), -- Grad Information Systems Advisor
+(53, "Sharla", "Ambrosini"), -- Grad-Thesis Web Services & Applications Advisor
+(54, "Bethina", "Barney"), -- Undergrad Building Energy & Environment Advisor
+(55, "Zora", "Ahler"), -- Undergrad Building Structures & COnstruction Advisor
+(56, "Megen", "Alexander"), -- Grad Building Energy & Environment Advisor
+(57, "Micheline", "Aderhold"), -- Grad Building Structures & COnstruction Advisor
+(58, "Liv", "Akagi"), -- Undergrad Civil Infrastructure Advisor
+(59, "Lethia", "Adan"), -- Undergrad Construction Engineering Advisor
+(60, "Sheila-Kathryn", "Amble"), -- Grad Civil Infrastructure Advisor
+(61, "Averil", "Alderfer"), -- Grad-These Construction Engineering Advisor
+(62, "Karrie", "Ake"), -- Undergrad Pure Mathematics Advisor
+(63, "Rozella", "Beitel"), -- Undergrad Applied Mathematics Advisor
+(64, "Klara", "Allaway"), -- Grad Pure Mathematics Advisor
+(65, "Margaret", "Allgaier"), -- Grad-Thesis Applied Mathematics Advisor
+(66, "Teddie", "Alm"), -- Undergrad Print Media Advisor
+(67, "Candace", "Allyn"), -- Undergrad Corporate Journalism Advisor
+(68, "Shanda", "Alarcon"), -- Grad Print Media Advisor
+(69, "Fay", "Alexis"), -- Grad-Thesis Corporate Journalism Advisor
+(70, "Malina", "Almaraz"), -- Undergrad Avionics & Embedded Systems Advisor
+(71, "Lillian", "Alvidrez"), -- Undergrad Pervasive Computing Advisor
+(72, "Aveline", "Barnett"), -- Grad Avionics & Embedded Systems Advisor
+(73, "Etti", "Allinson"), -- Grad-Thesis Pervasive Computing Advisor
+(74, "Michelle", "Alms"), -- Undergrad Microeconomics Advisor
+(75, "Min", "Beitz"), -- Undergrad Macroeconomics Advisor
+(76, "Zoe", "Adderley"), -- Grad Microeconomics Advisor
+(77, "Priscilla", "Abbas"), -- Grad-Thesis Macroeconomics Advisor
+(78, "Martica", "Amberger"), -- Undergrad Power & Renewable Energy Advisor
+(79, "Brianna", "Bargas"), -- Undergrad Telecommunications Advisor
+(80, "Annalee", "Alhadeff"), -- Grad Power & Renewable Energy Advisor
+(81, "Bobbe", "Alvino"), -- Grad Telecommunications Advisor
+(82, "Kerri", "Agron"), -- Undergrad Aerodynamics & Propulsion Advisor
+(83, "Ashia", "Achatz"), -- Undergrad Aerospace Structures & Materials Advisor
+(84, "Ellene", "Binney"), -- Grad Aerodynamics & Propulsion Advisor
+(85, "Eba", "Allmand"); -- Grad-Thesis Aerospace Structures & Materials Advisor
 
 
 INSERT INTO Degree VALUES
@@ -401,6 +389,22 @@ INSERT INTO FacultyDegree VALUES
    (38, "Electrical Engineering", "Concordia University", 2001),
    (39, "Computer Engineering", "Concordia University", 2009),
    (40, "Computer Engineering", "Concordia University", 2017);
+   
+  /* INSERT INTO FacultyAwards VALUES
+    -- facultyID, awardName, awardyear
+    
+    ();
+
+INSERT INTO FacultyPublication VALUES
+    -- facultyID, publicationName, publicationYear
+   
+   ();
+
+INSERT INTO FacultyEmployment VALUES
+    -- facultyID, title, employer
+    
+    (); */
+   
 
 INSERT INTO Department VALUES
    -- departmentID, departmentName
@@ -474,20 +478,7 @@ INSERT INTO Chairman VALUES
 (29, 6), -- Journalism
 (30, 6); -- Journalism
         
-        
-INSERT INTO ResearchFunding VALUES
-     -- fundingID, supervisorID, name, amount
-     
-(1, 21, "The Buy High Sell Low Equilibrium", 7000), -- Economics 
-(2, 22, "", 80000), -- Economics 
-(3, 23, "", 900000), -- Computer Science 
-(4, 24, "", 1000000), -- Computer Science 
-(5, 25, "", 50), -- Civil Engineering
-(6, 26, "", 600), -- Civil Engineering 
-(7, 27, "", 7000), -- Mathematics
-(8, 28, "",80000), -- Mathematics 
-(9, 29, "", 900000), -- Journalism
-(10, 30, "", 1000000); -- Journalism, 
+
    
 INSERT INTO Program VALUES
    -- programID, programName, departmentID, programCredits, programType ENUM( "UnderGraduate", "Graduate", "Graduate-Thesis" )
@@ -540,6 +531,50 @@ INSERT INTO Program VALUES
 ( 38, "Aerospace Structures & Materials", 10, 90.0, "UnderGraduate" ),
 ( 39, "Aerodynamics & Propulsion", 10, 44.0, "Graduate" ),
 ( 40, "Aerospace Structures & Materials", 10, 44.0, "Graduate-Thesis" );
+
+	INSERT INTO Advisor VALUES
+   -- facultyID, ProgramID
+   
+   (46, 1),
+   (47, 2),
+   (48, 3),
+   (49, 4),
+   (50, 5),
+   (51, 6),
+   (52, 7),
+   (53, 8),
+   (54, 9),
+   (55, 10),
+   (56, 11),
+   (57, 12),
+   (58, 13),
+   (59, 14),
+   (60, 15),
+   (61, 16),
+   (62, 17),
+   (63, 18),
+   (64, 19),
+   (65, 20),
+   (66, 21),
+   (67, 22),
+   (68, 23),
+   (69, 24),
+   (70, 25),
+   (71, 26),
+   (72, 27),
+   (73, 28),
+   (74, 29),
+   (75, 30),
+   (76, 31),
+   (77, 32),
+   (78, 33),
+   (79, 34),
+   (80, 35),
+   (81, 36),
+   (82, 37),
+   (83, 38),
+   (84, 39),
+   (85, 40);
 
 
 INSERT INTO Course VALUES
@@ -676,6 +711,20 @@ INSERT INTO Term VALUES
 	(22, 'FALL', 2022),
     (23, 'WINTER', 2022),
     (24, 'SUMMER', 2022);
+    
+    INSERT INTO ResearchFunding VALUES
+     -- fundingID, supervisorID, name, amount, termID
+     
+(1, 21, "The Buy High Sell Low Equilibrium", 7000, 1), -- Economics 
+(2, 22, "", 80000, 2), -- Economics 
+(3, 23, "", 900000, 3), -- Computer Science 
+(4, 24, "", 1000000, 4), -- Computer Science 
+(5, 25, "", 50, 5), -- Civil Engineering
+(6, 26, "", 600, 6), -- Civil Engineering 
+(7, 27, "", 7000, 7), -- Mathematics
+(8, 28, "",80000, 8), -- Mathematics 
+(9, 29, "", 900000, 9), -- Journalism
+(10, 30, "", 1000000, 10); -- Journalism, 
     
 INSERT INTO TimeSlot VALUES
     -- timeID INT, day ENUM( "Monday" , "Tuesday", "Wednesday", "Thursday", "Friday" ), startTime TIME ,endTime
@@ -850,6 +899,12 @@ INSERT INTO StudentProgram VALUES
     (9, 11),	 -- This person is a Graduate Student and TA
     (10, 12); -- This person is a Thesis - Graduate Student and TA
     
+    
+/*INSERT INTO StudentDegree VALUES
+    -- studentID, degreeName, schoolName, year
+    
+    (); */
+    
 INSERT INTO Grade VALUES
     -- grade, gradePoint
     
@@ -872,7 +927,7 @@ INSERT INTO Grade VALUES
 /*INSERT INTO StudentCourses VALUES
     -- studentID, courseID, sectionID, termID, grade
     
-    (1, "COMP248", 'BB', 1, "A"); */
+    (1, "COMP248", 'BB', 1, "A");  */
     
     
 INSERT INTO GraduateAwards VALUES
@@ -894,4 +949,9 @@ INSERT INTO GraduatePublication VALUES
     (9, "Canadian Journal of Civil Engineering", 2016),
     (10, "Canadian Journal of Civil Engineering", 2006); 
     
-	
+
+
+/*INSERT INTO GraduateEmployment VALUES
+   -- studentID, title, employer
+
+		(); */
