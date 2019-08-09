@@ -493,3 +493,14 @@ CREATE TABLE FacultySalary (
     FOREIGN KEY ( termID, amount )
         REFERENCES Salary( termID, amount )
 ) ENGINE=INNODB;
+
+CREATE TABLE TASalary (
+    studentID INT NOT NULL,
+    termID INT NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY ( studentID, termID, amount ),
+    FOREIGN KEY ( studentID )
+        REFERENCES TeachingAssistant ( studentID ),
+    FOREIGN KEY ( termID, amount )
+        REFERENCES Salary( termID, amount )
+) ENGINE=INNODB;
