@@ -193,17 +193,12 @@ WHERE (d.departmentID = 8); -- finds them for Economics. Can be specified.
 
 -- xiii. Give a list of all the advisors in a given department.
 
-SELECT
-	departmentName,
-	firstName,
-    lastName
-FROM
-	Advisor a
-	JOIN
-		Program p
-        ON a.programID = p.programID
-WHERE
-	departmentID = 1;
+SELECT  f.firstName, f.lastName, d.departmentName
+FROM FullFaculty f
+	JOIN Advisor a ON a.facultyID = f.facultyID
+    JOIN Program p ON p.programID = a.programID
+    JOIN Department d ON d.departmentID = p.departmentID
+WHERE d.departmentName = 'Computer Science'; -- department can be selected
 	
     
 /*xiv. Find the name and IDs of all the graduate students who are supervised by
