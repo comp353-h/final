@@ -277,6 +277,13 @@ INSERT INTO StudentCourses VALUES
 DELETE FROM StudentCourses 
 WHERE (studentID = 1) AND (courseID = 'COMP248'); -- StudentID and CourseID can be specified.
 
+
 /*xxii. Give a detailed report for a specific student (This include personal data,
 academic history, courses taken and grades received for each course,
 GPA, etc.)*/
+
+SELECT s.studentID, s.firstName, s.lastName, s.email, s.phone, s.dateOfBirth, s.gpa, s.ssn, sd.degreeName, sd.SchoolName, sd.year, sc.courseID, sc.grade  
+FROM Student s
+	JOIN StudentDegree sd ON sd.studentID = s.studentID
+    JOIN StudentCourses sc ON sc.studentID = s.studentID
+WHERE s.studentID = 1;  -- Student ID can be specified
