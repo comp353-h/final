@@ -144,7 +144,7 @@ SELECT c.courseName
 FROM Course c
 JOIN CourseProgram cp ON (c.courseID=cp.courseID)
 JOIN Section s ON (c.courseID=s.courseID)
-WHERE s.termID='1' AND cp.programID='1';
+WHERE s.termID='12' AND cp.programID='1';
 
 
 /*ix. Get the details of all the courses offered by a specific department for a
@@ -161,7 +161,7 @@ FROM Section s
     JOIN FullFaculty f on (f.facultyID = s.instructorID)
     JOIN TimeSlot t on (t.timeID = s.timeID)
     JOIN StudentCourses sc on (sc.termID = s.termID)
-WHERE s.termID=1 AND s.courseID = "COMP248"; -- term and course can be chosen
+WHERE s.termID=12 AND s.courseID = "COMP248"; -- term and course can be chosen
 
 /*x. Find ID, first name and last name of all the students who are enrolled in a
 specific program in a given term. */
@@ -173,7 +173,7 @@ FROM Student s
 	JOIN StudentProgram sp ON (s.studentID=sp.studentID)
     JOIN StudentCourses sc ON (sc.studentID=s.studentID)
     JOIN Section s2 ON (s2.courseID=sc.courseID)
-WHERE s2.termID='1' AND sp.programID='1';
+WHERE s2.termID='12' AND sp.programID='1';
 
 /*xi. Find the name of all the instructors who taught a given course on a
 specific term.*/
@@ -181,7 +181,7 @@ specific term.*/
 SELECT  s.termID, f.firstName, f.lastName, s.courseID
 FROM Section s
 JOIN FullFaculty f ON (f.facultyID=s.instructorID)
-WHERE s.termID=1 AND s.courseID = "COMP248"; -- term and course can be chosen
+WHERE s.termID=12 AND s.courseID = "COMP248"; -- term and course can be chosen
 
 -- xii. Give a list of all supervisors in a given department.
 
@@ -208,6 +208,13 @@ WHERE
     
 /*xiv. Find the name and IDs of all the graduate students who are supervised by
 a specific Professor.*/
+
+SELECT s.studentID, s.firstName AS 'Student First Name', s.lastName AS 'Student Last Name', f.firstName AS 'Instructor First Name', f.lastName AS 'Instructor Last Name'
+FROM GraduateStudent g
+	JOIN Student s ON (s.studentID = g.studentID)
+    	JOIN FullFaculty f ON (f.facultyID = g.supervisorID)
+WHERE 
+	f.lastName = 'Alfonso'; -- Can be changed. Finds students supervised by Prof. Alfonso
 
 /*xv. Find the ID, name and assignment mandate of all the graduate students
 who are assigned as teaching assistants to a specific course on a given
