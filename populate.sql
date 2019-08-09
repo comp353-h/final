@@ -16,6 +16,32 @@ INSERT INTO Building VALUES
  ("TA", "Loyola", "7141 Sherbrooke W", 9, 6),
  ("VL", "Loyola", "7141 Sherbrooke W", 7,  7);
 
+-- !!!Triggers should make it so that this is not even necessary!!! Comment out when trigger works.
+INSERT INTO Room VALUES
+-- roomId, buildingID
+  (406, "MB"),
+  (301, "HH"),
+  (207, "AD"),
+  (1210, "PY"),
+  (604, "FG"),
+(1003, "MB"),
+(1102, "HH"),
+(506, "AD"),
+(507, "PY"),
+(610, "SH"),
+(803, "FG"),
+(912, "EV"),
+(707, "LB"),
+(506, "TA"),
+(307, "VL"),
+(302, "EV"),
+(506, "LB"),
+(705, "TA"),
+(603, "VL"),
+(809, "SH");
+
+
+
  INSERT INTO Classroom VALUES
  -- roomID, buildingID, capacity
   (406, "MB", 50),
