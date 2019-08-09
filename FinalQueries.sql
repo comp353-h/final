@@ -185,6 +185,11 @@ WHERE s.termID=1 AND s.courseID = "COMP248"; -- term and course can be chosen
 
 -- xii. Give a list of all supervisors in a given department.
 
+SELECT d.departmentName, f.firstName, f.lastName FROM Supervisor s
+	JOIN FullFaculty f ON (f.facultyID = s.facultyID)
+	JOIN Department d ON (d.departmentID = s.departmentID)
+WHERE (d.departmentID = 8); -- finds them for Economics. Can be specified.
+
 
 -- xiii. Give a list of all the advisors in a given department.
 
