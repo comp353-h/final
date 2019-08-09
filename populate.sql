@@ -75,6 +75,7 @@ INSERT INTO Facilities VALUES
 
 
 
+
 INSERT INTO FullFaculty VALUES 
     -- facultyID, firstName, lastName
 (1, "Emily", "Bisel"), -- chairman of Economics
@@ -97,16 +98,16 @@ INSERT INTO FullFaculty VALUES
 (18, "Bobina", "Acri"), -- Building Engineering Professor
 (19, "Cherianne", "Agramonte"), -- Electrical Engineering Professor 
 (20, "Dina", "Balstad"), -- Computer Engineering Professor
-(21, "Antonietta", "Allee"), -- Economics Professor
-(22, "Belinda", "Babb"), -- Economics Professor
-(23, "Lauri", "Barie"), -- Computer Science Professor
-(24, "Trix", "Alfonso"), -- Software Engineering Professor
-(25, "Jaclyn", "Albanese"), -- Civil Engineering Professor
-(26, "Jandy", "Akeley"), -- Building Engineering Professor
-(27, "Dorri", "Adelson"), -- Mathematics Professor
-(28, "Opaline", "Allington"), -- Mathematics Professor
-(29, "Vicki", "Bargar"), -- Journalism Professor
-(30, "Arabel", "Allred"), -- Journalism Professor
+(21, "Antonietta", "Allee"), -- Economics Supervisor
+(22, "Belinda", "Babb"), -- Economics Supervisor
+(23, "Lauri", "Barie"), -- Computer Science Supervisor
+(24, "Trix", "Alfonso"), -- Software Engineering Supervisor
+(25, "Jaclyn", "Albanese"), -- Civil Engineering Supervisor
+(26, "Jandy", "Akeley"), -- Building Engineering Supervisor
+(27, "Dorri", "Adelson"), -- Mathematics Supervisor
+(28, "Opaline", "Allington"), -- Mathematics Supervisor
+(29, "Vicki", "Bargar"), -- Journalism Supervisor
+(30, "Arabel", "Allred"), -- Journalism Supervisor
 (31, "Buffy", "Alejos"), -- Aerospace Engineering Professor
 (32, "Annis", "Abt"), -- Aerospace Engineering Professor
 (33, "Robinett", "Belding"), -- Software Engineering Professor
@@ -122,8 +123,8 @@ INSERT INTO FullFaculty VALUES
 (43, "Angelita", "Barney"), -- Mathematics
 (44, "Dee Dee", "Abdi"), -- Journalism
 (45, "Candra", "Ballweg"), -- Economics
-(46, "Florenza", "Adami"),
-(47, "Fernande", "Allis"),
+(46, "Florenza", "Adami"), -- Advisor of Computer Applications Program
+(47, "Fernande", "Allis"), -- Advisor of Computer Games Program
 (48, "Alverta", "Albino"),
 (49, "Filia", "Aldred"),
 (50, "Dotti", "Bird"),
@@ -147,6 +148,7 @@ INSERT INTO FullFaculty VALUES
 (68, "Shanda", "Alarcon"),
 (69, "Fay", "Alexis"),
 (70, "Malina", "Almaraz");
+
 
 INSERT INTO Degree VALUES
 
