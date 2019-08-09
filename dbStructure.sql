@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS GraduateEmployment;
 DROP TABLE IF EXISTS GraduatePublication;
 DROP TABLE IF EXISTS GraduateAwards;
 DROP TABLE IF EXISTS StudentCourses;
@@ -15,6 +16,7 @@ DROP TABLE IF EXISTS TimeSlot;
 DROP TABLE IF EXISTS Term;
 DROP TABLE IF EXISTS CourseProgram;
 DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS Advisor;
 DROP TABLE IF EXISTS Program;
 DROP TABLE IF EXISTS Chairman;
 DROP TABLE IF EXISTS Instructor;
@@ -24,7 +26,6 @@ DROP TABLE IF EXISTS Employment;
 DROP TABLE IF EXISTS Award;
 DROP TABLE IF EXISTS Degree;
 DROP TABLE IF EXISTS Supervisor;
-DROP TABLE IF EXISTS Advisor;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS FullFaculty;
 DROP TABLE IF EXISTS Facilities;
@@ -125,12 +126,6 @@ CREATE TABLE Department (
     PRIMARY KEY (departmentID)
 )  ENGINE=INNODB;
 
-CREATE TABLE Advisor (
-    facultyID INT NOT NULL,
-    FOREIGN KEY ( facultyID )
-        REFERENCES FullFaculty ( facultyID )
-) ENGINE=INNODB;
-
 CREATE TABLE Supervisor (
     facultyID INT NOT NULL,
     departmentID INT NOT NULL,
@@ -210,6 +205,15 @@ CREATE TABLE Program (
     FOREIGN KEY (departmentID)
         REFERENCES Department (departmentID)
 )  ENGINE=INNODB;
+
+CREATE TABLE Advisor (
+    facultyID INT NOT NULL,
+    programID INT NOT NULL,
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty ( facultyID ) ON DELETE CASCADE,
+    FOREIGN KEY ( programID )
+        REFERENCES Program ( programID ) ON DELETE CASCADE
+) ENGINE=INNODB;
 
 CREATE TABLE Course (
     courseID VARCHAR(8) NOT NULL,
@@ -405,4 +409,14 @@ CREATE TABLE GraduatePublication (
         REFERENCES GraduateStudent( studentID ) ON DELETE CASCADE,
     FOREIGN KEY ( publicationName, publicationYear )
         REFERENCES Publication( publicationName, year )
+) ENGINE=INNODB;
+
+CREATE TABLE GraduateEmployment (
+    studentID INT NOT NULL,
+    title VARCHAR(128) NOT NULL,
+    employer VARCHAR(128) NOT NULL,
+    FOREIGN KEY ( studentID )
+        REFERENCES GraduateStudent( studentID ) ON DELETE CASCADE,
+    FOREIGN KEY ( title, employer )
+        REFERENCES Employment ( title, employer ) ON DELETE CASCADE
 ) ENGINE=INNODB;
