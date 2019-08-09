@@ -594,54 +594,53 @@ INSERT INTO FacultyPublication VALUES
   (39, "Time Magazine", 2013),
   (40, "Time Magazine", 2018);
 
-/*INSERT INTO FacultyEmployment VALUES
+INSERT INTO FacultyEmployment VALUES
     -- facultyID, title, employer
     
-    ( "Credit Analyst", "TD Bank", "1981-02-12", "1983-05-16"),
-    ( "Financial Analyst", "JP Morgan", "1982-03-26", "1984-05-05" ),
-    ( "Actuary", "Lehmann Brothers", "1983-04-02", "1985-12-03" ),
-    ("Operations Research Analyst", "AON Insurance", "1984-05-23", "1986-11-12" ),
-    ("Credit Analyst", "Auto Loans Approved", "1985-06-25", "1987-01-06"  ),
-    ("Financial Analyst", "Recession Rescuers", "1986-07-31", "1988-04-14" ),
-    ("Actuary", "Ponzi Incorporated", "1987-08-19","1989-06-15"),
-    ("Operations Research Analyst", "Capitolisto Communisto", "1988-09-28", "1990-06-30"),
+    (1, "Credit Analyst", "TD Bank"),
+    (2, "Financial Analyst", "JP Morgan"),
+    (3, "Actuary", "Lehmann Brothers" ),
+    (4, "Operations Research Analyst", "AON Insurance"),
+    (5, "Credit Analyst", "Auto Loans Approved"),
+    (6, "Financial Analyst", "Recession Rescuers"),
+    (7, "Actuary", "Ponzi Incorporated"),
+    (8, "Operations Research Analyst", "Capitolisto Communisto"),
 
-    ("Junior Software Developer", "Microsoft", "1989-01-30", "1991-12-26"),
-    ("Junior Web Developer", "YourArea", "1990-02-28", "1992-05-14"),
-    ("Database Administrator", "I_BOMB_EM", "1991-03-25", "1993-02-12"),
-    ("Information Security Analyst", "Wacka Hacka Inc", "1992-04-03", "1994-07-19"),
-    ("Junior Software Developer", "Sony Inc", "1993-05-06", "1995-12-03" ),
-    ("Junior Web Developer", "AskJeeves.com", "1994-06-02", "1996-01-09"),
-    ("Database Administrator", "DataMine Limited", "1995-12-03", "1997-05-13"),
-    ("Information Security Analyst", "Incription Solutions", "1996-08-25", "1998-11-11"),
+    (9, "Junior Software Developer", "Microsoft"),
+    (10, "Junior Web Developer", "YourArea"),
+    (11, "Database Administrator", "I_BOMB_EM"),
+    (12, "Information Security Analyst", "Wacka Hacka Inc"),
+    (13, "Junior Software Developer", "Sony Inc"),
+    (14, "Junior Web Developer", "AskJeeves.com"),
+    (15, "Database Administrator", "DataMine Limited"),
+    (16, "Information Security Analyst", "Incription Solutions"),
     
-    ("Application Engineer", "Sopranos Construction", "1997-01-30", "1999-12-26"),
-    ("Structural Engineer", "GoodFellas Inc", "1998-02-28", "2000-05-14"),
-    ("Hydraulic Engineer", "Cheap Buildings Limited", "1999-03-25", "2001-02-12"),
-    ("Chief Engineering Officer", "Collapsico & Co", "2000-04-03", "2002-07-19"),
-    ("Application Engineer", "Six Pence Structures", "2001-05-06", "2003-10-06"),
-    ("Structural Engineer", "Gambino Gondolas", "2002-06-02", "2004-01-09"),
-    ("Hydraulic Engineer", "Metal Gear Development", "2003-07-22", "2005-08-23"),
-    ("Chief Engineering Officer", "Build & Chill Inc", "2004-08-16",  "2006-12-22"),
+    (17, "Application Engineer", "Sopranos Construction"),
+    (18, "Structural Engineer", "GoodFellas Inc"),
+    (19, "Hydraulic Engineer", "Cheap Buildings Limited"),
+    (20, "Chief Engineering Officer", "Collapsico & Co"),
+    (21, "Application Engineer", "Six Pence Structures"),
+    (22, "Structural Engineer", "Gambino Gondolas"),
+    (23, "Hydraulic Engineer", "Metal Gear Development"),
+    (24, "Chief Engineering Officer", "Build & Chill Inc"),
     
-    ("Numerical Analyst", "Numerico", "2005-01-03", "2007-12-24"),
-    ("External Auditor", "Digitize Inc", "2006-02-28", "2008-05-14"),
-    ("Statistician", "Statistico", "2007-03-25", "2009-02-12"),
-    ("Rate Analyst", "Checkout Limited", "2008-04-03", "2010-07-19"),
-    ("Numerical Analyst", "ArcTanalysts Inc", "2009-05-06", "2011-10-06"),
-    ("External Auditor", "SinSenses Ltd", "2010-06-02", "2012-01-09" ),
-    ("Statistician", "CosCurrent & Co", "2011-07-22", "2013-08-23"),
-    ("Rate Analyst", "Much & More", "2012-08-16", "2006-12-22"),
+    (25, "Numerical Analyst", "Numerico"),
+    (26, "External Auditor", "Digitize Inc"),
+    (27, "Statistician", "Statistico"),
+    (28, "Rate Analyst", "Checkout Limited"),
+    (29, "Numerical Analyst", "ArcTanalysts Inc"),
+    (30, "External Auditor", "SinSenses Ltd"),
+    (31, "Statistician", "CosCurrent & Co"),
+    (32, "Rate Analyst", "Much & More"),
     
-    ("Copywriter", "Zero Sales Advertising", "2013-01-03", "2015-12-24"),
-    ("Editor", "You Zork Chronicles", "2014-02-28", "2016-05-14"),
-    ("Sports Writer", "Rumor Mill Daily", "2015-03-25", "2017-02-12"),
-    ("Press Officer", "Scuderia Torro Rosso", "2016-04-03", "2018-07-19"),
-    ("Copywriter", "Clickbait Inc", "2017-05-06", "2019-10-06"),
-    ("Editor", "No One Reads Publishing", "2018-06-02", "2020-01-09" ),
-    ("Sports Writer", "Chip Chipperson Media House", "2019-07-22", "2021-08-23"),
-    ("Press Officer", "Newcastle United", "2020-08-16", "2022-12-22"); */
-   
+    (33, "Copywriter", "Zero Sales Advertising"),
+    (34, "Editor", "You Zork Chronicles"),
+    (35, "Sports Writer", "Rumor Mill Daily"),
+    (36, "Press Officer", "Scuderia Torro Rosso"),
+    (37, "Copywriter", "Clickbait Inc"),
+    (38, "Editor", "No One Reads Publishing"),
+    (39, "Sports Writer", "Chip Chipperson Media House"),
+    (40, "Press Officer", "Newcastle United"); 
 
 INSERT INTO Department VALUES
    -- departmentID, departmentName
@@ -1075,15 +1074,7 @@ INSERT INTO Section VALUES
 
    
    
-/*INSERT INTO TutorialSection VALUES
-   -- courseID, sectionID, tutorialID, termID, teachingAssistantID, roomID, buildingID, timeID
-   
-   ();
 
-INSERT INTO LabSection VALUES
-    -- courseID, sectionID, labID, termID, teachingAssistantID, roomID, buildingID, timeID
-    
-   (); */
 
 INSERT INTO Student VALUES
     -- studentID, firstName, lastName, email, phone, dateOfBirth, gpa, SSN
@@ -1097,7 +1088,10 @@ INSERT INTO Student VALUES
 (7, "Lian","Alquist", "Lian.Alquist@hotmail.com", 5926485890, "1995-12-03", 0.00, 16),
 (8, "Mirabel","Able", "Mirabel.Able@hotmail.com", 4379029136, "1994-03-26", 4.00, 17), -- TA, Thesis Grad
 (9, "Berna","Biscardi", "Berna.Biscardi@hotmail.com", 2234067539, "1993-10-16", 4.00, 18),
-(10, "Glyn","Ban", "Glyn.Ban@gmail.com", 5536850841, "1992-01-01", 4.00, 19); -- TA, Thesis Grad
+(10, "Glyn","Ban", "Glyn.Ban@gmail.com", 5536850841, "1992-01-01", 4.00, 19), -- TA, Thesis Grad
+(11, "Dita", "Algee", "Dita.Algee@gmail.com", 7214616692, "1992-01-01", 4.00, 20), -- TA, Thesis Grad
+(12, "Katha", "Birtcher", "Katha.Birtcher@gmail.com", 9747778600, "1993-01-01", 4.00, 21), -- TA, Thesis Grad
+(13, "Zabrina", "Barksdale", "Zabrina.Barksdale@hotmail.com", 3496475930, "1994-01-01", 4.00, 22); -- TA, Thesis Grad
 
 INSERT INTO UnderGraduateStudent VALUES
     -- studentID
@@ -1114,13 +1108,39 @@ INSERT INTO GraduateStudent VALUES
     (7, NULL),
     (8, 24),
     (9, NULL),
-    (10, 26); 
+    (10, 26),
+    (11, NULL),
+    (12, NULL),
+    (13, NULL);
     
    INSERT INTO TeachingAssistant VALUES
     -- studentID , Must be a graduate student
     (8),
     (9),
-    (10);
+    (10),
+    (11),
+    (12),
+    (13);
+    
+INSERT INTO TutorialSection VALUES
+   -- courseID, sectionID, tutorialID, termID, teachingAssistantID, roomID, buildingID, timeID
+   
+( "COMP248", "BB", "BA", 12, 8, 406, "MB", 4),
+( "COMP248", "LL", "LA", 22, 9, 301, "HH", 7),
+( "COMP249", "VV", "VA", 8, 10, 207, "AD", 4),
+( "COMP1268", "FF", "FA", 18, 8, 1210, "PY", 7 ),
+( "COMP1368", "PP", "PA", 4, 9, 604, "FG", 4);
+
+
+
+INSERT INTO LabSection VALUES
+    -- courseID, sectionID, labID, termID, teachingAssistantID, roomID, buildingID, timeID
+    
+( "COMP248", "BB", "BC", 12, 11, 406, "MB", 2),
+( "COMP248", "LL", "LC", 22, 12, 301, "HH", 6),
+( "COMP249", "VV", "VC", 8, 13, 207, "AD", 2),
+( "COMP1268", "FF", "FC", 18, 11, 1210, "PY", 6 ),
+( "COMP1368", "PP", "PC", 4, 12, 604, "FG", 2 );
     
 
 INSERT INTO StudentProgram VALUES
@@ -1134,13 +1154,16 @@ INSERT INTO StudentProgram VALUES
 	(7, 4),
     (8, 8),  -- This person is a Thesis - Graduate Student and TA
     (9, 11),	 -- This person is a Graduate Student and TA
-    (10, 12); -- This person is a Thesis - Graduate Student and TA
+    (10, 12), -- This person is a Thesis - Graduate Student and TA
+    (11, 3), -- This person is a Graduate Student and TA
+    (12, 7), -- This person is a Graduate Student and TA
+    (13, 11); -- This person is a Graduate Student and TA
     
     
 INSERT INTO StudentDegree VALUES
     -- studentID, degreeName, schoolName, year
     
-    (8, "Computer Engineering", "Concordia University", 1971);
+    (1, "Computer Engineering", "Concordia University", 1971);
     
 INSERT INTO Grade VALUES
     -- grade, gradePoint
@@ -1161,10 +1184,10 @@ INSERT INTO Grade VALUES
     
 
 
-/*INSERT INTO StudentCourses VALUES
+INSERT INTO StudentCourses VALUES
     -- studentID, courseID, sectionID, termID, grade
     
-    (1, "COMP248", 'BB', 1, "A");  */
+    (1, "COMP248", 'BB', 12, "A");  
     
     
 INSERT INTO GraduateAwards VALUES
