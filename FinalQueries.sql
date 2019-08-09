@@ -223,6 +223,13 @@ term.*/
 /*xvi. Find the name, IDs and total amount of funds received by all the graduate
 students who received research funds in a given term.*/
 
+SELECT s.studentID, s.firstName, s.lastName, r.amount, r.termID
+FROM GraduateStudent g
+	JOIN Student s ON (s.studentID = g.studentID)
+    JOIN FullFaculty f ON (f.facultyID = g.supervisorID)
+    JOIN ResearchFunding r ON (r.supervisorID = f.facultyID)
+WHERE termID = 4;	-- Term can be specified
+
 /*xvii. For each department, find the total number of courses offered by the
 department and the name of its chairman.*/
 SELECT 
