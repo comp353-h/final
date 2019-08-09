@@ -168,40 +168,103 @@ INSERT INTO Degree VALUES
 
    --  degreeName, schoolName, year
 	
+    
+   ("Economics", "Oxford", 1933),
+   ("Computer Science", "Oxford", 1934),
+   ("Civil Engineering", "Oxford", 1935),
+   ("Mathematics", "Oxford", 1936),
+   ("Journalism", "Oxford", 1937),
+   
+	("Economics", "Oxford", 1972),
+   ("Computer Science", "Oxford", 1973),
+   ("Civil Engineering", "Oxford", 1974),
+   ("Mathematics", "Oxford", 1975),
+   ("Journalism", "Oxford", 1976),
+   ("Economics", "Oxford", 1977),
+   
    ("Economics", "Oxford", 1978),
    ("Computer Science", "Oxford", 1986),
    ("Civil Engineering", "Oxford", 1994),
    ("Mathematics", "Oxford", 2002),
    ("Journalism", "Oxford", 2010),
+   
+   ("Economics", "Cambridge", 1938),
+   ("Computer Science", "Cambridge", 1939),
+   ("Civil Engineering", "Cambridge", 1940),
+   ("Mathematics", "Cambridge", 1941),
+   ("Computer Engineering", "Cambridge", 1942),
+   
    ("Economics", "Cambridge", 1979),
    ("Computer Science", "Cambridge", 1987),
    ("Civil Engineering", "Cambridge", 1995),
    ("Mathematics", "Cambridge", 2003),
    ("Computer Engineering", "Cambridge", 2011),
+
+   ("Economics", "Yale", 1943),
+   ("Computer Science", "Yale", 1944),
+   ("Civil Engineering", "Yale", 1945),
+   ("Mathematics", "Yale", 1946),
+   ("Journalism", "Yale", 1947),
+   
    ("Economics", "Yale", 1980),
    ("Computer Science", "Yale", 1988),
    ("Civil Engineering", "Yale", 1996),
    ("Mathematics", "Yale", 2004),
    ("Journalism", "Yale", 2012),
+   
+	("Aerospace Engineering", "Harvard", 1948),
+   ("Software Engineering", "Harvard", 1949),
+   ("Building Engineering", "Harvard", 1950),
+   ("Electrical Engineering", "Harvard", 1951),
+   ("Computer Engineering", "Harvard", 1952),
+   
    ("Aerospace Engineering", "Harvard", 1981),
    ("Software Engineering", "Harvard", 1989),
    ("Building Engineering", "Harvard", 1997),
    ("Electrical Engineering", "Harvard", 2005),
    ("Computer Engineering", "Harvard", 2013),
+   
+   ("Economics", "Undisputed University of Rhaganomics", 1953),
+   ("Computer Science", "Undisputed University of Rhaganomics", 1954),
+   ("Computer Science", "Undisputed University of Rhaganomics", 1955),
+   ("Civil Engineering", "Undisputed University of Rhaganomics", 1956),
+   
    ("Economics", "Undisputed University of Rhaganomics", 1982),
    ("Computer Science", "Undisputed University of Rhaganomics", 1998),
    ("Computer Science", "Undisputed University of Rhaganomics", 2006),
    ("Civil Engineering", "Undisputed University of Rhaganomics", 2014),
+ 
+   ("Civil Engineering", "Massachussets Institute of Technology", 1957),
+   ("Mathematics", "Massachussets Institute of Technology", 1958),
+   ("Mathematics", "Massachussets Institute of Technology", 1959),
+   ("Journalism", "Massachussets Institute of Technology", 1960),
+   ("Journalism", "Massachussets Institute of Technology", 1961),
+   
    ("Civil Engineering", "Massachussets Institute of Technology", 1983),
    ("Mathematics", "Massachussets Institute of Technology", 1991),
    ("Mathematics", "Massachussets Institute of Technology", 1999),
    ("Journalism", "Massachussets Institute of Technology", 2007),
    ("Journalism", "Massachussets Institute of Technology", 2015),
+
+   ("Aerospace Engineering ", "University of Georgetown", 1962),
+   ("Aerospace Engineering ", "University of Georgetown", 1963),
+   ("Software Engineering", "University of Georgetown", 1964),
+   ("Software Engineering", "University of Georgetown", 1965),
+   ("Building Engineering", "University of Georgetown", 1966),
+   
+   
    ("Aerospace Engineering ", "University of Georgetown", 1984),
    ("Aerospace Engineering ", "University of Georgetown", 1992),
    ("Software Engineering", "University of Georgetown", 2000),
    ("Software Engineering", "University of Georgetown", 2008),
    ("Building Engineering", "University of Georgetown", 2016),
+
+	("Building Engineering", "Concordia University", 1967),
+   ("Electrical Engineering", "Concordia University", 1968),
+   ("Electrical Engineering", "Concordia University", 1969),
+   ("Computer Engineering", "Concordia University", 1970),
+   ("Computer Engineering", "Concordia University", 1971),
+   
    ("Building Engineering", "Concordia University", 1985),
    ("Electrical Engineering", "Concordia University", 1993),
    ("Electrical Engineering", "Concordia University", 2001),
@@ -388,22 +451,196 @@ INSERT INTO FacultyDegree VALUES
    (37, "Electrical Engineering", "Concordia University", 1993),
    (38, "Electrical Engineering", "Concordia University", 2001),
    (39, "Computer Engineering", "Concordia University", 2009),
-   (40, "Computer Engineering", "Concordia University", 2017);
+   (40, "Computer Engineering", "Concordia University", 2017),
+	(41, "Economics", "Oxford", 1933),
+   (42, "Computer Science", "Oxford", 1934),
+   (43, "Civil Engineering", "Oxford", 1935),
+   (44, "Mathematics", "Oxford", 1936),
+   (45, "Journalism", "Oxford", 1937),
    
-  /* INSERT INTO FacultyAwards VALUES
+	(46, "Economics", "Oxford", 1972),
+   (47, "Computer Science", "Oxford", 1973),
+   (48, "Civil Engineering", "Oxford", 1974),
+   (49, "Mathematics", "Oxford", 1975),
+   (50, "Journalism", "Oxford", 1976),
+   (51, "Economics", "Oxford", 1977),
+   
+      (52, "Economics", "Cambridge", 1938),
+   (53, "Computer Science", "Cambridge", 1939),
+   (54, "Civil Engineering", "Cambridge", 1940),
+   (55, "Mathematics", "Cambridge", 1941),
+   (56, "Computer Engineering", "Cambridge", 1942),
+   
+      (57, "Economics", "Yale", 1943),
+   (58, "Computer Science", "Yale", 1944),
+   (59, "Civil Engineering", "Yale", 1945),
+   (60, "Mathematics", "Yale", 1946),
+   (61, "Journalism", "Yale", 1947),
+   
+   (62, "Aerospace Engineering", "Harvard", 1948),
+   (63, "Software Engineering", "Harvard", 1949),
+   (64, "Building Engineering", "Harvard", 1950),
+   (65, "Electrical Engineering", "Harvard", 1951),
+   (66, "Computer Engineering", "Harvard", 1952),
+   
+   (67, "Economics", "Undisputed University of Rhaganomics", 1953),
+   (68, "Computer Science", "Undisputed University of Rhaganomics", 1954),
+   (69, "Computer Science", "Undisputed University of Rhaganomics", 1955),
+   (70, "Civil Engineering", "Undisputed University of Rhaganomics", 1956),
+   
+   (71, "Civil Engineering", "Massachussets Institute of Technology", 1957),
+   (72, "Mathematics", "Massachussets Institute of Technology", 1958),
+   (73, "Mathematics", "Massachussets Institute of Technology", 1959),
+   (74, "Journalism", "Massachussets Institute of Technology", 1960),
+   (75, "Journalism", "Massachussets Institute of Technology", 1961),
+   
+   (76, "Aerospace Engineering ", "University of Georgetown", 1962),
+   (77, "Aerospace Engineering ", "University of Georgetown", 1963),
+   (78, "Software Engineering", "University of Georgetown", 1964),
+   (79, "Software Engineering", "University of Georgetown", 1965),
+   (80, "Building Engineering", "University of Georgetown", 1966),
+   
+   (81, "Building Engineering", "Concordia University", 1967),
+   (82, "Electrical Engineering", "Concordia University", 1968),
+   (83, "Electrical Engineering", "Concordia University", 1969),
+   (84, "Computer Engineering", "Concordia University", 1970);
+   
+   
+   INSERT INTO FacultyAwards VALUES
     -- facultyID, awardName, awardyear
     
-    ();
+  (1, "Deutsche Bank Prize in Financial Economics", 1980),
+  (2, "Deutsche Bank Prize in Financial Economics", 1985),
+  (3, "Deutsche Bank Prize in Financial Economics", 1990),
+  (4, "Deutsche Bank Prize in Financial Economics", 1995),
+  (5, "Deutsche Bank Prize in Financial Economics", 2000),
+  (6, "Deutsche Bank Prize in Financial Economics", 2005),
+  (7, "Deutsche Bank Prize in Financial Economics", 2010),
+  (8, "Deutsche Bank Prize in Financial Economics", 2020),
+  (9, "Turing Award", 1981),
+  (10, "Turing Award", 1986),
+  (11, "Turing Award", 1991),
+  (12, "Turing Award", 1996),
+  (13, "Turing Award", 2001),
+  (14, "Turing Award", 2006),
+  (15, "Turing Award", 2011),
+  (16, "Turing Award", 2016),
+  (17, "Engineering Gold Medal", 1982),
+  (18, "Engineering Gold Medal", 1987),
+  (19, "Engineering Gold Medal", 1992),
+  (20, "Engineering Gold Medal", 1997),
+  (21, "Engineering Gold Medal", 2002),
+  (22, "Engineering Gold Medal", 2007),
+  (23, "Engineering Gold Medal", 2012),
+  (24, "Engineering Gold Medal", 2017),
+  (25, "Nobel Pize in Mathematics", 1983),
+  (26, "Nobel Pize in Mathematics", 1988),
+  (27, "Nobel Pize in Mathematics", 1993),
+  (28, "Nobel Pize in Mathematics", 1998),
+  (29, "Nobel Pize in Mathematics", 2003),
+  (30, "Nobel Pize in Mathematics", 2008),
+  (31, "Nobel Pize in Mathematics", 2013),
+  (32, "Nobel Pize in Mathematics", 2018),
+  (33, "Pulitzer Award", 1984),
+  (34, "Pulitzer Award", 1989),
+  (35, "Pulitzer Award", 1994),
+  (36, "Pulitzer Award", 1999),
+  (37, "Pulitzer Award", 2004),
+  (38, "Pulitzer Award", 2009),
+  (39, "Pulitzer Award", 2014),
+  (40, "Pulitzer Award", 2019);
 
 INSERT INTO FacultyPublication VALUES
     -- facultyID, publicationName, publicationYear
    
-   ();
+  (1, "Journal of International Economics", 1979),
+  (2, "Journal of International Economics", 1984),
+  (3, "Journal of International Economics", 1989),
+  (4, "Journal of International Economics", 1994),
+  (5, "Journal of International Economics", 1999),
+  (6, "Journal of International Economics", 2004),
+  (7, "Journal of International Economics", 2009),
+  (8, "Journal of International Economics", 2014),
+  (9, "The Journal of Supercomputing", 1980),
+  (10, "The Journal of Supercomputing", 1985),
+  (11, "The Journal of Supercomputing", 1990),
+  (12, "The Journal of Supercomputing", 1995),
+  (13, "The Journal of Supercomputing", 2000),
+  (14, "The Journal of Supercomputing", 2005),
+  (15, "The Journal of Supercomputing", 2010),
+  (16, "The Journal of Supercomputing", 2015),
+  (17, "Canadian Journal of Civil Engineering", 1981),
+  (18, "Canadian Journal of Civil Engineering", 1986),
+  (19, "Canadian Journal of Civil Engineering", 1991),
+  (20, "Canadian Journal of Civil Engineering", 1996),
+  (21, "Canadian Journal of Civil Engineering", 2001),
+  (22, "Canadian Journal of Civil Engineering", 2006),
+  (23, "Canadian Journal of Civil Engineering", 2011),
+  (24, "Canadian Journal of Civil Engineering", 2016),
+  (25, "Advances in Mathematics", 1982),
+  (26, "Advances in Mathematics", 1987),
+  (27, "Advances in Mathematics", 1992),
+  (28, "Advances in Mathematics", 1997),
+  (29, "Advances in Mathematics", 2002),
+  (30, "Advances in Mathematics", 2007),
+  (31, "Advances in Mathematics", 2012),
+  (32, "Advances in Mathematics", 2017),
+  (33, "Time Magazine", 1983),
+  (34, "Time Magazine", 1988),
+  (35, "Time Magazine", 1993),
+  (36, "Time Magazine", 1998),
+  (37, "Time Magazine", 2003),
+  (38, "Time Magazine", 2008),
+  (39, "Time Magazine", 2013),
+  (40, "Time Magazine", 2018);
 
-INSERT INTO FacultyEmployment VALUES
+/*INSERT INTO FacultyEmployment VALUES
     -- facultyID, title, employer
     
-    (); */
+    ( "Credit Analyst", "TD Bank", "1981-02-12", "1983-05-16"),
+    ( "Financial Analyst", "JP Morgan", "1982-03-26", "1984-05-05" ),
+    ( "Actuary", "Lehmann Brothers", "1983-04-02", "1985-12-03" ),
+    ("Operations Research Analyst", "AON Insurance", "1984-05-23", "1986-11-12" ),
+    ("Credit Analyst", "Auto Loans Approved", "1985-06-25", "1987-01-06"  ),
+    ("Financial Analyst", "Recession Rescuers", "1986-07-31", "1988-04-14" ),
+    ("Actuary", "Ponzi Incorporated", "1987-08-19","1989-06-15"),
+    ("Operations Research Analyst", "Capitolisto Communisto", "1988-09-28", "1990-06-30"),
+
+    ("Junior Software Developer", "Microsoft", "1989-01-30", "1991-12-26"),
+    ("Junior Web Developer", "YourArea", "1990-02-28", "1992-05-14"),
+    ("Database Administrator", "I_BOMB_EM", "1991-03-25", "1993-02-12"),
+    ("Information Security Analyst", "Wacka Hacka Inc", "1992-04-03", "1994-07-19"),
+    ("Junior Software Developer", "Sony Inc", "1993-05-06", "1995-12-03" ),
+    ("Junior Web Developer", "AskJeeves.com", "1994-06-02", "1996-01-09"),
+    ("Database Administrator", "DataMine Limited", "1995-12-03", "1997-05-13"),
+    ("Information Security Analyst", "Incription Solutions", "1996-08-25", "1998-11-11"),
+    
+    ("Application Engineer", "Sopranos Construction", "1997-01-30", "1999-12-26"),
+    ("Structural Engineer", "GoodFellas Inc", "1998-02-28", "2000-05-14"),
+    ("Hydraulic Engineer", "Cheap Buildings Limited", "1999-03-25", "2001-02-12"),
+    ("Chief Engineering Officer", "Collapsico & Co", "2000-04-03", "2002-07-19"),
+    ("Application Engineer", "Six Pence Structures", "2001-05-06", "2003-10-06"),
+    ("Structural Engineer", "Gambino Gondolas", "2002-06-02", "2004-01-09"),
+    ("Hydraulic Engineer", "Metal Gear Development", "2003-07-22", "2005-08-23"),
+    ("Chief Engineering Officer", "Build & Chill Inc", "2004-08-16",  "2006-12-22"),
+    
+    ("Numerical Analyst", "Numerico", "2005-01-03", "2007-12-24"),
+    ("External Auditor", "Digitize Inc", "2006-02-28", "2008-05-14"),
+    ("Statistician", "Statistico", "2007-03-25", "2009-02-12"),
+    ("Rate Analyst", "Checkout Limited", "2008-04-03", "2010-07-19"),
+    ("Numerical Analyst", "ArcTanalysts Inc", "2009-05-06", "2011-10-06"),
+    ("External Auditor", "SinSenses Ltd", "2010-06-02", "2012-01-09" ),
+    ("Statistician", "CosCurrent & Co", "2011-07-22", "2013-08-23"),
+    ("Rate Analyst", "Much & More", "2012-08-16", "2006-12-22"),
+    
+    ("Copywriter", "Zero Sales Advertising", "2013-01-03", "2015-12-24"),
+    ("Editor", "You Zork Chronicles", "2014-02-28", "2016-05-14"),
+    ("Sports Writer", "Rumor Mill Daily", "2015-03-25", "2017-02-12"),
+    ("Press Officer", "Scuderia Torro Rosso", "2016-04-03", "2018-07-19"),
+    ("Copywriter", "Clickbait Inc", "2017-05-06", "2019-10-06"),
+    ("Editor", "No One Reads Publishing", "2018-06-02", "2020-01-09" ),
+    ("Sports Writer", "Chip Chipperson Media House", "2019-07-22", "2021-08-23"),
+    ("Press Officer", "Newcastle United", "2020-08-16", "2022-12-22"); */
    
 
 INSERT INTO Department VALUES
@@ -900,10 +1137,10 @@ INSERT INTO StudentProgram VALUES
     (10, 12); -- This person is a Thesis - Graduate Student and TA
     
     
-/*INSERT INTO StudentDegree VALUES
+INSERT INTO StudentDegree VALUES
     -- studentID, degreeName, schoolName, year
     
-    (); */
+    (8, "Computer Engineering", "Concordia University", 1971);
     
 INSERT INTO Grade VALUES
     -- grade, gradePoint
