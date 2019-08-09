@@ -25,7 +25,7 @@ if(isset($_POST['RUNQUERY'])) {
                 </head>
                     <body> <table>';
 
-    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+    while ($row = @mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         if (empty($columns)) {
             $columns = array_keys($row);
             echo '<tr><th>' . implode('</th><th>', $columns) . '</th></tr>';

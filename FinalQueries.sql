@@ -11,7 +11,7 @@ SET
 WHERE
     facultyID = 71;
 -- DISPLAYS the created faculty member
-SELECT 
+SELECT
     ff.facultyID AS 'Faculty ID',
     CONCAT(firstName, ' ', lastName) AS 'Name',
     CONCAT(degreeName, ', ', year) AS 'Degree',
@@ -27,35 +27,24 @@ FROM
 WHERE
     ff.facultyID = 71;  
 -- DELETES the created faculty member
-
 DELETE FROM FullFaculty WHERE facultyID = 71; 
 
-SELECT * FROM Instructor; 
-SELECT * FROM FacultyDegree; 
-SELECT * FROM Degree;
-SELECT * FROM FullFaculty;
-
 -- ii. Create/Delete/Edit/Display a Student.
---sin is not adde. phone number must be checked for formating 
 -- CREATES a Student who is an undergrad in the Computer Applications program.
-INSERT INTO Student(studentID,firstName,lastName,email,phone,dateOfBirth) VALUES ('1','Tom','Smith','tomsmith@gmail.com',5147546695,'1995-03-09');
-INSERT INTO StudentProgram(studentID,programID) VALUES ('1','1');
-INSERT INTO UnderGraduateStudent(studentID) VALUES ('1');
-
+INSERT INTO Student(studentID,firstName,lastName,email,phone,dateOfBirth,ssn) VALUES ('11','Tom','Smith','tomsmith@gmail.com',5147546695,'1995-03-09','20');
+INSERT INTO StudentProgram(studentID,programID) VALUES ('11','1');
+INSERT INTO UnderGraduateStudent(studentID) VALUES ('11');
 -- EDITS the student's name
 UPDATE Student 
 SET 
     firstName = 'Steave',
     lastName = 'Kith'
 WHERE
-    studentID = '1';
-    
-
+    studentID = '11';
 -- DISPLAYS the created student
 SELECT 
     s.studentID AS 'Student ID',
     CONCAT(s.firstName, ' ', s.lastName) AS 'Name',
-    u.gpa AS 'gpa',
     p.programName AS 'Program Name'
 FROM
     Student s
@@ -66,14 +55,35 @@ FROM
         JOIN
     UnderGraduateStudent u ON (s.studentID = u.studentID)
 WHERE
-    s.studentID = '1';  
-    
+    s.studentID = '11';  
 -- DELETES the created student
-DELETE FROM StudentProgram WHERE studentID = '1'; 
-DELETE FROM UnderGraduateStudent WHERE studentID = '1'; 
-DELETE FROM Student WHERE studentID = '1';
+DELETE FROM Student WHERE studentID = '11';
 
 -- iii. Create/Delete/Edit/Display a Teaching Assistant
+-- CREATES A graduate student and attempts to make them a teaching assistant
+INSERT INTO Student VALUES ('11','Omar','Al-Farajat','omar.alfarajat@gmail.com',5148828518, "1989-03-18", 2.93, 20);
+INSERT INTO GraduateStudent VALUES(11, NULL);
+INSERT INTO TeachingAssistant VALUES(11); -- This will fail because Omar's GPA is only 2.93
+-- EDITS Omar's GPA
+UPDATE Student 
+SET 
+    gpa = 4.3
+WHERE
+    studentID = '11';
+INSERT INTO TeachingAssistant VALUES(11); -- After the editing the GPA, this insert will now work, since GPA >= 3.2
+-- DISPLAYS the created teaching assistant
+SELECT
+*
+FROM
+    Student s
+        JOIN
+    GraduateStudent gs ON (s.studentID = gs.studentID)
+        JOIN
+    TeachingAssistant ta ON (s.studentID = ta.studentID)
+WHERE
+    s.studentID = 11;  
+-- DELETES the created teaching assistant
+DELETE FROM Student WHERE studentID = '11';
 
 -- iv. Give a list of all campuses.
 SELECT campusName AS 'Campus Name' FROM Campus;
@@ -129,11 +139,12 @@ FROM Program p
     Department d ON (p.departmentID = d.departmentID);
 
 -- viii. Get a list of all courses offered in a given term by a specific program.
+-- Find list of all courses offered in the Fall 2015 term by the Computer Applications program
 SELECT c.courseName
 FROM Course c
 JOIN CourseProgram cp ON (c.courseID=cp.courseID)
 JOIN Section s ON (c.courseID=s.courseID)
-WHERE s.termID='1' AND cp.programID='40';
+WHERE s.termID='1' AND cp.programID='1';
 
 
 /*ix. Get the details of all the courses offered by a specific department for a
@@ -154,6 +165,15 @@ WHERE s.termID=1 AND s.courseID = "COMP248"; -- term and course can be chosen
 
 /*x. Find ID, first name and last name of all the students who are enrolled in a
 specific program in a given term. */
+--  Finds the ID, first name and last name of all the students who are enrolled in the Computer Applications program in the Fall 2015 term
+SELECT s.studentID AS 'student ID',
+	s.firstName AS 'first name',
+    s.lastName AS 'last name'
+FROM Student s
+	JOIN StudentProgram sp ON (s.studentID=sp.studentID)
+    JOIN StudentCourses sc ON (sc.studentID=s.studentID)
+    JOIN Section s2 ON (s2.courseID=sc.courseID)
+WHERE s2.termID='1' AND sp.programID='1';
 
 /*xi. Find the name of all the instructors who taught a given course on a
 specific term.*/

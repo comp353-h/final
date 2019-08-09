@@ -359,7 +359,7 @@ CREATE TABLE StudentProgram (
     programID INT NOT NULL,
     PRIMARY KEY (studentID , programID),
     FOREIGN KEY (studentID)
-        REFERENCES Student (studentID),
+        REFERENCES Student (studentID) ON DELETE CASCADE,
     FOREIGN KEY (programID)
         REFERENCES Program (programID)
 )  ENGINE=INNODB;
