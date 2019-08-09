@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS FacultyDegree;
+DROP TABLE IF EXISTS FacultyEmployment;
+DROP TABLE IF EXISTS FacultyPublication;
+DROP TABLE IF EXISTS FacultyAwards;
+DROP TABLE IF EXISTS StudentDegree;
 DROP TABLE IF EXISTS GraduateEmployment;
 DROP TABLE IF EXISTS GraduatePublication;
 DROP TABLE IF EXISTS GraduateAwards;
@@ -20,7 +25,6 @@ DROP TABLE IF EXISTS Advisor;
 DROP TABLE IF EXISTS Program;
 DROP TABLE IF EXISTS Chairman;
 DROP TABLE IF EXISTS Instructor;
-DROP TABLE IF EXISTS FacultyDegree;
 DROP TABLE IF EXISTS Publication;
 DROP TABLE IF EXISTS Employment;
 DROP TABLE IF EXISTS Award;
@@ -161,18 +165,6 @@ CREATE TABLE Employment (
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
     PRIMARY KEY (title , employer)
-)  ENGINE=INNODB;
-
-CREATE TABLE FacultyDegree (
-    facultyID INT AUTO_INCREMENT NOT NULL,
-    degreeName VARCHAR(128) NOT NULL,
-    schoolName VARCHAR(128) NOT NULL,
-    year INT NOT NULL,
-    PRIMARY KEY (facultyID, degreeName , schoolName , year),
-    FOREIGN KEY (degreeName , schoolName , year)
-        REFERENCES Degree (degreeName , schoolName , year),
-    FOREIGN KEY (facultyID)
-        REFERENCES FullFaculty (facultyID) ON DELETE CASCADE
 )  ENGINE=INNODB;
 
 CREATE TABLE Instructor (
@@ -415,8 +407,65 @@ CREATE TABLE GraduateEmployment (
     studentID INT NOT NULL,
     title VARCHAR(128) NOT NULL,
     employer VARCHAR(128) NOT NULL,
+    PRIMARY KEY ( studentID, title, employer ),
     FOREIGN KEY ( studentID )
         REFERENCES GraduateStudent( studentID ) ON DELETE CASCADE,
     FOREIGN KEY ( title, employer )
         REFERENCES Employment ( title, employer ) ON DELETE CASCADE
 ) ENGINE=INNODB;
+
+CREATE TABLE StudentDegree (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    degreeName VARCHAR(128) NOT NULL,
+    schoolName VARCHAR(128) NOT NULL,
+    year INT NOT NULL,
+    PRIMARY KEY (studentID, degreeName , schoolName , year),
+    FOREIGN KEY (degreeName , schoolName , year)
+        REFERENCES Degree (degreeName , schoolName , year),
+    FOREIGN KEY (studentID)
+        REFERENCES Student (studentID) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE FacultyAwards (
+    facultyID INT NOT NULL,
+    awardName VARCHAR(128) NOT NULL,
+    awardyear INT NOT NULL,
+    PRIMARY KEY ( facultyID, awardName, awardyear ),
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty( facultyID ) ON DELETE CASCADE,
+    FOREIGN KEY ( awardName, awardyear )
+        REFERENCES Award ( awardName, year )
+) ENGINE=INNODB;
+
+CREATE TABLE FacultyPublication (
+    facultyID INT NOT NULL,
+    publicationName VARCHAR(128) NOT NULL,
+    publicationYear INT NOT NULL,
+    PRIMARY KEY ( facultyID, publicationName, publicationYear ),
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty( facultyID ) ON DELETE CASCADE,
+    FOREIGN KEY ( publicationName, publicationYear )
+        REFERENCES Publication( publicationName, year )
+) ENGINE=INNODB;
+
+CREATE TABLE FacultyEmployment (
+    facultyID INT NOT NULL,
+    title VARCHAR(128) NOT NULL,
+    employer VARCHAR(128) NOT NULL,
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty( facultyID ) ON DELETE CASCADE,
+    FOREIGN KEY ( title, employer )
+        REFERENCES Employment ( title, employer ) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE FacultyDegree (
+    facultyID INT AUTO_INCREMENT NOT NULL,
+    degreeName VARCHAR(128) NOT NULL,
+    schoolName VARCHAR(128) NOT NULL,
+    year INT NOT NULL,
+    PRIMARY KEY (facultyID, degreeName , schoolName , year),
+    FOREIGN KEY (degreeName , schoolName , year)
+        REFERENCES Degree (degreeName , schoolName , year),
+    FOREIGN KEY (facultyID)
+        REFERENCES FullFaculty (facultyID) ON DELETE CASCADE
+)  ENGINE=INNODB;
