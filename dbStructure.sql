@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS FacultySalary;
 DROP TABLE IF EXISTS FacultyDegree;
 DROP TABLE IF EXISTS FacultyEmployment;
 DROP TABLE IF EXISTS FacultyPublication;
@@ -18,6 +19,7 @@ DROP TABLE IF EXISTS GraduateStudent;
 DROP TABLE IF EXISTS UnderGraduateStudent;
 DROP TABLE IF EXISTS Student;
 DROP TABLE IF EXISTS TimeSlot;
+DROP TABLE IF EXISTS Salary;
 DROP TABLE IF EXISTS Term;
 DROP TABLE IF EXISTS CourseProgram;
 DROP TABLE IF EXISTS Course;
@@ -234,6 +236,14 @@ CREATE TABLE Term (
     termYear YEAR NOT NULL,
     PRIMARY KEY (termID)
 )  ENGINE=INNODB;
+
+CREATE TABLE Salary (
+    termID INT NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY ( termID, amount ),
+    FOREIGN KEY ( termID )
+        REFERENCES Term( termID )
+) ENGINE=INNODB;
 
 CREATE TABLE TimeSlot (
     timeID INT AUTO_INCREMENT NOT NULL,
@@ -472,3 +482,14 @@ CREATE TABLE FacultyDegree (
     FOREIGN KEY (facultyID)
         REFERENCES FullFaculty (facultyID) ON DELETE CASCADE
 )  ENGINE=INNODB;
+
+CREATE TABLE FacultySalary (
+    facultyID INT NOT NULL,
+    termID INT NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY ( facultyID, termID, amount ),
+    FOREIGN KEY ( facultyID )
+        REFERENCES FullFaculty ( facultyID ),
+    FOREIGN KEY ( termID, amount )
+        REFERENCES Salary( termID, amount )
+) ENGINE=INNODB;
