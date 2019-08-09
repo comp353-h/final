@@ -215,6 +215,17 @@ WHERE
 who are assigned as teaching assistants to a specific course on a given
 term.*/
 
+-- !! UNTESTED 
+SELECT s.studentID, s.firstName, s.lastName, tac.courseID, tac.sectionID, tac.sectionType
+FROM TeachingAssistant ta
+	JOIN GraduateStudent gs ON gs.studentID = ta.studentID
+	JOIN Student s on s.studentID = ta.studentID
+    JOIN TutorialSection ts ON ts.teachingAssistantID = ta.studentID
+    JOIN TAContractHistory tach ON tach.studentID = s.studentID
+    JOIN TAContract tac ON tac.contractID = tach.contractID
+WHERE 
+	ts.courseID = 'COMP248' AND tac.termID = 12; -- Term, Class can be specified.
+
 /*xvi. Find the name, IDs and total amount of funds received by all the graduate
 students who received research funds in a given term.*/
 
