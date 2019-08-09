@@ -503,7 +503,7 @@ CREATE TABLE TAContract (
     sectionID VARCHAR(2) NOT NULL,
     termID INT NOT NULL,
     salary INT NOT NULL,
-    sectionType ENUM( "Tutorial", "Lab", "Marker" ),
+    sectionType ENUM( 'Tutorial', 'Lab', 'Marker'),
     hours INT NOT NULL,
     PRIMARY KEY ( contractID ),
     FOREIGN KEY ( courseID, sectionID, termID )
