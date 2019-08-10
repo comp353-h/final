@@ -920,7 +920,7 @@ INSERT INTO CourseProgram VALUES
 INSERT INTO Term VALUES
     -- termID, termName ENUM('FALL', 'WINTER', 'SUMMER'), termYear
     
-(1, 'FALL', 2015),
+	(1, 'FALL', 2015),
     (2, 'WINTER', 2015),
     (3, 'SUMMER', 2015),
 	(4, 'FALL', 2016),
@@ -1246,35 +1246,81 @@ INSERT INTO Salary VALUES
  ('24', '2400');
 
     
-/*CREATE TABLE FacultySalary (
-    facultyID INT NOT NULL,
-    termID INT NOT NULL,
-    amount INT NOT NULL,
-    PRIMARY KEY ( facultyID, termID, amount ),
-    FOREIGN KEY ( facultyID )
-        REFERENCES FullFaculty ( facultyID ),
-    FOREIGN KEY ( termID, amount )
-        REFERENCES Salary( termID, amount )
-) ENGINE=INNODB;
+INSERT INTO FacultySalary VALUES
+    -- facultyID, termID, amount
+    
+ ('1', '12', '1200'),
+ ('2', '12', '1200'),
+ ('3', '12', '1200'),
+ ('4', '12', '1200'),
+ ('5', '12', '1200'),
+ ('6', '12', '1200'),
+ ('7', '12', '1200'),
+ ('8', '12', '1200'),
+ ('9', '12', '1200'),
+ ('10', '12', '1200'),
+ ('1', '13', '1300'),
+ ('2', '13', '1300'),
+ ('3', '13', '1300'),
+ ('4', '13', '1300'),
+ ('5', '13', '1300'),
+ ('6', '13', '1300'),
+ ('7', '13', '1300'),
+ ('8', '13', '1300'),
+ ('9', '13', '1300'),
+ ('10', '13', '1300'),
+ ('1', '14', '1400'),
+ ('2', '14', '1400'),
+ ('3', '14', '1400'),
+ ('4', '14', '1400'),
+ ('5', '14', '1400'),
+ ('6', '14', '1400'),
+ ('7', '14', '1400'),
+ ('8', '14', '1400'),
+ ('9', '14', '1400'),
+ ('10', '14', '1400'),
+ ('1', '15', '1500'),
+ ('2', '15', '1500'),
+ ('3', '15', '1500'),
+ ('4', '15', '1500'),
+ ('5', '15', '1500'),
+ ('6', '15', '1500'),
+ ('7', '15', '1500'),
+ ('8', '15', '1500'),
+ ('9', '15', '1500'),
+ ('10', '15', '1500');
 
-CREATE TABLE TAContract (
-    contractID INT AUTO_INCREMENT NOT NULL,
-    courseID VARCHAR(8) NOT NULL,
-    sectionID VARCHAR(2) NOT NULL,
-    termID INT NOT NULL,
-    salary INT NOT NULL,
-    hours INT NOT NULL,
-    PRIMARY KEY ( contractID ),
-    FOREIGN KEY ( courseID, sectionID, termID )
-        REFERENCES Section( courseID, sectionID, termID )
-) ENGINE=INNODB;
+INSERT INTO TAContract VALUES
+   -- contractID, courseID, sectionID, termID, salary, sectionType ENUM( 'Tutorial', 'Lab', 'Marker'), hours
 
-CREATE TABLE TAContractHistory (
-    studentID INT NOT NULL,
-    contractID INT NOT NULL,
-    PRIMARY KEY ( studentID, contractID ),
-    FOREIGN KEY ( studentID )
-        REFERENCES TeachingAssistant( studentID ),
-    FOREIGN KEY ( contractID )
-        REFERENCES TAContract ( contractID )
-) ENGINE=INNODB; */
+(1, "COMP248", "BB", 12, 3000, "Tutorial", 130),
+(2, "COMP248", "LL", 22, 3000, "Tutorial", 130),
+(3, "COMP249", "VV", 8, 3000, "Tutorial", 130),
+(4, "COMP1268", "FF", 18, 5000, "Tutorial", 150),
+(5, "COMP1368", "PP", 4, 5000, "Tutorial", 150),
+
+(6, "COMP248", "BB", 12, 2000, "Lab", 120),
+(7, "COMP248", "LL", 22, 2000, "Lab", 120),
+(8, "COMP249", "VV", 8, 2000, "Lab", 120),
+(9, "COMP1268", "FF", 18, 4000, "Lab", 140),
+(10, "COMP1368", "PP", 4, 4000, "Lab", 140);
+
+/*(11, "COMP248", "BB", 12, 1000, "Marker",  100),
+(12, "COMP248", "LL", 22, 1000, "Marker", 100),
+(13, "COMP249", "VV", 8, 1000, "Marker", 100),
+(14, "COMP1268", "FF", 18, 2000, "Marker", 120),
+(15, "COMP1368", "PP", 4, 2000, "Marker", 120); */
+    
+INSERT INTO TAContractHistory VALUES
+   -- studentID, contractID
+	
+ ('8', '1'),
+ ('9', '2'),
+ ('10', '3'),
+ ('8', '4'),
+ ('9', '5'),
+ ('11', '6'),
+ ('12', '7'),
+ ('13', '8'),
+ ('11', '9'),
+ ('12', '10');
