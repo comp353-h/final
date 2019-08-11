@@ -269,7 +269,14 @@ INSERT INTO Degree VALUES
    ("Electrical Engineering", "Concordia University", 1993),
    ("Electrical Engineering", "Concordia University", 2001),
    ("Computer Engineering", "Concordia University", 2009),
-   ("Computer Engineering", "Concordia University", 2017);
+   ("Computer Engineering", "Concordia University", 2017),
+   
+("Computer Engineering", "Concordia University", 1910),
+( 'Building Engineering', 'University of Georgetown', '1911'),
+( 'Building Engineering', 'University of Georgetown', '1912'),
+( 'Electrical Engineering', 'Concordia University', '1913'),
+( 'Electrical Engineering', 'Concordia University', '1914'),
+( 'Computer Engineering', 'Concordia University', '1915');
 
 INSERT INTO Award VALUES
    -- awardName, year
@@ -497,12 +504,7 @@ INSERT INTO FacultyDegree VALUES
    (76, "Aerospace Engineering ", "University of Georgetown", 1962),
    (77, "Aerospace Engineering ", "University of Georgetown", 1963),
    (78, "Software Engineering", "University of Georgetown", 1964),
-   (79, "Software Engineering", "University of Georgetown", 1965),
-   (80, "Building Engineering", "University of Georgetown", 1966),
    
-   (81, "Building Engineering", "Concordia University", 1967),
-   (82, "Electrical Engineering", "Concordia University", 1968),
-   (83, "Electrical Engineering", "Concordia University", 1969),
    (84, "Computer Engineering", "Concordia University", 1970);
    
    
@@ -949,15 +951,15 @@ INSERT INTO Term VALUES
      -- fundingID, supervisorID, name, amount, termID
      
 (1, 21, "The Buy High Sell Low Equilibrium", 7000, 1), -- Economics 
-(2, 22, "", 80000, 2), -- Economics 
-(3, 23, "", 900000, 3), -- Computer Science 
-(4, 24, "", 1000000, 4), -- Computer Science 
-(5, 25, "", 50, 5), -- Civil Engineering
-(6, 26, "", 600, 6), -- Civil Engineering 
-(7, 27, "", 7000, 7), -- Mathematics
-(8, 28, "",80000, 8), -- Mathematics 
-(9, 29, "", 900000, 9), -- Journalism
-(10, 30, "", 1000000, 10); -- Journalism, 
+(2, 22, "The Federality of the Federal Reserve", 80000, 2), -- Economics 
+(3, 23, "Turing de France", 900000, 3), -- Computer Science 
+(4, 24, "Hello World", 1000000, 4), -- Computer Science 
+(5, 25, "Leaning Buildings", 50, 5), -- Civil Engineering
+(6, 26, "Falling Buildings", 600, 6), -- Civil Engineering 
+(7, 27, "Math No One Can Use", 7000, 7), -- Mathematics
+(8, 28, "Math No One Will Use",80000, 8), -- Mathematics 
+(9, 29, "Pressing Print Development", 900000, 9), -- Journalism
+(10, 30, "Gotcha Questioning", 1000000, 10); -- Journalism, 
     
 INSERT INTO TimeSlot VALUES
     -- timeID INT, day ENUM( "Monday" , "Tuesday", "Wednesday", "Thursday", "Friday" ), startTime TIME ,endTime
@@ -1162,7 +1164,15 @@ INSERT INTO StudentProgram VALUES
 INSERT INTO StudentDegree VALUES
     -- studentID, degreeName, schoolName, year
     
-    (1, "Computer Engineering", "Concordia University", 1971);
+(8, "Computer Engineering", "Concordia University", 1910),
+('9', 'Building Engineering', 'University of Georgetown', '1911'),
+('10', 'Building Engineering', 'University of Georgetown', '1912'),
+('11', 'Electrical Engineering', 'Concordia University', '1913'),
+('12', 'Electrical Engineering', 'Concordia University', '1914'),
+('13', 'Computer Engineering', 'Concordia University', '1915');
+
+
+
     
 INSERT INTO Grade VALUES
     -- grade, gradePoint
