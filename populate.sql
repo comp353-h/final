@@ -1012,14 +1012,14 @@ INSERT INTO Section VALUES
     -- courseID, sectionID, termID, instructorID, roomID, buildingID, timeID
     
 ( "COMP248", "BB", 12, 12, 406, "MB", 1),
-( "COMP248", "LL", 22, 41, 301, "HH", 5),
-( "COMP249", "VV", 8, 12, 207, "AD", 8),
+( "COMP248", "LL", 10, 41, 301, "HH", 5),
+( "COMP249", "VV", 11, 12, 207, "AD", 8),
 ( "COMP1268", "FF", 18, 41, 1210, "PY", 1 ),
 ( "COMP1368", "PP", 4, 12, 604, "FG", 5 ),
 
 ( "SOEN287", "CC", 13, 17, 406, "MB", 8),
-( "SOEN287", "MM", 23, 33, 301, "HH", 1),
-( "SOEN321", "WW", 9, 34, 207, "AD", 5),
+( "SOEN287", "MM", 10, 33, 301, "HH", 1),
+( "SOEN321", "WW", 11, 34, 207, "AD", 5),
 ( "SOEN1020", "GG", 19, 17, 1210, "PY", 8 ),
 ( "SOEN1220", "QQ", 5, 33, 604, "FG", 1 ),
 
@@ -1036,7 +1036,7 @@ INSERT INTO Section VALUES
 ( "CIVI1385", "SS", 7, 13, 604, "FG", 5 ),
 
 ( "MATH203", "FF", 16, 14, 406, "MB", 8),
-( "MATH203", "PP", 2, 43, 301, "HH", 1),
+( "MATH203", "PP", 11, 43, 301, "HH", 1),
 ( "MATH205", "ZZ", 12, 14, 207, "AD", 5),
 ( "MATH1465", "JJ", 22, 43, 1210, "PY", 8 ),
 ( "MATH1546", "TT", 8, 14, 604, "FG", 1 ),
@@ -1123,10 +1123,12 @@ INSERT INTO TutorialSection VALUES
    -- courseID, sectionID, tutorialID, termID, teachingAssistantID, roomID, buildingID, timeID
    
 ( "COMP248", "BB", "BA", 12, 8, 406, "MB", 4),
-( "COMP248", "LL", "LA", 22, 9, 301, "HH", 7),
-( "COMP249", "VV", "VA", 8, 10, 207, "AD", 4),
+( "COMP248", "LL", "LA", 10, 9, 301, "HH", 7),
+( "COMP249", "VV", "VA", 11, 10, 207, "AD", 4),
 ( "COMP1268", "FF", "FA", 18, 8, 1210, "PY", 7 ),
 ( "COMP1368", "PP", "PA", 4, 9, 604, "FG", 4);
+
+
 
 
 
@@ -1134,8 +1136,8 @@ INSERT INTO LabSection VALUES
     -- courseID, sectionID, labID, termID, teachingAssistantID, roomID, buildingID, timeID
     
 ( "COMP248", "BB", "BC", 12, 11, 406, "MB", 2),
-( "COMP248", "LL", "LC", 22, 12, 301, "HH", 6),
-( "COMP249", "VV", "VC", 8, 13, 207, "AD", 2),
+( "COMP248", "LL", "LC", 10, 12, 301, "HH", 6),
+( "COMP249", "VV", "VC", 11, 13, 207, "AD", 2),
 ( "COMP1268", "FF", "FC", 18, 11, 1210, "PY", 6 ),
 ( "COMP1368", "PP", "PC", 4, 12, 604, "FG", 2 );
     
@@ -1181,10 +1183,19 @@ INSERT INTO Grade VALUES
     
 
 
-INSERT INTO StudentCourses VALUES
+
+/*INSERT INTO StudentCourses VALUES
     -- studentID, courseID, sectionID, termID, grade
     
-    (1, "COMP248", 'BB', 12, "A");  
+
+('1', 'COMP248', 'LL', '10', 'A'),
+ ('1', 'COMP249', 'VV', '11'),
+('1', 'SOEN287', 'MM', '10', 'A'),
+ ('1', 'SOEN321', 'WW', '11'),
+('1', 'MATH203', 'PP', '11');  */
+
+
+    
     
     
 INSERT INTO GraduateAwards VALUES
@@ -1294,14 +1305,14 @@ INSERT INTO TAContract VALUES
    -- contractID, courseID, sectionID, termID, salary, sectionType ENUM( 'Tutorial', 'Lab', 'Marker'), hours
 
 (1, "COMP248", "BB", 12, 3000, "Tutorial", 130),
-(2, "COMP248", "LL", 22, 3000, "Tutorial", 130),
-(3, "COMP249", "VV", 8, 3000, "Tutorial", 130),
+(2, "COMP248", "LL", 10, 3000, "Tutorial", 130),
+(3, "COMP249", "VV", 11, 3000, "Tutorial", 130),
 (4, "COMP1268", "FF", 18, 5000, "Tutorial", 150),
 (5, "COMP1368", "PP", 4, 5000, "Tutorial", 150),
 
 (6, "COMP248", "BB", 12, 2000, "Lab", 120),
-(7, "COMP248", "LL", 22, 2000, "Lab", 120),
-(8, "COMP249", "VV", 8, 2000, "Lab", 120),
+(7, "COMP248", "LL", 10, 2000, "Lab", 120),
+(8, "COMP249", "VV", 11, 2000, "Lab", 120),
 (9, "COMP1268", "FF", 18, 4000, "Lab", 140),
 (10, "COMP1368", "PP", 4, 4000, "Lab", 140);
 
