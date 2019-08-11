@@ -5,6 +5,8 @@ DROP TRIGGER IF EXISTS ClassroomInsertTrigger;
 DROP TRIGGER IF EXISTS INSERT_CHECK_prereq;
 DROP TRIGGER IF EXISTS UPDATE_CHECK_prereq;
 DROP TRIGGER IF EXISTS TA_CHECK;
+DROP TRIGGER IF EXISTS PROF_TIMESLOT_CHECK_INSERT;
+DROP TRIGGER IF EXISTS PROF_TIMESLOT_CHECK_UPDATE;
 
 DELIMITER $$
 CREATE TRIGGER TA_CHECK BEFORE INSERT ON TeachingAssistant
@@ -124,3 +126,46 @@ THEN
            SET MESSAGE_TEXT = 'You failed in prerequisite course';           
     END IF;
 END;$$
+
+
+DELIMITER $$
+CREATE TRIGGER PROF_TIMESLOT_CHECK_INSERT BEFORE INSERT ON Section
+FOR EACH ROW
+BEGIN
+IF EXISTS
+(SELECT 
+    *
+FROM
+    Section
+WHERE
+    termID = NEW.termID
+        AND instructorID = NEW.instructorID
+        AND courseID = NEW.courseID
+        AND timeID = NEW.timeID)
+
+ THEN 	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'Prof is already teaching in that time slot';
+                   END IF;
+END$$
+DELIMITER ; 
+
+DELIMITER $$
+CREATE TRIGGER PROF_TIMESLOT_CHECK_UPDATE BEFORE UPDATE ON Section
+FOR EACH ROW
+BEGIN
+IF EXISTS
+(SELECT 
+    *
+FROM
+    Section
+WHERE
+    termID = NEW.termID
+        AND instructorID = NEW.instructorID
+        AND courseID = NEW.courseID
+        AND timeID = NEW.timeID)
+
+ THEN 	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'Prof is already teaching in that time slot';
+                   END IF;
+END$$
+DELIMITER ; 
