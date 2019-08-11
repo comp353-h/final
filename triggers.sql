@@ -12,6 +12,7 @@ DROP TRIGGER IF EXISTS STUCOURTRIGGERS;
 DROP procedure IF EXISTS StudentCourseMultRegs;
 DROP TRIGGER IF EXISTS gpaupdates_after_update;
 DROP TRIGGER IF EXISTS gpaupdates_after_insert;
+DROP TRIGGER if EXISTS rescrchsupervisor;
 
 DELIMITER $$
 CREATE TRIGGER TA_CHECK BEFORE INSERT ON TeachingAssistant
@@ -263,3 +264,20 @@ WHERE
 
 END$$
 DELIMITER ;
+
+
+DELIMITER $$
+CREATE TRIGGER rescrchsupervisor BEFORE INSERT ON GraduateStudent
+FOR EACH ROW
+BEGIN
+DECLARE gpaa Decimal(3,2);
+DECLARE spvr INT;
+
+SET gpaa = (Select Student.gpa from Student where Student.studentID = NEW.studentID);
+SET spvr = (select supervisorID from ResearchFunding where supervisorID = NEW.supervisorID);
+IF ( gpaa ) < 3.0 and spvr = NEW.supervisorID 
+THEN
+	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'GRADUATE GPA is less for rescharch funding';
+    END IF;
+END;$$
