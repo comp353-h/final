@@ -8,6 +8,8 @@ DROP TRIGGER IF EXISTS TA_CHECK;
 DROP TRIGGER IF EXISTS PROF_TIMESLOT_CHECK_INSERT;
 DROP TRIGGER IF EXISTS PROF_TIMESLOT_CHECK_UPDATE;
 DROP TRIGGER IF EXISTS totalhours_TA;
+-- DROP TRIGGER IF EXISTS STUCOURTRIGGERS
+-- DROP procedure IF EXISTS StudentCourseMultRegs;
 
 DELIMITER $$
 CREATE TRIGGER TA_CHECK BEFORE INSERT ON TeachingAssistant
@@ -191,3 +193,43 @@ IF ( totalhours ) > 260 THEN
            SET MESSAGE_TEXT = 'Insert will make the TA work for more 260 hours';
     END IF;
 END;$$
+
+-- TO BE TESTED by RS 
+
+-- DROP TRIGGER IF EXISTS STUCOURTRIGGERS
+-- DELIMITER $$
+-- CREATE TRIGGER STUCOURTRIGGERS BEFORE INSERT ON StudentCourses
+-- FOR EACH ROW
+-- BEGIN
+--      CALL StudentCourseMultRegs(NEW.courseID, NEW.sectionID);
+-- -- 		make INSERT_CHECK_prereq to a prodcure
+--      CALL INSERT_CHECK_prereq
+-- END$$
+
+
+-- DELIMITER $$
+--  CREATE PROCEDURE StudentCourseMultRegs(IN ccourseID varchar(8) ,IN ssectionID varchar(2))
+--    BEGIN
+--     DECLARE countvar INT;
+
+--   SET countvar = (SELECT 
+--     COUNT(*)
+-- FROM
+--     StudentCourses
+--         INNER JOIN
+--     Section ON (StudentCourses.courseID = Section.courseID
+--         AND StudentCourses.sectionID = Section.sectionID)
+-- WHERE
+--     Section.termID = (SELECT 
+--             termID
+--         FROM
+--             Section
+--         WHERE
+--             courseID = ccourseID
+--                 AND sectionID = ssectionID));
+-- IF countvar > 0
+--  THEN SIGNAL SQLSTATE '45000'
+--            SET MESSAGE_TEXT = 'You are already registered in one section';
+--                    END IF;
+--    END $$
+--  DELIMITER 
