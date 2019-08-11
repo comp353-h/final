@@ -10,6 +10,8 @@ DROP TRIGGER IF EXISTS PROF_TIMESLOT_CHECK_UPDATE;
 DROP TRIGGER IF EXISTS totalhours_TA;
 DROP TRIGGER IF EXISTS STUCOURTRIGGERS;
 DROP procedure IF EXISTS StudentCourseMultRegs;
+DROP TRIGGER IF EXISTS gpaupdates_after_update;
+DROP TRIGGER IF EXISTS gpaupdates_after_insert;
 
 DELIMITER $$
 CREATE TRIGGER TA_CHECK BEFORE INSERT ON TeachingAssistant
@@ -211,3 +213,53 @@ IF countvar > 0
            SET MESSAGE_TEXT = 'You are already registered in one section';
                    END IF;
    END $$
+   
+
+DELIMITER $$
+CREATE TRIGGER gpaupdates_after_update after UPDATE ON StudentCourses
+FOR EACH ROW
+BEGIN
+declare gup decimal(3,2);
+set gup = (
+SELECT 
+    (SUM(g.gradePoint * c.courseCredits) / SUM(CASE
+        WHEN sc.grade IS NOT NULL THEN c.courseCredits
+    END)) AS GPA
+FROM
+    StudentCourses sc
+        JOIN
+    Course c ON (sc.courseID = c.courseID)
+        JOIN
+    Grade g ON (g.grade = sc.grade)
+WHERE
+    sc.studentID = NEW.studentID);
+    
+    UPDATE Student set Student.gpa = gup where Student.studentID = NEW.studentID;
+
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE TRIGGER gpaupdates_after_insert after insert ON StudentCourses
+FOR EACH ROW
+BEGIN
+declare gup decimal(3,2);
+set gup = (
+SELECT 
+    (SUM(g.gradePoint * c.courseCredits) / SUM(CASE
+        WHEN sc.grade IS NOT NULL THEN c.courseCredits
+    END)) AS GPA
+FROM
+    StudentCourses sc
+        JOIN
+    Course c ON (sc.courseID = c.courseID)
+        JOIN
+    Grade g ON (g.grade = sc.grade)
+WHERE
+    sc.studentID = NEW.studentID);
+    
+    UPDATE Student set Student.gpa = gup where Student.studentID = NEW.studentID;
+
+END$$
+DELIMITER ;
