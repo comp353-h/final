@@ -7,6 +7,7 @@ DROP TRIGGER IF EXISTS UPDATE_CHECK_prereq;
 DROP TRIGGER IF EXISTS TA_CHECK;
 DROP TRIGGER IF EXISTS PROF_TIMESLOT_CHECK_INSERT;
 DROP TRIGGER IF EXISTS PROF_TIMESLOT_CHECK_UPDATE;
+DROP TRIGGER IF EXISTS totalhours_TA;
 
 DELIMITER $$
 CREATE TRIGGER TA_CHECK BEFORE INSERT ON TeachingAssistant
@@ -169,3 +170,24 @@ WHERE
                    END IF;
 END$$
 DELIMITER ; 
+
+
+
+DELIMITER $$
+CREATE TRIGGER totalhours_TA BEFORE INSERT ON TAContractHistory
+FOR EACH ROW
+BEGIN
+DECLARE totalhours INT;
+SET totalhours = (SELECT 
+    SUM(tac.hours)
+FROM
+    TAContractHistory tah
+        JOIN
+    TAContract tac ON (tac.contractID = tah.contractID)
+WHERE
+    studentID = NEW.studentID);
+IF ( totalhours ) > 260 THEN
+	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'Insert will make the TA work for more 260 hours';
+    END IF;
+END;$$
