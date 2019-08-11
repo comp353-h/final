@@ -249,7 +249,7 @@ CREATE TABLE Salary (
 
 CREATE TABLE TimeSlot (
     timeID INT AUTO_INCREMENT NOT NULL,
-    day ENUM( "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ),
+    day ENUM( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ),
     startTime TIME NOT NULL,
     endTime TIME NOT NULL,
     PRIMARY KEY ( timeID )
@@ -262,7 +262,7 @@ CREATE TABLE Student (
     email VARCHAR(128) NOT NULL,
     phone BIGINT,
     dateOfBirth DATE NOT NULL,
-    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    gpa DECIMAL(3 , 2 ) DEFAULT 0.00,
     ssn INT UNSIGNED,
     PRIMARY KEY (studentID)
 )  ENGINE=INNODB;

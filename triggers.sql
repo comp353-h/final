@@ -22,7 +22,7 @@ IF (
 (SELECT gpa FROM Student WHERE studentID = NEW.studentID) < 3.2
 
 ) THEN 	SIGNAL SQLSTATE '45000'
-           SET MESSAGE_TEXT = 'This grad studenet is too dumb to be a TA.';
+           SET MESSAGE_TEXT = 'This undergrad''s GPA is too low. Must have a GPA of 3.2 or higher.';
                    END IF;
 END$$
 DELIMITER ; 

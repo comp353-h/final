@@ -1,15 +1,15 @@
 -- i. Create/Delete/Edit/Display a faculty member.
 -- CREATES a faculty member who is an instructor in the Computer Science department. 
-INSERT INTO FullFaculty VALUES(71, "Greg", "Butcher");
-INSERT INTO FacultyDegree VALUES(71, "Computer Science", "Cambridge", 1987);
-INSERT INTO Instructor VALUES(71, 1);
+INSERT INTO FullFaculty VALUES(86, "Greg", "Butcher");
+INSERT INTO FacultyDegree VALUES(86, "Computer Science", "Cambridge", 1987);
+INSERT INTO Instructor VALUES(86, 1);
 -- EDITS the faculty member's name
 UPDATE FullFaculty 
 SET 
     firstName = 'Craig',
     lastName = 'Boucher'
 WHERE
-    facultyID = 71;
+    facultyID = 86;
 -- DISPLAYS the created faculty member
 SELECT
     ff.facultyID AS 'Faculty ID',
@@ -25,22 +25,22 @@ FROM
         JOIN
     Department d ON (d.departmentID = i.departmentID)
 WHERE
-    ff.facultyID = 71;  
+    ff.facultyID = 86;  
 -- DELETES the created faculty member
-DELETE FROM FullFaculty WHERE facultyID = 71; 
+DELETE FROM FullFaculty WHERE facultyID = 86; 
 
 -- ii. Create/Delete/Edit/Display a Student.
 -- CREATES a Student who is an undergrad in the Computer Applications program.
-INSERT INTO Student(studentID,firstName,lastName,email,phone,dateOfBirth,ssn) VALUES ('11','Tom','Smith','tomsmith@gmail.com',5147546695,'1995-03-09','20');
-INSERT INTO StudentProgram(studentID,programID) VALUES ('11','1');
-INSERT INTO UnderGraduateStudent(studentID) VALUES ('11');
+INSERT INTO Student(studentID,firstName,lastName,email,phone,dateOfBirth,ssn) VALUES ('14','Tom','Smith','tomsmith@gmail.com',5147546695,'1995-03-09','20');
+INSERT INTO StudentProgram(studentID,programID) VALUES ('14','1');
+INSERT INTO UnderGraduateStudent(studentID) VALUES ('14');
 -- EDITS the student's name
 UPDATE Student 
 SET 
     firstName = 'Steave',
     lastName = 'Kith'
 WHERE
-    studentID = '11';
+    studentID = '14';
 -- DISPLAYS the created student
 SELECT 
     s.studentID AS 'Student ID',
@@ -55,22 +55,22 @@ FROM
         JOIN
     UnderGraduateStudent u ON (s.studentID = u.studentID)
 WHERE
-    s.studentID = '11';  
+    s.studentID = '14';  
 -- DELETES the created student
-DELETE FROM Student WHERE studentID = '11';
+DELETE FROM Student WHERE studentID = '14';
 
 -- iii. Create/Delete/Edit/Display a Teaching Assistant
 -- CREATES A graduate student and attempts to make them a teaching assistant
-INSERT INTO Student VALUES ('11','Omar','Al-Farajat','omar.alfarajat@gmail.com',5148828518, "1989-03-18", 2.93, 20);
-INSERT INTO GraduateStudent VALUES(11, NULL);
-INSERT INTO TeachingAssistant VALUES(11); -- This will fail because Omar's GPA is only 2.93
+INSERT INTO Student VALUES ('14','Omar','Al-Farajat','omar.alfarajat@gmail.com',5148828518, "1989-03-18", 2.93, 20);
+INSERT INTO GraduateStudent VALUES(14, NULL);
+INSERT INTO TeachingAssistant VALUES(14); -- This will fail because Omar's GPA is only 2.93
 -- EDITS Omar's GPA
 UPDATE Student 
 SET 
     gpa = 4.3
 WHERE
-    studentID = '11';
-INSERT INTO TeachingAssistant VALUES(11); -- After the editing the GPA, this insert will now work, since GPA >= 3.2
+    studentID = '14';
+INSERT INTO TeachingAssistant VALUES(14); -- After the editing the GPA, this insert will now work, since GPA >= 3.2
 -- DISPLAYS the created teaching assistant
 SELECT
 *
@@ -81,7 +81,7 @@ FROM
         JOIN
     TeachingAssistant ta ON (s.studentID = ta.studentID)
 WHERE
-    s.studentID = 11;  
+    s.studentID = 14;  
 -- DELETES the created teaching assistant
 DELETE FROM Student WHERE studentID = '11';
 
@@ -215,7 +215,6 @@ WHERE
 who are assigned as teaching assistants to a specific course on a given
 term.*/
 
--- !! UNTESTED 
 SELECT s.studentID, s.firstName, s.lastName, tac.courseID, tac.sectionID, tac.sectionType
 FROM TeachingAssistant ta
 	JOIN GraduateStudent gs ON gs.studentID = ta.studentID
@@ -267,21 +266,21 @@ GROUP BY sp.programID;
 -- xix. Give a list of courses taken by a specific student in a given term.
 
 SELECT 
-    sc.studentID, GROUP_CONCAT(CONCAT(sc.courseID)) AS Courses
+    sc.studentID, termID, GROUP_CONCAT(CONCAT(sc.courseID)) AS Courses
 FROM
     StudentCourses sc
 GROUP BY sc.studentID , termID;
 
 
 -- xx. Register a student in a specific course.
-				      
 INSERT INTO StudentCourses VALUES
-(2, "COMP248", 'BB', 1, NULL);  -- Student, term and course can be specified.			      
+(2, "COMP248", 'BB', 12, NULL);-- Student, term and course can be specified.			      
+
 
 -- xxi. Drop a course for a specific student.
 				      
 DELETE FROM StudentCourses 
-WHERE (studentID = 1) AND (courseID = 'COMP248'); -- StudentID and CourseID can be specified.
+WHERE (studentID = 1) AND (courseID = 'SOEN321'); -- StudentID and CourseID can be specified.
 
 
 /*xxii. Give a detailed report for a specific student (This include personal data,
@@ -290,6 +289,6 @@ GPA, etc.)*/
 
 SELECT s.studentID, s.firstName, s.lastName, s.email, s.phone, s.dateOfBirth, s.gpa, s.ssn, sd.degreeName, sd.SchoolName, sd.year, sc.courseID, sc.grade  
 FROM Student s
-	JOIN StudentDegree sd ON sd.studentID = s.studentID
-    JOIN StudentCourses sc ON sc.studentID = s.studentID
+	LEFT JOIN StudentDegree sd ON sd.studentID = s.studentID
+    LEFT JOIN StudentCourses sc ON sc.studentID = s.studentID
 WHERE s.studentID = 1;  -- Student ID can be specified
