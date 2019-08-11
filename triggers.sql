@@ -78,12 +78,6 @@ SET checkfirstEntry = (SELECT
 FROM StudentCourses sc
 	WHERE sc.studentID = 1);
     
-  IF abc IS NULL AND checkfirstEntry > 1
-THEN
-	SIGNAL SQLSTATE '45000'
-           SET MESSAGE_TEXT = 'Prerequisites for this course is not comepleted yet';
-                   END IF;
-
   IF abc = 'F'
 THEN
 	SIGNAL SQLSTATE '45000'
@@ -117,12 +111,6 @@ SET checkfirstEntry = (SELECT
 FROM StudentCourses sc
 	WHERE sc.studentID = 1);
     
-  IF abc IS NULL AND checkfirstEntry > 1
-THEN
-	SIGNAL SQLSTATE '45000'
-           SET MESSAGE_TEXT = 'Prerequisites for this course is not comepleted yet';
-                   END IF;
-
   IF abc = 'F'
 THEN
 	SIGNAL SQLSTATE '45000'
