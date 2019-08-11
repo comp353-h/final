@@ -1194,15 +1194,14 @@ INSERT INTO Grade VALUES
 
 
 
-/*INSERT INTO StudentCourses VALUES
+INSERT INTO StudentCourses VALUES
     -- studentID, courseID, sectionID, termID, grade
-    
 
 ('1', 'COMP248', 'LL', '10', 'A'),
- ('1', 'COMP249', 'VV', '11'),
+ ('1', 'COMP249', 'VV', '11', NULL),
 ('1', 'SOEN287', 'MM', '10', 'A'),
- ('1', 'SOEN321', 'WW', '11'),
-('1', 'MATH203', 'PP', '11');  */
+ ('1', 'SOEN321', 'WW', '11',NULL),
+('1', 'MATH203', 'PP', '11' , NULL);  
 
 
     
